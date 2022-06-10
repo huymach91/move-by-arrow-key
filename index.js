@@ -4,9 +4,14 @@ import p5 from 'p5';
 import rawData from './sample-data.json';
 import { RoadmapGenerator } from './roadmap-generator';
 
+var size = {
+  width: window.innerWidth,
+  height: 2500,
+};
+
 const sketch = (p) => {
   p.setup = () => {
-    p.createCanvas(innerWidth, innerHeight);
+    p.createCanvas(size.width, size.height);
     // let treeData = dataGenerator(rawData['samples']);
     let samples2 = rawData['samples2'];
 
@@ -17,7 +22,7 @@ const sketch = (p) => {
   p.draw = () => {};
 
   p.windowResized = () => {
-    p.resizeCanvas(innerWidth, innerHeight);
+    p.resizeCanvas(size.width, size.height);
   };
 };
 

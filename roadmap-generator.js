@@ -21,7 +21,7 @@ export class RoadmapGenerator {
     this.defaultX = config.canvasWidth / 2;
     this.initialX = data.x ? data.x : this.defaultX;
     this.initialY = data.y ? data.y : 200;
-
+    this.maxHeightCanvas = 0;
     for (let i = 0; i < data.length; i++) {
       const rootData = data[i];
       rootData.x = this.initialX;
@@ -41,7 +41,7 @@ export class RoadmapGenerator {
       root.defaultEvents(() => {
         this.showRightPanel(true);
       });
-
+      this.maxHeightCanvas += root.y;
       const rootElementWidth = root.getNodeWidth();
       preorderTraversal(
         rootData,
@@ -87,7 +87,7 @@ export class RoadmapGenerator {
         }
       );
     }
-
+    console.log(this.maxHeightCanvas);
     this.createRightPanel();
   }
 
