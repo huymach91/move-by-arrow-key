@@ -1,0 +1,143 @@
+{
+  "samples": [
+    { "id": 2, "name": "How does the internet work", "parent": 1 },
+    { "id": 3, "name": "What is HTTP?", "parent": 1 },
+    { "id": 4, "name": "How Browsers Work?", "parent": 1 },
+    { "id": 5, "name": "The Domain Name System (DNS)", "parent": 1 },
+    { "id": 6, "name": "The Domain Name System", "parent": 1 },
+    { "id": 7, "name": "HTML, CSS", "parent": null, "order": 1 },
+    { "id": 8, "name": "Accessibility", "parent": 7 },
+    { "id": 9, "name": "Semantic HTML", "parent": 7 },
+    { "id": 10, "name": "CSS Basics", "parent": 7 },
+    { "id": 11, "name": "Making layouts", "parent": 7 },
+    { "id": 12, "name": "HTML Basics", "parent": 7 },
+    { "id": 13, "name": "p, div, audio, video, ....", "parent": 12 },
+    {
+      "id": 14,
+      "name": "Float, grid, flexbox, positioning, display and box model",
+      "parent": 12
+    },
+    { "id": 15, "name": "Javascript", "parent": null, "order": 0 },
+    { "id": 16, "name": "Syntacs and basic constructs", "parent": 15 },
+    { "id": 17, "name": "DOM Manipulation", "parent": 17 },
+    { "id": 1, "name": "Internet", "parent": null, "order": 2 }
+  ],
+  "samples2": [
+    {
+      "id": 1,
+      "name": "The Internet",
+      "children": [
+        {
+          "id": 1,
+          "name": "What is HTTP?",
+          "children": []
+        },
+        {
+          "id": 2,
+          "name": "How does the internet work",
+          "children": []
+        },
+        {
+          "id": 3,
+          "name": "How does the browser work?",
+          "children": []
+        },
+        {
+          "id": 4,
+          "name": "The Domain Name System (DNS)",
+          "children": []
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "name": "Accessibility",
+      "children": [
+        {
+          "id": 5,
+          "name": "Semantic HTML",
+          "children": []
+        },
+        {
+          "id": 6,
+          "name": "CSS Basics",
+          "children": []
+        },
+        {
+          "id": 7,
+          "name": "Making layouts",
+          "children": []
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "name": "Javascript",
+      "children": [
+        {
+          "id": 8,
+          "name": "Syntacs and basic constructs",
+          "children": []
+        },
+        {
+          "id": 9,
+          "name": "DOM Manipulation",
+          "children": []
+        },
+        {
+          "id": 10,
+          "name": "Fetch API",
+          "children": []
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "name": "Pick a framework",
+      "children": [
+        {
+          "id": 8,
+          "name": "Angular",
+          "children": [
+            {
+              "id": 30,
+              "name": "Rxjs"
+            },
+            {
+              "id": 31,
+              "name": "Ngrx"
+            }
+          ]
+        },
+        {
+          "id": 9,
+          "name": "VueJs",
+          "children": [
+            {
+              "id": 31,
+              "name": "VueX"
+            }
+          ]
+        },
+        {
+          "id": 10,
+          "name": "React",
+          "children": [
+            {
+              "id": 20,
+              "name": "Redux"
+            },
+            {
+              "id": 21,
+              "name": "Mobx"
+            },
+            {
+              "id": 22,
+              "name": "Recoil"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
