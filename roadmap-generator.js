@@ -16,10 +16,10 @@ export class RoadmapGenerator {
    * @param {{ canvasWidth: number }} config
    */
   generate(data, config) {
-    this.interval = 50;
+    this.intervalX = 100;
     this.defaultX = config.canvasWidth / 2;
     this.initialX = data.x ? data.x : this.defaultX;
-    this.initialY = data.y ? data.y : 150;
+    this.initialY = data.y ? data.y : 200;
 
     for (let i = 0; i < data.length; i++) {
       const rootData = data[i];
@@ -30,7 +30,8 @@ export class RoadmapGenerator {
         Object.assign(
           {
             x: this.initialX,
-            y: this.initialY + i * this.initialY,
+            y: this.initialY + (i + 1) * this.initialY,
+            borderColor: 'red',
           },
           rootData
         )
@@ -45,11 +46,13 @@ export class RoadmapGenerator {
         rootData,
         (currentRootData, currentChildData, currentChildIndex) => {
           // const side = currentChildIndex % 2 === 0 ? 1 : -1;
-          // const isLeft = side === 1 ? false : true;
+          const isLeft = currentChildIndex % 2 !== 0 ? true : false;
           // currentChildData.x = isLeft ? currentRootData.x - rootElementWidth - 50 : currentRootData.x + rootElementWidth + 50;
 
           // create leafs
-          currentChildData.x = currentRootData.x - rootElementWidth - 50;
+          currentChildData.x = isLeft
+            ? currentRootData.x - rootElementWidth - this.intervalX
+            : currentRootData.x + rootElementWidth + this.intervalX;
           currentChildData.y = currentRootData.y - (currentChildIndex + 1) * 50;
           const leaf = new Node(currentChildData);
           leaf.createNode(this.p5);
