@@ -1,4 +1,5 @@
 import { Node } from './node';
+import { Line } from './line';
 import { preorderTraversal } from './helper';
 
 import './style.css';
@@ -56,7 +57,20 @@ export class RoadmapGenerator {
           currentChildData.y = currentRootData.y - (currentChildIndex + 1) * 50;
           const leaf = new Node(currentChildData);
           leaf.createNode(this.p5);
+          leaf.defaultEvents(() => {
+            this.showRightPanel(true);
+          });
           // create line
+          const lineStart = {
+            x: currentRootData.x + root.getNodeWidth() / 2,
+            y: currentRootData.y + root.getNodeHeight() / 2,
+          };
+          const lineEnd = {
+            x: currentChildData.x + leaf.getNodeWidth() / 2,
+            y: currentChildData.y + leaf.getNodeHeight() / 2,
+          };
+          const line = new Line(lineStart, lineEnd);
+          line.createLine(this.p5);
         }
       );
     }

@@ -41,4 +41,8 @@ export class Node {
   getNodeWidth() {
     return this.element.elt.offsetWidth;
   }
+
+  getNodeHeight() {
+    return this.element.elt.offsetHeight;
+  }
 }
