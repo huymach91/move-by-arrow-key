@@ -50,24 +50,29 @@ export class RoadmapGenerator {
             root.data.name === currentRootData.name ? true : false;
           const isLeft = currentChildIndex % 2 !== 0 ? true : false;
           // currentChildData.x = isLeft ? currentRootData.x - rootElementWidth - 50 : currentRootData.x + rootElementWidth + 50;
-
+          const leftX =
+            currentRootData.x - rootElementWidth - this.intervalX - 50;
+          const rightX =
+            currentRootData.x + rootElementWidth + this.intervalX + 50;
           // create leafs
-          currentChildData.x = isLeft
-            ? currentRootData.x -
-              rootElementWidth -
-              this.intervalX -
-              this.intervalX
-            : currentRootData.x +
-              rootElementWidth +
-              this.intervalX +
-              this.intervalX;
+          if (isFirstLevel) {
+            currentChildData.x = isLeft ? leftX : rightX;
+          } else {
+            if (currentRootData.isLeft) {
+              currentChildData.x = leftX;
+            } else {
+              currentChildData.x = rightX;
+            }
+          }
 
-          currentChildData.y = currentRootData.y - (currentChildIndex + 1) * 20;
+          currentChildData.isLeft = isLeft;
+          currentChildData.y = currentRootData.y - (currentChildIndex + 1) * 50;
           const leaf = new Node(currentChildData);
           leaf.createNode(this.p5);
           leaf.defaultEvents(() => {
             this.showRightPanel(true);
           });
+          console.log(currentChildData);
           // create line
           const lineStart = {
             x: currentRootData.x + root.getNodeWidth() / 2,
