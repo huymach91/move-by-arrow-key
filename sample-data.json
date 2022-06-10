@@ -138,6 +138,22 @@
           ]
         }
       ]
+    },
+    {
+      "id": 5,
+      "name": "Modern CSS",
+      "children": [
+        {
+          "id": 40,
+          "name": "Styled components",
+          "children": []
+        },
+        {
+          "id": 41,
+          "name": "CSS Modules",
+          "children": []
+        }
+      ]
     }
   ]
 }
