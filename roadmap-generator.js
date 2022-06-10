@@ -46,15 +46,23 @@ export class RoadmapGenerator {
       preorderTraversal(
         rootData,
         (currentRootData, currentChildData, currentChildIndex) => {
-          // const side = currentChildIndex % 2 === 0 ? 1 : -1;
+          const isFirstLevel =
+            root.data.name === currentRootData.name ? true : false;
           const isLeft = currentChildIndex % 2 !== 0 ? true : false;
           // currentChildData.x = isLeft ? currentRootData.x - rootElementWidth - 50 : currentRootData.x + rootElementWidth + 50;
 
           // create leafs
           currentChildData.x = isLeft
-            ? currentRootData.x - rootElementWidth - this.intervalX
-            : currentRootData.x + rootElementWidth + this.intervalX;
-          currentChildData.y = currentRootData.y - (currentChildIndex + 1) * 50;
+            ? currentRootData.x -
+              rootElementWidth -
+              this.intervalX -
+              this.intervalX
+            : currentRootData.x +
+              rootElementWidth +
+              this.intervalX +
+              this.intervalX;
+
+          currentChildData.y = currentRootData.y - (currentChildIndex + 1) * 20;
           const leaf = new Node(currentChildData);
           leaf.createNode(this.p5);
           leaf.defaultEvents(() => {
@@ -69,7 +77,7 @@ export class RoadmapGenerator {
             x: currentChildData.x + leaf.getNodeWidth() / 2,
             y: currentChildData.y + leaf.getNodeHeight() / 2,
           };
-          const line = new Line(lineStart, lineEnd);
+          const line = new Line(lineStart, currentChildData);
           line.createLine(this.p5);
         }
       );
