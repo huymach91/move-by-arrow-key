@@ -66,7 +66,7 @@ export class RoadmapGenerator {
           }
 
           currentChildData.isLeft = isLeft;
-          currentChildData.y = currentRootData.y - (currentChildIndex + 1) * 50;
+          currentChildData.y = currentRootData.y - currentChildIndex * 50;
           const leaf = new Node(currentChildData);
           leaf.createNode(this.p5);
           leaf.defaultEvents(() => {
