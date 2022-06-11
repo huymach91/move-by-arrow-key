@@ -73,11 +73,11 @@ export class RoadmapGenerator {
           });
           // create line
           const lineStart = {
-            x: currentRootData.x + root.getNodeWidth() / 2,
+            x: currentRootData.x + root.getNodeWidth() / 3,
             y: currentRootData.y + root.getNodeHeight() / 2,
           };
           const lineEnd = {
-            x: currentChildData.x + leaf.getNodeWidth() / 2,
+            x: currentChildData.x + leaf.getNodeWidth() / 3,
             y: currentChildData.y + leaf.getNodeHeight() / 2,
           };
           const line = new Line(lineStart, lineEnd);
@@ -95,6 +95,21 @@ export class RoadmapGenerator {
       y: node.data.y + node.getNodeHeight() / 2,
     };
   }
+
+  drawLineRightToLeft(nodeStart, nodeEnd) {
+    const lineStart = {
+      x: nodeStart.data.x + nodeStart.getNodeWidth() / 2,
+      y: nodeStart.data.y + nodeStart.getNodeHeight() / 2,
+    };
+    const lineEnd = {
+      x: nodeEnd.data.x + nodeEnd.getNodeWidth(),
+      y: nodeEnd.data.y + nodeEnd.getNodeHeight() / 2,
+    };
+    const line = new Line(lineStart, lineEnd);
+    line.createLine(this.p5);
+  }
+
+  drawLineLeftToRight(nodeStart, nodeEnd) {}
 
   insertTreeWithSamples2(node) {
     // 1. handle current node
@@ -126,6 +141,9 @@ export class RoadmapGenerator {
           <div class="rm-panel-body">
             The Internet is a global network of computers connected to each other which communicate through a standardized set of protocols.
           </div>
+          <div class="rm-panel-body-2">
+            <ul></ul>
+          </div
         </div>
       </div>
     `;
@@ -139,7 +157,7 @@ export class RoadmapGenerator {
     document.body.append(this.blankPage);
   }
 
-  showRightPanel(show) {
+  showRightPanel(show, nodeData) {
     this.overlay.style.setProperty('display', show ? 'block' : 'none');
     this.blankPage.style.setProperty('display', show ? 'block' : 'none');
   }
