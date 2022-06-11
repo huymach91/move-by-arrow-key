@@ -39,10 +39,12 @@ export class Node {
   }
 
   getNodeWidth() {
-    return this.element.elt.offsetWidth;
+    const elementWidth = this.element.elt.getBoundingClientRect().width;
+    return elementWidth;
   }
 
   getNodeHeight() {
-    return this.element.elt.offsetHeight;
+    const elementHeight = this.element.elt.getBoundingClientRect().height;
+    return elementHeight;
   }
 }

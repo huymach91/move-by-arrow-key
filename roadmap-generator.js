@@ -17,31 +17,32 @@ export class RoadmapGenerator {
    * @param {{ canvasWidth: number }} config
    */
   generate(data, config) {
-    this.intervalX = 100;
+    this.intervalX = 150;
     this.defaultX = config.canvasWidth / 2;
     this.initialX = data.x ? data.x : this.defaultX;
     this.initialY = data.y ? data.y : 200;
-    this.maxHeightCanvas = 0;
+    this.maxHeightCanvas = this.initialY * data.length;
+    this.rootList = [];
     for (let i = 0; i < data.length; i++) {
       const rootData = data[i];
       rootData.x = this.initialX;
       rootData.y = this.initialY + i * this.initialY;
+      rootData.borderColor = 'red';
       // create root
-      const root = new Node(
-        Object.assign(
-          {
-            x: this.initialX,
-            y: this.initialY + (i + 1) * this.initialY,
-            borderColor: 'red',
-          },
-          rootData
-        )
-      );
+      const root = new Node(rootData);
       root.createNode(this.p5);
       root.defaultEvents(() => {
         this.showRightPanel(true);
       });
-      this.maxHeightCanvas += root.y;
+      this.rootList.push(root);
+      // draw line from current root to previous root
+      if (i > 0) {
+        const lineStart = this.centerPoint(this.rootList[i - 1]);
+        const lineEnd = this.centerPoint(root);
+        const line = new Line(lineStart, lineEnd);
+        line.createLine(this.p5);
+      }
+      // draw leaf
       const rootElementWidth = root.getNodeWidth();
       preorderTraversal(
         rootData,
@@ -50,10 +51,8 @@ export class RoadmapGenerator {
             root.data.name === currentRootData.name ? true : false;
           const isLeft = currentChildIndex % 2 !== 0 ? true : false;
           // currentChildData.x = isLeft ? currentRootData.x - rootElementWidth - 50 : currentRootData.x + rootElementWidth + 50;
-          const leftX =
-            currentRootData.x - rootElementWidth - this.intervalX - 50;
-          const rightX =
-            currentRootData.x + rootElementWidth + this.intervalX + 50;
+          const leftX = currentRootData.x - rootElementWidth - this.intervalX;
+          const rightX = currentRootData.x + rootElementWidth + this.intervalX;
           // create leafs
           if (isFirstLevel) {
             currentChildData.x = isLeft ? leftX : rightX;
@@ -72,7 +71,6 @@ export class RoadmapGenerator {
           leaf.defaultEvents(() => {
             this.showRightPanel(true);
           });
-          console.log(currentChildData);
           // create line
           const lineStart = {
             x: currentRootData.x + root.getNodeWidth() / 2,
@@ -82,13 +80,20 @@ export class RoadmapGenerator {
             x: currentChildData.x + leaf.getNodeWidth() / 2,
             y: currentChildData.y + leaf.getNodeHeight() / 2,
           };
-          const line = new Line(lineStart, currentChildData);
+          const line = new Line(lineStart, lineEnd);
           line.createLine(this.p5);
         }
       );
     }
-    console.log(this.maxHeightCanvas);
+    console.log('maxHeightCanvas', this.maxHeightCanvas);
     this.createRightPanel();
+  }
+
+  centerPoint(node) {
+    return {
+      x: node.data.x + node.getNodeWidth() / 2,
+      y: node.data.y + node.getNodeHeight() / 2,
+    };
   }
 
   insertTreeWithSamples2(node) {
