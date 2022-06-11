@@ -106,6 +106,14 @@
             {
               "id": 31,
               "name": "Ngrx"
+            },
+            {
+              "id": 32,
+              "name": "Http Module"
+            },
+            {
+              "id": 33,
+              "name": "Http Module 2"
             }
           ]
         },
