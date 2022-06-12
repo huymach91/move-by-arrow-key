@@ -164,3 +164,43 @@
 .m-button:disabled::after {
   opacity: 0;
 }
+
+.btn {
+  cursor: pointer;
+  background: #0384cc;
+  color: inherit;
+  font-size: 1.6rem;
+  font-weight: 400;
+  font-family: inherit;
+  text-transform: uppercase;
+  min-width: 12rem;
+  padding: 0.8rem 1.3rem;
+  border: 1px solid transparent;
+  border-radius: 0.7rem;
+  box-shadow: 0 2px 3px 1px rgba(0, 0, 0, 0.35);
+  transition: all 0.3s ease;
+}
+
+.buttonSelect {
+  width: 100%;
+  margin-top: 3rem;
+  display: flex;
+  justify-content: space-around;
+}
+
+.btn:hover {
+  background: #0276bc;
+  box-shadow: 0 2px 5px 3px rgba(0, 0, 0, 0.18);
+  transform: translatey(-2px);
+}
+.btn:active {
+  box-shadow: none;
+  transform: translatey(-1px);
+}
+.btn.selected {
+  cursor: not-allowed;
+  background: #64b863;
+  border: 1px solid currentcolor;
+  box-shadow: none;
+  transform: translatey(0);
+}
