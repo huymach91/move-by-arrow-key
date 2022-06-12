@@ -164,8 +164,8 @@
 .m-button:disabled::after {
   opacity: 0;
 }
-
-.btn {
+/* 
+.m-btn {
   cursor: pointer;
   background: #0384cc;
   color: inherit;
@@ -179,6 +179,7 @@
   border-radius: 0.7rem;
   box-shadow: 0 2px 3px 1px rgba(0, 0, 0, 0.35);
   transition: all 0.3s ease;
+  color: white;
 }
 
 .buttonSelect {
@@ -188,19 +189,19 @@
   justify-content: space-around;
 }
 
-.btn:hover {
+.m-btn:hover {
   background: #0276bc;
   box-shadow: 0 2px 5px 3px rgba(0, 0, 0, 0.18);
   transform: translatey(-2px);
 }
-.btn:active {
+.m-btn:active {
   box-shadow: none;
   transform: translatey(-1px);
 }
-.btn.selected {
+.m-btn.selected {
   cursor: not-allowed;
   background: #64b863;
   border: 1px solid currentcolor;
   box-shadow: none;
   transform: translatey(0);
-}
+} */
