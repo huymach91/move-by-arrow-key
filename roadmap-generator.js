@@ -23,6 +23,7 @@ export class RoadmapGenerator {
     this.initialY = data.y ? data.y : 200;
     this.maxHeightCanvas = this.initialY * data.length;
     this.rootList = [];
+
     for (let i = 0; i < data.length; i++) {
       const rootData = data[i];
       rootData.x = this.initialX;
@@ -43,6 +44,8 @@ export class RoadmapGenerator {
         line.createLine(this.p5);
       }
       // draw leaf
+      const leftSide = [];
+      const rightSide = [];
       const rootElementWidth = root.getNodeWidth();
       preorderTraversal(
         rootData,
@@ -50,10 +53,11 @@ export class RoadmapGenerator {
           const isFirstLevel =
             root.data.name === currentRootData.name ? true : false;
           const isLeft = currentChildIndex % 2 !== 0 ? true : false;
+          currentChildData.isLeft = isLeft;
           // currentChildData.x = isLeft ? currentRootData.x - rootElementWidth - 50 : currentRootData.x + rootElementWidth + 50;
           const leftX = currentRootData.x - rootElementWidth - this.intervalX;
           const rightX = currentRootData.x + rootElementWidth + this.intervalX;
-          // create leafs
+          // create leafs (calc x-axis)
           if (isFirstLevel) {
             currentChildData.x = isLeft ? leftX : rightX;
           } else {
@@ -63,9 +67,20 @@ export class RoadmapGenerator {
               currentChildData.x = rightX;
             }
           }
-
-          currentChildData.isLeft = isLeft;
-          currentChildData.y = currentRootData.y - currentChildIndex * 50;
+          // calc y-axis
+          if (isFirstLevel) {
+            if (isLeft) {
+              leftSide.push(currentChildData);
+              currentChildData.y =
+                currentRootData.y + (leftSide.length - 1) * 50;
+            } else {
+              rightSide.push(currentChildData);
+              currentChildData.y =
+                currentRootData.y + (rightSide.length - 1) * 50;
+            }
+          } else {
+            currentChildData.y = currentRootData.y - currentChildIndex * 50;
+          }
           const leaf = new Node(currentChildData);
           leaf.createNode(this.p5);
           leaf.defaultEvents(() => {
@@ -85,7 +100,13 @@ export class RoadmapGenerator {
         }
       );
     }
-    console.log('maxHeightCanvas', this.maxHeightCanvas);
+    // console.log('maxHeightCanvas', this.p5, this.maxHeightCanvas);
+    document.dispatchEvent(
+      new CustomEvent('afterCanvasInit', {
+        detail: { maxHeightCanvas: this.maxHeightCanvas },
+      })
+    );
+    // this.afterViewInit.dispatchEvent(this.afterViewInit);
     this.createRightPanel();
   }
 

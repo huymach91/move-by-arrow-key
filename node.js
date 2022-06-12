@@ -25,6 +25,7 @@ export class Node {
     this.element.style('padding', '5px');
     this.element.style('border-which', '2px');
     this.element.style('border-style', 'solid');
+    this.element.style('maxWidth', '150px');
     this.element.style(
       'border-color',
       this.data['borderColor'] ? this.data['borderColor'] : '#3f3f3f'

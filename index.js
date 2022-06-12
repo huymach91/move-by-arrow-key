@@ -11,19 +11,21 @@ var size = {
 
 const sketch = (p) => {
   p.setup = () => {
-    p.createCanvas(size.width, size.height);
     // let treeData = dataGenerator(rawData['samples']);
+    p.createCanvas(size.width, size.height);
+
     let samples2 = rawData['samples2'];
 
     const roadmapGenerator = new RoadmapGenerator(p);
     roadmapGenerator.generate(samples2, { canvasWidth: innerWidth });
+    document.addEventListener('afterCanvasInit', (event) => {
+      const maxHeightCanvas = event.detail.maxHeightCanvas;
+      size.height = maxHeightCanvas;
+      p.resizeCanvas(size.width, size.height);
+    });
   };
 
   p.draw = () => {};
-
-  p.windowResized = () => {
-    p.resizeCanvas(size.width, size.height);
-  };
 };
 
 new p5(sketch);
