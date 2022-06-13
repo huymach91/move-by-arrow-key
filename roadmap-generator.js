@@ -15,7 +15,7 @@ export class RoadmapGenerator {
 
   /**
    * @param {Array<{ id: string, name: string }>} data
-   * @param {{ canvasWidth: number }} config
+   * @param {{ canvasWidth: number, roadmapText: string }} config
    */
   generate(data, config) {
     this.intervalX = 120;
@@ -27,7 +27,7 @@ export class RoadmapGenerator {
     this.rootList = [];
 
     // create title
-    const roadmapText = 'Front-end';
+    const roadmapText = config.roadmapText;
     this.roadmapTitle = new Text({
       text: roadmapText,
       x: config.canvasWidth / 2 - roadmapText.length * 3,

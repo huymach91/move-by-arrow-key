@@ -17,7 +17,10 @@ const sketch = (p) => {
     let samples2 = rawData['samples2'];
 
     const roadmapGenerator = new RoadmapGenerator(p);
-    roadmapGenerator.generate(samples2, { canvasWidth: innerWidth });
+    roadmapGenerator.generate(samples2, {
+      canvasWidth: innerWidth,
+      roadmapText: 'Back-end',
+    });
     document.addEventListener('afterCanvasInit', (event) => {
       const maxHeightCanvas = event.detail.maxHeightCanvas;
       size.height = maxHeightCanvas;

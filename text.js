@@ -11,6 +11,7 @@ export class Text {
   createText(p5) {
     p5.fill('#000');
     p5.textSize(25);
+    p5.textStyle(p5.BOLD);
     this.element = p5.text(this.data.text, this.data.x, this.data.y);
   }
 }
