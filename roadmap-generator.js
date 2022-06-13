@@ -1,5 +1,6 @@
 import { Node } from './node';
 import { Line } from './line';
+import { Text } from './text';
 import { preorderTraversal } from './helper';
 
 import './style.css';
@@ -24,6 +25,15 @@ export class RoadmapGenerator {
     this.maxHeightCanvas = this.initialY * data.length;
     this.spaceBetweenY = 50;
     this.rootList = [];
+
+    // create title
+    const roadmapText = 'Frontend Roadmap';
+    this.roadmapTitle = new Text({
+      text: roadmapText,
+      x: config.canvasWidth / 2 - roadmapText.length * 3,
+      y: 100,
+    });
+    this.roadmapTitle.createText(this.p5);
 
     for (let i = 0; i < data.length; i++) {
       const rootData = data[i];
