@@ -42,8 +42,9 @@ export class RoadmapGenerator {
       // create root
       const root = new Node(rootData);
       root.createNode(this.p5);
-      root.defaultEvents(() => {
+      root.defaultEvents((event) => {
         this.showRightPanel(true);
+        this.setRightPanelData(event.data);
       });
       this.rootList.push(root);
       // draw line from current root to previous root

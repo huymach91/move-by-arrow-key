@@ -31,8 +31,8 @@ export class Node {
   }
 
   defaultEvents(fn) {
-    this.element.mousePressed(function () {
-      fn(this.element);
+    this.element.mousePressed(() => {
+      fn({ element: this.element, data: this.data });
     });
   }
 
