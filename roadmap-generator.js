@@ -160,7 +160,7 @@ export class RoadmapGenerator {
     this.blankPage.innerHTML = `
       <div class="blank-header">
         <span class="close-btn">&#x2715</span>
-        <button class="mark-done">
+        <button class="markdone-btn">
 
           <span></span>
           <span>Hoàn thành</span>
@@ -184,12 +184,19 @@ export class RoadmapGenerator {
     const closeButtonElement = this.blankPage.querySelector('.close-btn');
     closeButtonElement.onclick = this.showRightPanel.bind(this, false);
 
+    // const doneButtonElement = this.blankPage.querySelector('.markdone-btn');
+    // doneButtonElement.onclick = this.setNodeDone.bind(this, );
+
     document.body.append(this.overlay);
     document.body.append(this.blankPage);
   }
 
-  showRightPanel(show, nodeData) {
+  setRightPanelData() {}
+
+  showRightPanel(show) {
     this.overlay.style.setProperty('display', show ? 'block' : 'none');
     this.blankPage.style.setProperty('display', show ? 'block' : 'none');
   }
+
+  setNodeDone() {}
 }
