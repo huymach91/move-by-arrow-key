@@ -44,10 +44,11 @@ export class RoadmapGenerator {
         line.createLine(this.p5);
       }
       // draw leaf
-      const leftSide = [];
-      const rightSide = [];
-      const topSide = [];
-      const bottomSide = [];
+      root.leftSide = [];
+      root.rightSide = [];
+      root.topSide = [];
+      root.bottomSide = [];
+
       const rootElementWidth = root.getNodeWidth();
       preorderTraversal(
         rootData,
@@ -76,16 +77,17 @@ export class RoadmapGenerator {
           // calc y-axis
           if (isFirstLevel) {
             if (isLeft) {
-              leftSide.push(currentChildData);
+              root.leftSide.push(currentChildData);
               currentChildData.y =
-                currentRootData.y + (leftSide.length - 1) * this.spaceBetweenY;
+                currentRootData.y +
+                (root.leftSide.length - 1) * this.spaceBetweenY;
             } else {
-              rightSide.push(currentChildData);
+              root.rightSide.push(currentChildData);
               currentChildData.y =
-                currentRootData.y + (rightSide.length - 1) * this.spaceBetweenY;
+                currentRootData.y +
+                (root.rightSide.length - 1) * this.spaceBetweenY;
             }
           } else {
-            
             currentChildData.y =
               currentRootData.y - currentChildIndex * this.spaceBetweenY;
           }
