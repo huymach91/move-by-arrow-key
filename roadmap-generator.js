@@ -55,8 +55,11 @@ export class RoadmapGenerator {
           const isLeft = currentChildIndex % 2 !== 0 ? true : false;
           currentChildData.isLeft = isLeft;
           // currentChildData.x = isLeft ? currentRootData.x - rootElementWidth - 50 : currentRootData.x + rootElementWidth + 50;
-          const leftX = currentRootData.x - rootElementWidth - this.intervalX;
-          const rightX = currentRootData.x + rootElementWidth + this.intervalX;
+          const childLength = currentChildData.name.length * 0.125;
+          const leftX =
+            currentRootData.x - rootElementWidth - childLength - this.intervalX;
+          const rightX =
+            currentRootData.x + rootElementWidth + childLength + this.intervalX;
           // create leafs (calc x-axis)
           if (isFirstLevel) {
             currentChildData.x = isLeft ? leftX : rightX;
