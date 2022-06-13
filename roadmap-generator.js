@@ -180,17 +180,14 @@ export class RoadmapGenerator {
       <div class="blank-header">
         <span class="close-btn">&#x2715</span>
         <button class="markdone-btn">
-
           <span></span>
           <span>Hoàn thành</span>
         </button>
       </div>
       <div class="blank-body">
         <div class="rm-panel">
-          <h1 class="rm-panel-heading">Internet</h1>
-          <div class="rm-panel-body">
-            The Internet is a global network of computers connected to each other which communicate through a standardized set of protocols.
-          </div>
+          <h1 class="rm-panel-heading"></h1>
+          <div class="rm-panel-body"></div>
           <div class="rm-panel-body-2">
             <ul></ul>
           </div
@@ -200,22 +197,36 @@ export class RoadmapGenerator {
 
     this.overlay.onclick = this.showRightPanel.bind(this, false);
 
-    const closeButtonElement = this.blankPage.querySelector('.close-btn');
-    closeButtonElement.onclick = this.showRightPanel.bind(this, false);
+    this.closeButtonElement = this.blankPage.querySelector('.close-btn');
+    this.closeButtonElement.onclick = this.showRightPanel.bind(this, false);
 
-    // const doneButtonElement = this.blankPage.querySelector('.markdone-btn');
-    // doneButtonElement.onclick = this.setNodeDone.bind(this, );
+    this.doneButtonElement = this.blankPage.querySelector('.markdone-btn');
+
+    this.panelHeading = this.blankPage.querySelector('.rm-panel-heading');
+    this.panelBody = this.blankPage.querySelector('.rm-panel-body');
+    this.panelBody2 = this.blankPage.querySelector('.rm-panel-body-2');
 
     document.body.append(this.overlay);
     document.body.append(this.blankPage);
   }
 
-  setRightPanelData() {}
+  setRightPanelData(nodeData) {
+    let courses = nodeData.courses || [{ id: 1, courseName: 'abcx' }];
+    this.panelHeading.innerHTML = nodeData.name;
+    this.panelBody.innerHTML = nodeData.description;
+    this.panelBody2.innerHTML = courses
+      .map((course) => {
+        return '<li class="rm-course">' + course.name + '</li>';
+      })
+      .join('');
+  }
 
   showRightPanel(show) {
     this.overlay.style.setProperty('display', show ? 'block' : 'none');
     this.blankPage.style.setProperty('display', show ? 'block' : 'none');
   }
 
-  setNodeDone() {}
+  setNodeDone() {
+    doneButtonElement.onclick = this.setNodeDone.bind(this);
+  }
 }
