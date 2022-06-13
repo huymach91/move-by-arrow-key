@@ -25,11 +25,8 @@ export class Node {
     this.element.style('padding', '5px');
     this.element.style('border-which', '2px');
     this.element.style('border-style', 'solid');
-    this.element.style('maxWidth', '150px');
-    this.element.style(
-      'border-color',
-      this.data['borderColor'] ? this.data['borderColor'] : '#3f3f3f'
-    );
+    this.element.style('maxWidth', '200px');
+    this.element.style('border-color', '#3f3f3f');
     this.element.style('border-radius', '5px');
   }
 
@@ -47,5 +44,13 @@ export class Node {
   getNodeHeight() {
     const elementHeight = this.element.elt.getBoundingClientRect().height;
     return elementHeight;
+  }
+
+  setBorderColor(borderColor) {
+    this.element.style('border-color', borderColor);
+  }
+
+  setBackgroundColor(bacjgroundColor) {
+    this.element.style('background-color', bacjgroundColor);
   }
 }
