@@ -25,7 +25,7 @@ export class Node {
     this.element.style('padding', '5px');
     this.element.style('border-which', '2px');
     this.element.style('border-style', 'solid');
-    this.element.style('maxWidth', '200px');
+    // this.element.style('maxWidth', '200px');
     this.element.style('border-color', '#3f3f3f');
     this.element.style('border-radius', '5px');
   }

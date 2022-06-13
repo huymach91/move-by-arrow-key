@@ -59,7 +59,11 @@ export class RoadmapGenerator {
       root.topSide = [];
       root.bottomSide = [];
 
+      root.leafs = [];
+
       const rootElementWidth = root.getNodeWidth();
+      const rootElementHeight = root.getNodeHeight();
+
       preorderTraversal(
         rootData,
         (currentRootData, currentChildData, currentChildIndex) => {
@@ -88,6 +92,7 @@ export class RoadmapGenerator {
           // calc y-axis
           if (isFirstLevel) {
             if (isLeft) {
+              const previousLeaf = root.leftSide[root.leftSide.length - 1];
               root.leftSide.push(currentChildData);
               currentChildData.y =
                 currentRootData.y +
@@ -99,17 +104,19 @@ export class RoadmapGenerator {
                 (root.rightSide.length - 1) * this.spaceBetweenY;
             }
           } else {
-            if (isTop) {
-              root.topSide.push(currentChildData);
-              const lastIndex = root.topSide.length - 1;
-              currentChildData.y =
-                currentRootData.y + lastIndex * this.spaceBetweenY;
-            } else {
-              root.bottomSide.push(currentChildData);
-              const lastIndex = root.bottomSide.length - 1;
-              currentChildData.y =
-                currentRootData.y - lastIndex * this.spaceBetweenY;
-            }
+            currentChildData.y =
+              currentRootData.y - currentChildIndex * this.spaceBetweenY;
+            // if (isTop) {
+            //   root.topSide.push(currentChildData);
+            //   const lastIndex = root.topSide.length - 1;
+            //   currentChildData.y =
+            //     currentRootData.y + lastIndex * this.spaceBetweenY;
+            // } else {
+            //   root.bottomSide.push(currentChildData);
+            //   const lastIndex = root.bottomSide.length - 1;
+            //   currentChildData.y =
+            //     currentRootData.y - lastIndex * this.spaceBetweenY;
+            // }
           }
           // create leaf node
           const leaf = new Node(currentChildData);
@@ -118,10 +125,12 @@ export class RoadmapGenerator {
           leaf.defaultEvents(() => {
             this.showRightPanel(true);
           });
+          currentChildData.elementHeight = leaf.getNodeHeight();
+          root.leafs.push(leaf);
           // create line
           const lineStart = {
-            x: currentRootData.x + root.getNodeWidth() / 3,
-            y: currentRootData.y + root.getNodeHeight() / 2,
+            x: currentRootData.x + rootElementWidth / 3,
+            y: currentRootData.y + rootElementHeight / 2,
           };
           const lineEnd = {
             x: currentChildData.x + leaf.getNodeWidth() / 3,
