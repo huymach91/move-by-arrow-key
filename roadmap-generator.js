@@ -40,7 +40,7 @@ export class RoadmapGenerator {
       if (i > 0) {
         const lineStart = this.centerPoint(this.rootList[i - 1]);
         const lineEnd = this.centerPoint(root);
-        const line = new Line(lineStart, lineEnd);
+        const line = new Line(lineStart, lineEnd, { isBezierCurve: true });
         line.createLine(this.p5);
       }
       // draw leaf
