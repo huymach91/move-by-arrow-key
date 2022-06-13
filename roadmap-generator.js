@@ -57,8 +57,12 @@ export class RoadmapGenerator {
       // draw leaf
       root.leftSide = [];
       root.rightSide = [];
-      root.topSide = [];
-      root.bottomSide = [];
+
+      root.leftTopSide = [];
+      root.leftBottomSide = [];
+
+      root.rightTopSide = [];
+      root.rightBottomSide = [];
 
       root.leafs = [];
 
@@ -111,12 +115,12 @@ export class RoadmapGenerator {
             //   root.topSide.push(currentChildData);
             //   const lastIndex = root.topSide.length - 1;
             //   currentChildData.y =
-            //     currentRootData.y + lastIndex * this.spaceBetweenY;
+            //     currentRootData.y - lastIndex * this.spaceBetweenY;
             // } else {
             //   root.bottomSide.push(currentChildData);
             //   const lastIndex = root.bottomSide.length - 1;
             //   currentChildData.y =
-            //     currentRootData.y - lastIndex * this.spaceBetweenY;
+            //     currentRootData.y + lastIndex * this.spaceBetweenY;
             // }
           }
           // create leaf node
