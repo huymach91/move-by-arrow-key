@@ -27,7 +27,7 @@ export class RoadmapGenerator {
     this.rootList = [];
 
     // create title
-    const roadmapText = 'Frontend Roadmap';
+    const roadmapText = 'Front-end';
     this.roadmapTitle = new Text({
       text: roadmapText,
       x: config.canvasWidth / 2 - roadmapText.length * 3,
