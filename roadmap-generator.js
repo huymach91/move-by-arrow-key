@@ -110,11 +110,11 @@ export class RoadmapGenerator {
           });
           // create line
           const lineStart = {
-            x: currentRootData.x + root.getNodeWidth() / 2,
+            x: currentRootData.x + root.getNodeWidth() / 3,
             y: currentRootData.y + root.getNodeHeight() / 2,
           };
           const lineEnd = {
-            x: currentChildData.x + leaf.getNodeWidth() / 2,
+            x: currentChildData.x + leaf.getNodeWidth() / 3,
             y: currentChildData.y + leaf.getNodeHeight() / 2,
           };
           const line = new Line(lineStart, lineEnd);
