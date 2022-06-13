@@ -22,13 +22,13 @@ export class RoadmapGenerator {
     this.initialX = data.x ? data.x : this.defaultX;
     this.initialY = data.y ? data.y : 200;
     this.maxHeightCanvas = this.initialY * data.length;
+    this.spaceBetweenY = 50;
     this.rootList = [];
 
     for (let i = 0; i < data.length; i++) {
       const rootData = data[i];
       rootData.x = this.initialX;
       rootData.y = this.initialY + i * this.initialY;
-      rootData.borderColor = 'red';
       // create root
       const root = new Node(rootData);
       root.createNode(this.p5);
@@ -58,7 +58,7 @@ export class RoadmapGenerator {
           const childLength = currentChildData.name.length * 6;
           let leftX = currentRootData.x - rootElementWidth - this.intervalX;
           const rightX = currentRootData.x + rootElementWidth + this.intervalX;
-          // create leafs (calc x-axis)
+          // calc x-axis
           if (isLeft) {
             leftX -= childLength;
           }
@@ -76,17 +76,20 @@ export class RoadmapGenerator {
             if (isLeft) {
               leftSide.push(currentChildData);
               currentChildData.y =
-                currentRootData.y + (leftSide.length - 1) * 50;
+                currentRootData.y + (leftSide.length - 1) * this.spaceBetweenY;
             } else {
               rightSide.push(currentChildData);
               currentChildData.y =
-                currentRootData.y + (rightSide.length - 1) * 50;
+                currentRootData.y + (rightSide.length - 1) * this.spaceBetweenY;
             }
           } else {
-            currentChildData.y = currentRootData.y - currentChildIndex * 50;
+            currentChildData.y =
+              currentRootData.y - currentChildIndex * this.spaceBetweenY;
           }
+          // create leaf node
           const leaf = new Node(currentChildData);
           leaf.createNode(this.p5);
+          leaf.setBackgroundColor('#ffe599');
           leaf.defaultEvents(() => {
             this.showRightPanel(true);
           });
@@ -121,20 +124,7 @@ export class RoadmapGenerator {
     };
   }
 
-  drawLineRightToLeft(nodeStart, nodeEnd) {
-    const lineStart = {
-      x: nodeStart.data.x + nodeStart.getNodeWidth() / 2,
-      y: nodeStart.data.y + nodeStart.getNodeHeight() / 2,
-    };
-    const lineEnd = {
-      x: nodeEnd.data.x + nodeEnd.getNodeWidth(),
-      y: nodeEnd.data.y + nodeEnd.getNodeHeight() / 2,
-    };
-    const line = new Line(lineStart, lineEnd);
-    line.createLine(this.p5);
-  }
-
-  drawLineLeftToRight(nodeStart, nodeEnd) {}
+  calcY() {}
 
   insertTreeWithSamples2(node) {
     // 1. handle current node
