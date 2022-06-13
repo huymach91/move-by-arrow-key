@@ -82,7 +82,13 @@
         {
           "id": 7,
           "name": "Making layouts",
-          "children": []
+          "children": [
+            {
+              "id": 7,
+              "name": "Float, grid, flexbox, positioning, display and box model ",
+              "children": []
+            }
+          ]
         }
       ]
     },
