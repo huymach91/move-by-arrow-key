@@ -17,7 +17,7 @@ export class RoadmapGenerator {
    * @param {{ canvasWidth: number }} config
    */
   generate(data, config) {
-    this.intervalX = 150;
+    this.intervalX = 120;
     this.defaultX = config.canvasWidth / 2;
     this.initialX = data.x ? data.x : this.defaultX;
     this.initialY = data.y ? data.y : 200;
@@ -152,7 +152,7 @@ export class RoadmapGenerator {
       <div class="blank-header">
         <span class="close-btn">&#x2715</span>
         <button class="mark-done">
-        
+
           <span></span>
           <span>Hoàn thành</span>
         </button>
