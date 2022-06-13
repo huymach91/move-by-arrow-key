@@ -52,6 +52,16 @@
           "id": 4,
           "name": "The Domain Name System (DNS)",
           "children": []
+        },
+        {
+          "id": 4,
+          "name": "What is hosting?",
+          "children": []
+        },
+        {
+          "id": 4,
+          "name": "",
+          "children": []
         }
       ]
     },
