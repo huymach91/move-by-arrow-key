@@ -84,6 +84,16 @@
               "children": []
             }
           ]
+        },
+        {
+          "id": 8,
+          "name": "Accessibility",
+          "children": []
+        },
+        {
+          "id": 9,
+          "name": "Basics of SEO",
+          "children": []
         }
       ]
     },

@@ -46,6 +46,8 @@ export class RoadmapGenerator {
       // draw leaf
       const leftSide = [];
       const rightSide = [];
+      const topSide = [];
+      const bottomSide = [];
       const rootElementWidth = root.getNodeWidth();
       preorderTraversal(
         rootData,
@@ -83,6 +85,7 @@ export class RoadmapGenerator {
                 currentRootData.y + (rightSide.length - 1) * this.spaceBetweenY;
             }
           } else {
+            
             currentChildData.y =
               currentRootData.y - currentChildIndex * this.spaceBetweenY;
           }
