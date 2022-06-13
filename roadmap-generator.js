@@ -99,11 +99,16 @@ export class RoadmapGenerator {
                 (root.rightSide.length - 1) * this.spaceBetweenY;
             }
           } else {
-            root.topSide.push(currentChildData);
-            const lastIndex = root.topSide.length - 1;
             if (isTop) {
+              root.topSide.push(currentChildData);
+              const lastIndex = root.topSide.length - 1;
               currentChildData.y =
-                currentRootData.y - currentChildIndex * this.spaceBetweenY;
+                currentRootData.y + lastIndex * this.spaceBetweenY;
+            } else {
+              root.bottomSide.push(currentChildData);
+              const lastIndex = root.bottomSide.length - 1;
+              currentChildData.y =
+                currentRootData.y - lastIndex * this.spaceBetweenY;
             }
           }
           // create leaf node
