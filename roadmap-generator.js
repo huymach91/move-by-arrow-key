@@ -66,6 +66,7 @@ export class RoadmapGenerator {
           const isFirstLevel =
             root.data.name === currentRootData.name ? true : false;
           const isLeft = currentChildIndex % 2 !== 0 ? true : false;
+          const isTop = currentChildIndex % 2 !== 0 ? true : false;
           currentChildData.isLeft = isLeft;
           // currentChildData.x = isLeft ? currentRootData.x - rootElementWidth - 50 : currentRootData.x + rootElementWidth + 50;
           const childLength = currentChildData.name.length * 6;
@@ -98,8 +99,12 @@ export class RoadmapGenerator {
                 (root.rightSide.length - 1) * this.spaceBetweenY;
             }
           } else {
-            currentChildData.y =
-              currentRootData.y - currentChildIndex * this.spaceBetweenY;
+            root.topSide.push(currentChildData);
+            const lastIndex = root.topSide.length - 1;
+            if (isTop) {
+              currentChildData.y =
+                currentRootData.y - currentChildIndex * this.spaceBetweenY;
+            }
           }
           // create leaf node
           const leaf = new Node(currentChildData);
