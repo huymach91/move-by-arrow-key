@@ -326,9 +326,13 @@ export class RoadmapGenerator {
     this.blankPage.style.setProperty('display', show ? 'block' : 'none');
   }
 
-  setNodeDone(nodeData, isDone) {
+  setNodeDone(nodeData) {
     this.toggleButtonElement.onclick = () => {
-      this.markDoneFunc(nodeData, isDone);
+      const newStatus = this.toggleButtonElement.classList.contains('completed')
+        ? false
+        : true;
+      console.log(newStatus);
+      this.markDoneFunc(nodeData, newStatus);
     };
   }
 

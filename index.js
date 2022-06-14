@@ -25,8 +25,8 @@ const sketch = (p) => {
       inCompletedToggleButtonText: 'Pending',
       videoText: 'video',
       articleText: 'read',
-      markDoneFunc: (nodeData) => {
-        console.log('fetch', nodeData);
+      markDoneFunc: (nodeData, newStatus) => {
+        console.log('fetch', nodeData, newStatus);
       },
     });
     document.addEventListener('afterCanvasInit', (event) => {
