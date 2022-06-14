@@ -63,10 +63,30 @@
   line-height: 24px;
 }
 
-.rm-panel-title-2 {
+.rm-bottom-panel-title {
   font-size: 18px;
   border-bottom: 1px solid #ccc;
   padding-bottom: 15px;
+}
+
+.rm-courses {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  column-gap: 10px;
+  align-items: center;
+}
+
+.rm-courses .rm-course-type {
+  padding: 5px;
+}
+
+.bg-orange {
+  background-color: #fefcbf;
+}
+
+.bg-purple {
+  background-color: #e9d8fd;
 }
 
 .m-button {

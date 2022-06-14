@@ -15,7 +15,7 @@ export class RoadmapGenerator {
 
   /**
    * @param {Array<{ id: string, name: string }>} data
-   * @param {{ canvasWidth: number, roadmapText: string, panelBodyTitle2: string }} config
+   * @param {{ canvasWidth: number, roadmapText: string, panelBottomTitle: string }} config
    */
   generate(data, config) {
     this.intervalX = 120;
@@ -26,7 +26,7 @@ export class RoadmapGenerator {
     this.spaceBetweenY = 50;
     this.rootList = [];
     // right panel config
-    this.panelBodyTitle2 = config.panelBodyTitle2;
+    this.panelBottomTitle = config.panelBottomTitle;
     // create title
     const roadmapText = config.roadmapText;
     this.roadmapTitle = new Text({
@@ -222,9 +222,11 @@ export class RoadmapGenerator {
         <div class="rm-panel">
           <h1 class="rm-panel-heading"></h1>
           <div class="rm-panel-body"></div>
-          <div class="rm-panel-body-2">
-            <h4 class="rm-panel-title-2">${this.panelBodyTitle2}</h4>
-            <ul></ul>
+          <div class="rm-bottom-panel">
+            <h4 class="rm-bottom-panel-title">${this.panelBottomTitle}</h4>
+            <div class="rm-bottom-panel-body">
+              
+            </div>
           </div
         </div>
       </div>
@@ -239,21 +241,41 @@ export class RoadmapGenerator {
 
     this.panelHeading = this.blankPage.querySelector('.rm-panel-heading');
     this.panelBody = this.blankPage.querySelector('.rm-panel-body');
-    this.panelBody2 = this.blankPage.querySelector('.rm-panel-body-2');
+    this.panelBottom = this.blankPage.querySelector('.rm-bottom-panel');
+    this.panelBottomTitle = this.blankPage.querySelector(
+      '.rm-bottom-panel-title'
+    );
+    this.panelBottomBody = this.blankPage.querySelector(
+      '.rm-bottom-panel-body'
+    );
 
     document.body.append(this.overlay);
     document.body.append(this.blankPage);
   }
 
   setRightPanelData(nodeData) {
-    // let courses = nodeData.courses || [{ id: 1, courseName: 'abcx' }];
+    let courses = nodeData.courses || [
+      { id: 1, courseName: 'abcx', courseType: 'video' },
+      { id: 2, courseName: 'abcx', courseType: 'bài viết' },
+    ];
     this.panelHeading.innerHTML = nodeData.name;
     this.panelBody.innerHTML = nodeData.description;
-    // this.panelBody2.innerHTML = courses
-    //   .map((course) => {
-    //     return '<li class="rm-course">' + course.name + '</li>';
-    //   })
-    //   .join('');
+    this.panelBottomBody.innerHTML =
+      '<ul class="rm-courses">' +
+      courses
+        .map((course) => {
+          return (
+            '<li class="rm-course"><span class="rm-course-type">' +
+            course.courseType +
+            '</span>' +
+            '<span class="rm-course-name">' +
+            course.courseName +
+            '</span>' +
+            '</li>'
+          );
+        })
+        .join('') +
+      '</ul>';
   }
 
   showRightPanel(show) {
