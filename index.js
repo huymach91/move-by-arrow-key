@@ -21,7 +21,8 @@ const sketch = (p) => {
       canvasWidth: innerWidth,
       roadmapText: 'Back-end',
       panelBottomTitle: 'Khóa học',
-      doneButtonText: 'Hoàn thành',
+      completedToggleButtonText: 'Hoàn thành',
+      inCompletedToggleButtonText: 'Chưa hoàn thành',
       videoText: 'video',
       articleText: 'read',
       markDoneFunc: (nodeData) => {

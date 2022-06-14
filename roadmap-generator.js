@@ -36,7 +36,8 @@ export class RoadmapGenerator {
     this.panelBottomTitle = config.panelBottomTitle;
     this.videoText = config.videoText;
     this.articleText = config.articleText;
-    this.doneButtonText = config.doneButtonText;
+    this.completedToggleButtonText = config.completedToggleButtonText;
+    this.inCompletedToggleButtonText = config.inCompletedToggleButtonText;
     this.markDoneFunc = config.markDoneFunc;
     // create title
     const roadmapText = config.roadmapText;
@@ -225,8 +226,8 @@ export class RoadmapGenerator {
       <div class="blank-header">
         <span class="close-btn">&#x2715</span>
         <button class="toggle-btn">
-          <span></span>
-          <span>${this.doneButtonText}</span>
+          <span class="toggle-btn-icon"></span>
+          <span class="toggle-btn-text"></span>
         </button>
       </div>
       <div class="blank-body">
@@ -317,6 +318,7 @@ export class RoadmapGenerator {
       '</ul>';
 
     this.setNodeDone(nodeData);
+    this.setStatus(nodeData);
   }
 
   showRightPanel(show) {
@@ -331,10 +333,16 @@ export class RoadmapGenerator {
   }
 
   setStatus(nodeData) {
+    const icon = this.toggleButtonElement.querySelector('.toggle-btn-icon');
+    const text = this.toggleButtonElement.querySelector('.toggle-btn-text');
     if (nodeData['done']) {
       this.toggleButtonElement.classList.add('completed');
+      this.toggleButtonElement.classList.remove('pending');
+      text.textContent = this.completedToggleButtonText;
     } else {
       this.toggleButtonElement.classList.remove('completed');
+      this.toggleButtonElement.classList.add('pending');
+      text.textContent = this.inCompletedToggleButtonText;
     }
   }
 }
