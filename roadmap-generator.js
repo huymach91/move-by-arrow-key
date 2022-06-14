@@ -226,7 +226,7 @@ export class RoadmapGenerator {
       <div class="blank-header">
         <span class="close-btn">&#x2715</span>
         <button class="toggle-btn">
-          <span class="toggle-btn-icon"></span>
+          <span class="toggle-btn-icon">&#10004;</span>
           <span class="toggle-btn-text"></span>
         </button>
       </div>

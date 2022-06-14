@@ -30,7 +30,9 @@
 
 .toggle-btn {
   background-color: #39a169 !important;
-  padding: 3px 10px;
+  padding-bottom: 3px;
+  padding-left: 3px;
+  padding-right: 10px;
   border: none;
   height: 30px;
   color: black;
@@ -45,6 +47,10 @@
 
 .toggle-btn.pending {
   background-color: #ecc94b !important;
+}
+
+.toggle-btn .toggle-btn-icon {
+  padding: 3px;
 }
 
 .close-btn {
