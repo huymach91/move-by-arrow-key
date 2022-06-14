@@ -94,7 +94,6 @@ export class RoadmapGenerator {
             }
           }
           // calc y-axis
-
           if (isFirstLevel) {
             if (isLeft) {
               const previousLeaf = root.leftSide[root.leftSide.length - 1];
