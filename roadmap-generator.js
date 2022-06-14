@@ -224,7 +224,7 @@ export class RoadmapGenerator {
     this.blankPage.innerHTML = `
       <div class="blank-header">
         <span class="close-btn">&#x2715</span>
-        <button class="markdone-btn">
+        <button class="toggle-btn">
           <span></span>
           <span>${this.doneButtonText}</span>
         </button>
@@ -248,7 +248,7 @@ export class RoadmapGenerator {
     this.closeButtonElement = this.blankPage.querySelector('.close-btn');
     this.closeButtonElement.onclick = this.showRightPanel.bind(this, false);
 
-    this.doneButtonElement = this.blankPage.querySelector('.markdone-btn');
+    this.toggleButtonElement = this.blankPage.querySelector('.toggle-btn');
 
     this.panelHeading = this.blankPage.querySelector('.rm-panel-heading');
     this.panelBody = this.blankPage.querySelector('.rm-panel-body');
@@ -330,7 +330,11 @@ export class RoadmapGenerator {
     };
   }
 
-  setToggleDone(nodeData) {
-    
+  setStatus(nodeData) {
+    if (nodeData['done']) {
+      this.toggleButtonElement.classList.add('completed');
+    } else {
+      this.toggleButtonElement.classList.remove('completed');
+    }
   }
 }
