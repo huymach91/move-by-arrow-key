@@ -18,9 +18,7 @@ export class Node {
     this.defaultNodeStyle();
 
     this.tickElement = p5.createElement('span');
-    this.tickElement.elt.classList.add('tick');
-    this.tickElement.elt.classList.add('tick-green');
-    this.tickElement.elt.classList.add('material-icons');
+    this.tickElement.elt.className = 'tick tick-purple material-icons';
     this.tickElement.elt.innerHTML = 'check_circle';
 
     const elementWidth = this.tickElement.elt.getBoundingClientRect().width;
@@ -65,5 +63,15 @@ export class Node {
 
   setBackgroundColor(bacjgroundColor) {
     this.element.style('background-color', bacjgroundColor);
+  }
+
+  colorizeTick(color) {
+    switch (color) {
+      case 'purple':
+        
+        break;
+      case 'green':
+        break;
+    }
   }
 }
