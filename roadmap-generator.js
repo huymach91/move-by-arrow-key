@@ -331,8 +331,9 @@ export class RoadmapGenerator {
       const newStatus = this.toggleButtonElement.classList.contains('completed')
         ? false
         : true;
-      console.log(newStatus);
+      nodeData.completed = newStatus;
       this.markDoneFunc(nodeData, newStatus);
+      this.setStatus(nodeData);
     };
   }
 
