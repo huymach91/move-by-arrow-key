@@ -23,10 +23,13 @@ export class Node {
 
     const elementWidth = this.tickElement.elt.getBoundingClientRect().width;
     const elementHeight = this.tickElement.elt.getBoundingClientRect().height;
-    this.tickElement.position(
-      this.data.x - elementWidth / 3,
-      this.data.y - elementHeight / 3
-    );
+
+    setTimeout(() => {
+      this.tickElement.position(
+        this.data.x - elementWidth / 3,
+        this.data.y - elementHeight / 3
+      );
+    }, 10);
   }
 
   defaultNodeStyle() {
@@ -68,7 +71,6 @@ export class Node {
   colorizeTick(color) {
     switch (color) {
       case 'purple':
-        
         break;
       case 'green':
         break;
