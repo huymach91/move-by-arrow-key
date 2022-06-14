@@ -344,5 +344,6 @@ export class RoadmapGenerator {
       this.toggleButtonElement.classList.add('pending');
       text.textContent = this.inCompletedToggleButtonText;
     }
+    console.log(this.toggleButtonElement);
   }
 }
