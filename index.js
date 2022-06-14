@@ -25,7 +25,7 @@ const sketch = (p) => {
       videoText: 'video',
       articleText: 'read',
       markDoneFunc: (nodeData) => {
-        console.log(nodeData);
+        console.log('fetch', nodeData);
       },
     });
     document.addEventListener('afterCanvasInit', (event) => {

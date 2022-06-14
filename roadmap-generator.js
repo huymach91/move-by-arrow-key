@@ -324,9 +324,13 @@ export class RoadmapGenerator {
     this.blankPage.style.setProperty('display', show ? 'block' : 'none');
   }
 
-  setNodeDone(nodeData) {
-    doneButtonElement.onclick = () => {
-      this.markDoneFunc(nodeData);
+  setNodeDone(nodeData, isDone) {
+    this.doneButtonElement.onclick = () => {
+      this.markDoneFunc(nodeData, isDone);
     };
+  }
+
+  setToggleDone(nodeData) {
+    
   }
 }

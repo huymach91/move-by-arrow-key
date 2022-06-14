@@ -27,10 +27,12 @@
       "id": 1,
       "name": "The Internet",
       "description": "The Internet is a global network of computers connected to each other which communicate through a standardized set of protocols.",
+      "done": false,
       "children": [
         {
           "id": 1,
           "name": "What is HTTP?",
+          "done": false,
           "children": [
             {
               "id": 1,
@@ -65,6 +67,7 @@
       "id": 2,
       "name": "HTML, CSS",
       "description": "HTML stands for HyperText Markup Language. It is used on the frontend and gives the structure to the webpage which you can style using CSS and make interactive using JavaScript CSS or Cascading Style Sheets is the language used to style the frontend of any website. CSS is a cornerstone technology of the World Wide Web, alongside HTML and JavaScript.",
+      "done": true,
       "children": [
         {
           "id": 5,
