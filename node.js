@@ -22,7 +22,13 @@ export class Node {
     this.tickElement.elt.classList.add('tick-default');
     this.tickElement.elt.classList.add('material-icons');
     this.tickElement.elt.innerHTML = 'check_circle';
-    this.tickElement.position(this.data.x, this.data.y);
+
+    const elementWidth = this.tickElement.elt.getBoundingClientRect().width;
+    const elementHeight = this.tickElement.elt.getBoundingClientRect().height;
+    this.tickElement.position(
+      this.data.x - elementWidth / 2,
+      this.data.y - elementHeight / 2
+    );
 
     console.log(this.tickElement);
   }
