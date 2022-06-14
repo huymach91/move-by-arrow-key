@@ -47,8 +47,26 @@
   background-color: whitesmoke !important;
 }
 
+.rm-panel {
+  font-family: inherit;
+}
+
 .rm-panel .rm-panel-heading {
   margin-bottom: 10px;
+}
+
+.rm-panel-heading {
+  font-weight: bold;
+}
+
+.rm-panel-body {
+  line-height: 24px;
+}
+
+.rm-panel-title-2 {
+  font-size: 18px;
+  border-bottom: 1px solid #ccc;
+  padding-bottom: 15px;
 }
 
 .m-button {

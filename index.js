@@ -20,6 +20,7 @@ const sketch = (p) => {
     roadmapGenerator.generate(samples2, {
       canvasWidth: innerWidth,
       roadmapText: 'Back-end',
+      panelBodyTitle2: 'Khóa học',
     });
     document.addEventListener('afterCanvasInit', (event) => {
       const maxHeightCanvas = event.detail.maxHeightCanvas;

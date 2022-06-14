@@ -15,7 +15,7 @@ export class RoadmapGenerator {
 
   /**
    * @param {Array<{ id: string, name: string }>} data
-   * @param {{ canvasWidth: number, roadmapText: string }} config
+   * @param {{ canvasWidth: number, roadmapText: string, panelBodyTitle2: string }} config
    */
   generate(data, config) {
     this.intervalX = 120;
@@ -25,7 +25,8 @@ export class RoadmapGenerator {
     this.maxHeightCanvas = this.initialY * data.length;
     this.spaceBetweenY = 50;
     this.rootList = [];
-
+    // right panel config
+    this.panelBodyTitle2 = config.panelBodyTitle2;
     // create title
     const roadmapText = config.roadmapText;
     this.roadmapTitle = new Text({
@@ -222,6 +223,7 @@ export class RoadmapGenerator {
           <h1 class="rm-panel-heading"></h1>
           <div class="rm-panel-body"></div>
           <div class="rm-panel-body-2">
+            <h4 class="rm-panel-title-2">${this.panelBodyTitle2}</h4>
             <ul></ul>
           </div
         </div>
@@ -246,7 +248,7 @@ export class RoadmapGenerator {
   setRightPanelData(nodeData) {
     // let courses = nodeData.courses || [{ id: 1, courseName: 'abcx' }];
     this.panelHeading.innerHTML = nodeData.name;
-    // this.panelBody.innerHTML = nodeData.description;
+    this.panelBody.innerHTML = nodeData.description;
     // this.panelBody2.innerHTML = courses
     //   .map((course) => {
     //     return '<li class="rm-course">' + course.name + '</li>';
