@@ -69,7 +69,15 @@
 }
 
 .tick {
-  font-size: 12px;
+  font-size: 11px;
+}
+
+.tick-default {
+  color: #999999;
+}
+
+.tick-purple {
+  color: #9900ff;
 }
 
 .rm-panel {
