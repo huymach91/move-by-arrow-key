@@ -259,7 +259,7 @@ export class RoadmapGenerator {
     let courses = nodeData.courses || [
       {
         id: 1,
-        courseName: 'Modern JavaScript for Dinosaurs',
+        courseName: '',
         courseType: 'video',
       },
       {
@@ -273,6 +273,7 @@ export class RoadmapGenerator {
     this.panelBottomBody.innerHTML =
       '<ul class="rm-courses">' +
       courses
+        .filter((course) => course.courseName)
         .map((course) => {
           let backgroundClass = '';
           let courseTypeName = '';
