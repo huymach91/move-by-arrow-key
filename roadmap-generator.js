@@ -75,7 +75,6 @@ export class RoadmapGenerator {
           const isFirstLevel =
             root.data.name === currentRootData.name ? true : false;
           const isLeft = currentChildIndex % 2 !== 0 ? true : false;
-          const isTop = currentChildIndex % 2 !== 0 ? true : false;
           currentChildData.isLeft = isLeft;
           // currentChildData.x = isLeft ? currentRootData.x - rootElementWidth - 50 : currentRootData.x + rootElementWidth + 50;
           const childLength = currentChildData.name.length * 6;
@@ -95,6 +94,7 @@ export class RoadmapGenerator {
             }
           }
           // calc y-axis
+
           if (isFirstLevel) {
             if (isLeft) {
               const previousLeaf = root.leftSide[root.leftSide.length - 1];
@@ -110,19 +110,48 @@ export class RoadmapGenerator {
             }
           } else {
             currentChildData.y =
-              currentRootData.y - currentChildIndex * this.spaceBetweenY;
-            // if (isTop) {
-            //   root.topSide.push(currentChildData);
-            //   const lastIndex = root.topSide.length - 1;
-            //   currentChildData.y =
-            //     currentRootData.y - lastIndex * this.spaceBetweenY;
+              currentRootData.y + currentChildIndex * this.spaceBetweenY;
+            // if (isLeft) {
+            //   // const previousLeaf = root.leftSide[root.leftSide.length - 1];
+            //   // root.leftSide.push(currentChildData);
+            //   const isTop =
+            //     root.leftTopSide.length < root.leftBottomSide.length
+            //       ? true
+            //       : false;
+            //   if (isTop) {
+            //     root.leftTopSide.push(currentChildData);
+            //     currentChildData.y =
+            //       currentRootData.y -
+            //       (root.leftTopSide.length - 1) * this.spaceBetweenY;
+            //   } else {
+            //     root.leftBottomSide.push(currentChildData);
+            //     currentChildData.y =
+            //       currentRootData.y +
+            //       (root.leftTopSide.length - 1) * this.spaceBetweenY;
+            //   }
             // } else {
-            //   root.bottomSide.push(currentChildData);
-            //   const lastIndex = root.bottomSide.length - 1;
-            //   currentChildData.y =
-            //     currentRootData.y + lastIndex * this.spaceBetweenY;
+            //   const isTop =
+            //     root.rightTopSide.length < root.rightBottomSide.length
+            //       ? true
+            //       : false;
+            //   if (isTop) {
+            //     root.rightTopSide.push(currentChildData);
+            //     const lastIndex = root.rightTopSide.length;
+            //     currentChildData.y =
+            //       currentRootData.y - lastIndex * this.spaceBetweenY;
+            //   } else {
+            //     root.rightBottomSide.push(currentChildData);
+            //     const lastIndex = root.rightBottomSide.length;
+            //     currentChildData.y =
+            //       currentRootData.y + lastIndex * this.spaceBetweenY;
+            //   }
+            //   // root.rightSide.push(currentChildData);
+            //   // currentChildData.y =
+            //   //   currentRootData.y +
+            //   //   (root.rightSide.length - 1) * this.spaceBetweenY;
             // }
           }
+
           // create leaf node
           const leaf = new Node(currentChildData);
           leaf.createNode(this.p5);
