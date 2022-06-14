@@ -35,6 +35,14 @@
   color: black;
 }
 
+.toggle-btn.completed {
+  background-color: #4dcc88;
+}
+
+.toggle-btn.pending {
+  background-color: #fefcbf;
+}
+
 .close-btn {
   background-color: white !important;
   color: black !important;
