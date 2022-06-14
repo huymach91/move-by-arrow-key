@@ -261,11 +261,13 @@ export class RoadmapGenerator {
         id: 1,
         courseName: '',
         courseType: 'video',
+        link: 'https://google.com',
       },
       {
         id: 2,
         courseName: "An Absolute Beginner's Guide to Using npm",
         courseType: 'article',
+        link: 'https://google.com',
       },
     ];
     this.panelHeading.innerHTML = nodeData.name;
@@ -277,6 +279,9 @@ export class RoadmapGenerator {
         .map((course) => {
           let backgroundClass = '';
           let courseTypeName = '';
+          const href = course.link
+            ? 'href="' + course.href + '" target="_blank"'
+            : '';
           if (course.courseType === 'video') {
             backgroundClass = 'bg-orange';
             courseTypeName = this.videoText;
@@ -286,7 +291,9 @@ export class RoadmapGenerator {
           } else {
           }
           return (
-            '<li class="rm-course"><span class="rm-course-type ' +
+            '<li class="rm-course"><a ' +
+            href +
+            '><span class="rm-course-type ' +
             backgroundClass +
             '">' +
             courseTypeName +
@@ -294,7 +301,7 @@ export class RoadmapGenerator {
             '<span class="rm-course-name">' +
             course.courseName +
             '</span>' +
-            '</li>'
+            '</a></li>'
           );
         })
         .join('') +
@@ -306,7 +313,9 @@ export class RoadmapGenerator {
     this.blankPage.style.setProperty('display', show ? 'block' : 'none');
   }
 
-  setNodeDone() {
-    doneButtonElement.onclick = this.setNodeDone.bind(this);
+  setNodeDone(fn) {
+    doneButtonElement.onclick = () => {
+      fn(nodeData);
+    };
   }
 }
