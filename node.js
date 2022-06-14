@@ -16,6 +16,15 @@ export class Node {
     this.element = p5.createElement('div', text);
     this.element.position(this.data.x, this.data.y);
     this.defaultNodeStyle();
+
+    this.tickElement = p5.createElement('span');
+    this.tickElement.elt.classList.add('tick');
+    this.tickElement.elt.classList.add('tick-default');
+    this.tickElement.elt.classList.add('material-icons');
+    this.tickElement.elt.innerHTML = 'check_circle';
+    this.tickElement.position(this.data.x, this.data.y);
+
+    console.log(this.tickElement);
   }
 
   defaultNodeStyle() {
@@ -53,6 +62,4 @@ export class Node {
   setBackgroundColor(bacjgroundColor) {
     this.element.style('background-color', bacjgroundColor);
   }
-
-  
 }

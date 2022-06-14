@@ -68,6 +68,10 @@
   background-color: whitesmoke !important;
 }
 
+.tick {
+  font-size: 12px;
+}
+
 .rm-panel {
   font-family: inherit;
 }
