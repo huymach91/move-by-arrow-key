@@ -29,8 +29,6 @@ export class Node {
       this.data.x - elementWidth / 3,
       this.data.y - elementHeight / 3
     );
-
-    console.log(this.tickElement);
   }
 
   defaultNodeStyle() {
