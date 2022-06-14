@@ -29,6 +29,7 @@ export class RoadmapGenerator {
     this.panelBottomTitle = config.panelBottomTitle;
     this.videoText = config.videoText;
     this.articleText = config.articleText;
+    this.doneButtonText = config.doneButtonText;
     // create title
     const roadmapText = config.roadmapText;
     this.roadmapTitle = new Text({
@@ -217,7 +218,7 @@ export class RoadmapGenerator {
         <span class="close-btn">&#x2715</span>
         <button class="markdone-btn">
           <span></span>
-          <span>Hoàn thành</span>
+          <span>${this.doneButtonText}</span>
         </button>
       </div>
       <div class="blank-body">
@@ -280,7 +281,7 @@ export class RoadmapGenerator {
           let backgroundClass = '';
           let courseTypeName = '';
           const href = course.link
-            ? 'href="' + course.href + '" target="_blank"'
+            ? 'href="' + course.link + '" target="_blank"'
             : '';
           if (course.courseType === 'video') {
             backgroundClass = 'bg-orange';
@@ -291,14 +292,14 @@ export class RoadmapGenerator {
           } else {
           }
           return (
-            '<li class="rm-course"><a ' +
-            href +
-            '><span class="rm-course-type ' +
+            '<li class="rm-course"><span class="rm-course-type ' +
             backgroundClass +
             '">' +
             courseTypeName +
             '</span>' +
-            '<span class="rm-course-name">' +
+            '<a ' +
+            href +
+            '><span class="rm-course-name">' +
             course.courseName +
             '</span>' +
             '</a></li>'

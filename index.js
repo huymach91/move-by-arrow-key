@@ -21,8 +21,9 @@ const sketch = (p) => {
       canvasWidth: innerWidth,
       roadmapText: 'Back-end',
       panelBottomTitle: 'Khóa học',
+      doneButtonText: 'Hoàn thành',
       videoText: 'video',
-      articleText: 'Bài viết',
+      articleText: 'read',
     });
     document.addEventListener('afterCanvasInit', (event) => {
       const maxHeightCanvas = event.detail.maxHeightCanvas;
