@@ -20,9 +20,9 @@ const sketch = (p) => {
     roadmapGenerator.generate(samples2, {
       canvasWidth: innerWidth,
       roadmapText: 'Back-end',
-      panelBottomTitle: 'Khóa học',
-      completedToggleButtonText: 'Hoàn thành',
-      inCompletedToggleButtonText: 'Chưa hoàn thành',
+      panelBottomTitle: 'Free Content',
+      completedToggleButtonText: 'Completed',
+      inCompletedToggleButtonText: 'Pending',
       videoText: 'video',
       articleText: 'read',
       markDoneFunc: (nodeData) => {
