@@ -36,11 +36,11 @@
 }
 
 .toggle-btn.completed {
-  background-color: #4dcc88;
+  background-color: #4dcc88 !important;
 }
 
 .toggle-btn.pending {
-  background-color: #fefcbf;
+  background-color: #fefcbf !important;
 }
 
 .close-btn {
