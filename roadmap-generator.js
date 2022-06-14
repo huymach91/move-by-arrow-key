@@ -327,7 +327,7 @@ export class RoadmapGenerator {
   }
 
   setNodeDone(nodeData, isDone) {
-    this.doneButtonElement.onclick = () => {
+    this.toggleButtonElement.onclick = () => {
       this.markDoneFunc(nodeData, isDone);
     };
   }
