@@ -226,7 +226,7 @@ export class RoadmapGenerator {
       <div class="blank-header">
         <span class="close-btn">&#x2715</span>
         <button class="toggle-btn">
-          <span class="toggle-btn-icon">&#10004;</span>
+          <span class="toggle-btn-icon"></span>
           <span class="toggle-btn-text"></span>
         </button>
       </div>
@@ -344,10 +344,12 @@ export class RoadmapGenerator {
       this.toggleButtonElement.classList.add('completed');
       this.toggleButtonElement.classList.remove('pending');
       text.textContent = this.completedToggleButtonText;
+      icon.innerHTML = '&#10004;';
     } else {
       this.toggleButtonElement.classList.remove('completed');
       this.toggleButtonElement.classList.add('pending');
       text.textContent = this.inCompletedToggleButtonText;
+      icon.innerHTML = '&#8635;';
     }
     console.log(this.toggleButtonElement);
   }
