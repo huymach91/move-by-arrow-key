@@ -15,7 +15,14 @@ export class RoadmapGenerator {
 
   /**
    * @param {Array<{ id: string, name: string }>} data
-   * @param {{ canvasWidth: number, roadmapText: string, panelBottomTitle: string, videoText: string, articleText: string }} config
+   * @param {{
+   *    canvasWidth: number,
+   *    roadmapText: string,
+   *    panelBottomTitle: string,
+   *    videoText: string,
+   *    articleText: string
+   *    markDoneFunc: Function
+   * }} config
    */
   generate(data, config) {
     this.intervalX = 120;
@@ -30,6 +37,7 @@ export class RoadmapGenerator {
     this.videoText = config.videoText;
     this.articleText = config.articleText;
     this.doneButtonText = config.doneButtonText;
+    this.markDoneFunc = config.markDoneFunc;
     // create title
     const roadmapText = config.roadmapText;
     this.roadmapTitle = new Text({
@@ -307,6 +315,8 @@ export class RoadmapGenerator {
         })
         .join('') +
       '</ul>';
+
+    this.setNodeDone(nodeData);
   }
 
   showRightPanel(show) {
@@ -314,9 +324,9 @@ export class RoadmapGenerator {
     this.blankPage.style.setProperty('display', show ? 'block' : 'none');
   }
 
-  setNodeDone(fn) {
+  setNodeDone(nodeData) {
     doneButtonElement.onclick = () => {
-      fn(nodeData);
+      this.markDoneFunc(nodeData);
     };
   }
 }

@@ -24,6 +24,9 @@ const sketch = (p) => {
       doneButtonText: 'Hoàn thành',
       videoText: 'video',
       articleText: 'read',
+      markDoneFunc: (nodeData) => {
+        console.log(nodeData);
+      },
     });
     document.addEventListener('afterCanvasInit', (event) => {
       const maxHeightCanvas = event.detail.maxHeightCanvas;
