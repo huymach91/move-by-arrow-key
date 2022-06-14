@@ -15,7 +15,7 @@ export class RoadmapGenerator {
 
   /**
    * @param {Array<{ id: string, name: string }>} data
-   * @param {{ canvasWidth: number, roadmapText: string, panelBottomTitle: string }} config
+   * @param {{ canvasWidth: number, roadmapText: string, panelBottomTitle: string, videoText: string, articleText: string }} config
    */
   generate(data, config) {
     this.intervalX = 120;
@@ -27,6 +27,8 @@ export class RoadmapGenerator {
     this.rootList = [];
     // right panel config
     this.panelBottomTitle = config.panelBottomTitle;
+    this.videoText = config.videoText;
+    this.articleText = config.articleText;
     // create title
     const roadmapText = config.roadmapText;
     this.roadmapTitle = new Text({
@@ -255,8 +257,16 @@ export class RoadmapGenerator {
 
   setRightPanelData(nodeData) {
     let courses = nodeData.courses || [
-      { id: 1, courseName: 'abcx', courseType: 'video' },
-      { id: 2, courseName: 'abcx', courseType: 'bài viết' },
+      {
+        id: 1,
+        courseName: 'Modern JavaScript for Dinosaurs',
+        courseType: 'video',
+      },
+      {
+        id: 2,
+        courseName: "An Absolute Beginner's Guide to Using npm",
+        courseType: 'article',
+      },
     ];
     this.panelHeading.innerHTML = nodeData.name;
     this.panelBody.innerHTML = nodeData.description;
@@ -264,9 +274,21 @@ export class RoadmapGenerator {
       '<ul class="rm-courses">' +
       courses
         .map((course) => {
+          let backgroundClass = '';
+          let courseTypeName = '';
+          if (course.courseType === 'video') {
+            backgroundClass = 'bg-orange';
+            courseTypeName = this.videoText;
+          } else if (course.courseType === 'article') {
+            backgroundClass = 'bg-purple';
+            courseTypeName = this.articleText;
+          } else {
+          }
           return (
-            '<li class="rm-course"><span class="rm-course-type">' +
-            course.courseType +
+            '<li class="rm-course"><span class="rm-course-type ' +
+            backgroundClass +
+            '">' +
+            courseTypeName +
             '</span>' +
             '<span class="rm-course-name">' +
             course.courseName +

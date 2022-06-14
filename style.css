@@ -67,18 +67,35 @@
   font-size: 18px;
   border-bottom: 1px solid #ccc;
   padding-bottom: 15px;
+  margin-bottom: 15px;
 }
 
 .rm-courses {
   margin: 0;
   padding: 0;
+  list-style: none;
+}
+
+.rm-course {
   display: flex;
   column-gap: 10px;
   align-items: center;
 }
 
-.rm-courses .rm-course-type {
-  padding: 5px;
+.rm-course + .rm-course {
+  margin-top: 10px;
+}
+
+.rm-course .rm-course-type {
+  padding: 3px 5px;
+  font-weight: bold;
+  text-transform: uppercase;
+  font-size: 14px;
+}
+
+.rm-course .rm-course-name {
+  font-size: 14px;
+  font-weight: 550;
 }
 
 .bg-orange {
