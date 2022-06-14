@@ -335,7 +335,7 @@ export class RoadmapGenerator {
   setStatus(nodeData) {
     const icon = this.toggleButtonElement.querySelector('.toggle-btn-icon');
     const text = this.toggleButtonElement.querySelector('.toggle-btn-text');
-    if (nodeData['done']) {
+    if (nodeData['completed']) {
       this.toggleButtonElement.classList.add('completed');
       this.toggleButtonElement.classList.remove('pending');
       text.textContent = this.completedToggleButtonText;
