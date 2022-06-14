@@ -244,14 +244,14 @@ export class RoadmapGenerator {
   }
 
   setRightPanelData(nodeData) {
-    let courses = nodeData.courses || [{ id: 1, courseName: 'abcx' }];
+    // let courses = nodeData.courses || [{ id: 1, courseName: 'abcx' }];
     this.panelHeading.innerHTML = nodeData.name;
-    this.panelBody.innerHTML = nodeData.description;
-    this.panelBody2.innerHTML = courses
-      .map((course) => {
-        return '<li class="rm-course">' + course.name + '</li>';
-      })
-      .join('');
+    // this.panelBody.innerHTML = nodeData.description;
+    // this.panelBody2.innerHTML = courses
+    //   .map((course) => {
+    //     return '<li class="rm-course">' + course.name + '</li>';
+    //   })
+    //   .join('');
   }
 
   showRightPanel(show) {
