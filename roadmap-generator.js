@@ -52,6 +52,13 @@ export class RoadmapGenerator {
       const rootData = data[i];
       rootData.x = this.initialX;
       rootData.y = this.initialY + i * this.initialY;
+      // calc next y-axis
+      if (i > 0) {
+        const previousRoot = this.rootList[i - 1];
+        const currentY = rootData.y;
+        const nextY = Math.max(currentY, previousRoot.maxChildY);
+        rootData.y = currentY + 100;
+      }
       // create root
       const root = new Node(rootData);
       root.createNode(this.p5);
