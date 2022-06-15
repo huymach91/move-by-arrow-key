@@ -62,7 +62,8 @@ export class RoadmapGenerator {
       this.rootList.push(root);
       // draw line from current root to previous root
       if (i > 0) {
-        const lineStart = this.centerPoint(this.rootList[i - 1]);
+        const previousRoot = this.rootList[i - 1];
+        const lineStart = this.centerPoint(previousRoot);
         const lineEnd = this.centerPoint(root);
         const line = new Line(lineStart, lineEnd, { isBezierCurve: true });
         line.createLine(this.p5);
@@ -79,7 +80,6 @@ export class RoadmapGenerator {
 
       root.leafs = [];
       root.maxChildY = root.element.y;
-      console.log(root.maxChildY);
 
       const rootElementWidth = root.getNodeWidth();
       const rootElementHeight = root.getNodeHeight();
@@ -175,6 +175,7 @@ export class RoadmapGenerator {
           });
           currentChildData.elementHeight = leaf.getNodeHeight();
           root.leafs.push(leaf);
+          root.maxChildY = Math.max(leaf.element.y);
           // create line
           const lineStart = {
             x: currentRootData.x + rootElementWidth / 3,
