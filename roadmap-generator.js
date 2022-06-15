@@ -78,6 +78,8 @@ export class RoadmapGenerator {
       root.rightBottomSide = [];
 
       root.leafs = [];
+      root.maxChildY = root.element.y;
+      console.log(root.maxChildY);
 
       const rootElementWidth = root.getNodeWidth();
       const rootElementHeight = root.getNodeHeight();
