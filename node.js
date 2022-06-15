@@ -21,15 +21,9 @@ export class Node {
     this.tickElement.elt.className = 'tick tick-purple material-icons';
     this.tickElement.elt.innerHTML = 'check_circle';
 
-    const elementWidth = this.tickElement.elt.getBoundingClientRect().width;
-    const elementHeight = this.tickElement.elt.getBoundingClientRect().height;
-
-    setTimeout(() => {
-      this.tickElement.position(
-        this.data.x - elementWidth / 3,
-        this.data.y - elementHeight / 3
-      );
-    }, 10);
+    // const elementWidth = this.tickElement.elt.getBoundingClientRect().width;
+    // const elementHeight = this.tickElement.elt.getBoundingClientRect().height;
+    this.tickElement.position(this.data.x - 5, this.data.y - 5);
   }
 
   defaultNodeStyle() {
