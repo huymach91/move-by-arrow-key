@@ -68,8 +68,9 @@ export class RoadmapGenerator {
       });
       this.rootList.push(root);
       // draw line from current root to previous root
+      let previousRoot;
       if (i > 0) {
-        const previousRoot = this.rootList[i - 1];
+        previousRoot = this.rootList[i - 1];
         const lineStart = this.centerPoint(previousRoot);
         const lineEnd = this.centerPoint(root);
         const line = new Line(lineStart, lineEnd, { isBezierCurve: true });
@@ -86,6 +87,7 @@ export class RoadmapGenerator {
       root.rightBottomSide = [];
 
       root.leafs = [];
+
       root.maxChildY = root.element.y;
 
       const rootElementWidth = root.getNodeWidth();
@@ -93,12 +95,18 @@ export class RoadmapGenerator {
 
       preorderTraversal(
         rootData,
-        (currentRootData, currentChildData, currentChildIndex) => {
+        previousRoot,
+        (
+          currentRootData,
+          previousCurrentRoot,
+          currentChildData,
+          currentChildIndex
+        ) => {
           const isFirstLevel =
             root.data.name === currentRootData.name ? true : false;
           const isLeft = currentChildIndex % 2 !== 0 ? true : false;
           currentChildData.isLeft = isLeft;
-          // currentChildData.x = isLeft ? currentRootData.x - rootElementWidth - 50 : currentRootData.x + rootElementWidth + 50;
+
           const childLength = currentChildData.name.length * 6;
           let leftX = currentRootData.x - rootElementWidth - this.intervalX;
           const rightX = currentRootData.x + rootElementWidth + this.intervalX;
@@ -118,7 +126,6 @@ export class RoadmapGenerator {
           // calc y-axis
           if (isFirstLevel) {
             if (isLeft) {
-              const previousLeaf = root.leftSide[root.leftSide.length - 1];
               root.leftSide.push(currentChildData);
               currentChildData.y =
                 currentRootData.y +
@@ -130,8 +137,23 @@ export class RoadmapGenerator {
                 (root.rightSide.length - 1) * this.spaceBetweenY;
             }
           } else {
-            currentChildData.y =
+            let childY =
               currentRootData.y + currentChildIndex * this.spaceBetweenY;
+
+            // if (i > 0) {
+            //   const previousRoot = this.rootList[i - 1];
+            //   let length;
+            //   if (isLeft) {
+            //     length = previousRoot.leftSide.length;
+            //   } else {
+            //     length = previousRoot.rightSide.length;
+            //   }
+            //   childY =
+            //     currentRootData.y +
+            //     (currentChildIndex + length) * this.spaceBetweenY;
+            // }
+            currentChildData.y = childY;
+
             // if (isLeft) {
             //   // const previousLeaf = root.leftSide[root.leftSide.length - 1];
             //   // root.leftSide.push(currentChildData);
@@ -206,6 +228,14 @@ export class RoadmapGenerator {
     );
     // this.afterViewInit.dispatchEvent(this.afterViewInit);
     this.createRightPanel();
+  }
+
+  findMaxY(nodes) {
+    return Math.max(...nodes.map((n) => n.y));
+  }
+
+  findMaxX(nodes) {
+    return Math.max(...nodes.map((n) => n.x));
   }
 
   centerPoint(node) {

@@ -15,7 +15,7 @@ export class Line {
       p5.bezierVertex(
         this.start.x,
         this.start.y,
-        this.start.x + 20,
+        this.start.x + 10,
         this.start.y + 60,
         this.end.x,
         this.end.y
