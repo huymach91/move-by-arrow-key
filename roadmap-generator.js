@@ -68,9 +68,8 @@ export class RoadmapGenerator {
       });
       this.rootList.push(root);
       // draw line from current root to previous root
-      let previousRoot;
       if (i > 0) {
-        previousRoot = this.rootList[i - 1];
+        const previousRoot = this.rootList[i - 1];
         const lineStart = this.centerPoint(previousRoot);
         const lineEnd = this.centerPoint(root);
         const line = new Line(lineStart, lineEnd, { isBezierCurve: true });
@@ -96,12 +95,7 @@ export class RoadmapGenerator {
       preorderTraversal(
         rootData,
         previousRoot,
-        (
-          currentRootData,
-          previousCurrentRoot,
-          currentChildData,
-          currentChildIndex
-        ) => {
+        (currentRootData, currentChildData, currentChildIndex) => {
           const isFirstLevel =
             root.data.name === currentRootData.name ? true : false;
           const isLeft = currentChildIndex % 2 !== 0 ? true : false;
