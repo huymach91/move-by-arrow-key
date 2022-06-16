@@ -177,8 +177,9 @@ export class RoadmapGenerator {
           const leaf = new Node(currentChildData);
           leaf.createNode(this.p5);
           leaf.setBackgroundColor('#ffe599');
-          leaf.defaultEvents(() => {
+          leaf.defaultEvents((event) => {
             this.showRightPanel(true);
+            this.setRightPanelData(event.data);
           });
           currentChildData.elementHeight = leaf.getNodeHeight();
           root.leafs.push(leaf);
@@ -290,7 +291,7 @@ export class RoadmapGenerator {
       },
     ];
     this.panelHeading.innerHTML = nodeData.name;
-    this.panelBody.innerHTML = nodeData.description;
+    this.panelBody.innerHTML = nodeData['description'] || '';
     this.panelBottomBody.innerHTML =
       '<ul class="rm-courses">' +
       courses
