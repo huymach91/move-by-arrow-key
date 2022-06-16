@@ -94,7 +94,6 @@ export class RoadmapGenerator {
 
       preorderTraversal(
         rootData,
-        previousRoot,
         (currentRootData, currentChildData, currentChildIndex) => {
           const isFirstLevel =
             root.data.name === currentRootData.name ? true : false;
@@ -224,13 +223,12 @@ export class RoadmapGenerator {
     this.createRightPanel();
   }
 
-  findMaxY(nodes) {
-    return Math.max(...nodes.map((n) => n.y));
-  }
-
-  findMaxX(nodes) {
-    return Math.max(...nodes.map((n) => n.x));
-  }
+  // updateYIfOverlap(nodeA, nodeB) {
+  //   const nodeCenterA = this.p5.createVector(nodeA.x, nodeA.y);
+  //   const nodeCenterB = this.p5.createVector(nodeB.x, nodeB.y);
+  //   const vector = center.copy().sub(mouse);
+  //   const overlap = vector.mag() - (d1/2 + d2/2);
+  // }
 
   centerPoint(node) {
     return {
