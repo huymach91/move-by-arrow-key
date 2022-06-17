@@ -1,6 +1,6 @@
 export class Node {
   /**
-   * create a node
+   * constructor
    * @param {object} data - data is an object json
    * { id: name, name: string, x: number, y: number }
    */

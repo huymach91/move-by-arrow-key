@@ -6,7 +6,7 @@ export class Line {
   }
 
   createLine(p5) {
-    p5.strokeWeight(3);
+    p5.strokeWeight(2);
     p5.stroke('#2b78e4');
     if (this.optional.isBezierCurve) {
       p5.noFill();
