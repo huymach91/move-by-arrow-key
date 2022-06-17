@@ -58,7 +58,7 @@ export class RoadmapGenerator {
         const previousRoot = this.rootList[i - 1];
         const currentY = rootData.y;
         const nextY = Math.max(currentY, previousRoot.maxChildY);
-        rootData.y = currentY + 100;
+        rootData.y = nextY + 100;
       }
       // create root
       const root = new Node(rootData);
@@ -199,7 +199,7 @@ export class RoadmapGenerator {
           });
           currentChildData.elementHeight = leaf.getNodeHeight();
           root.leafs.push(leaf);
-          root.maxChildY = Math.max(leaf.element.y);
+          root.maxChildY = Math.max(root.maxChildY, currentChildData.y);
           // create line
           const lineStart = {
             x: currentRootData.x + rootElementWidth / 3,
