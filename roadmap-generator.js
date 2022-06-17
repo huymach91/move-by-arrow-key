@@ -90,8 +90,8 @@ export class RoadmapGenerator {
 
       root.maxChildY = root.element.y;
 
-      let rootElementWidth;
-      let rootElementHeight;
+      let rootElementWidth = root.getNodeWidth();
+      let rootElementHeight = root.getNodeHeight();
 
       preorderTraversal(
         rootData,
@@ -100,14 +100,10 @@ export class RoadmapGenerator {
           if (currentChildIndex === 0) {
             const rootFrom2nd = new Node(currentRootData);
             rootFrom2nd.createNode(this.p5);
-            rootFrom2nd.setBackgroundColor('#ffe599');
+            rootFrom2nd.setBackgroundColor('red');
+            // console.log(rootFrom2nd.data.name);
             rootElementWidth = rootFrom2nd.getNodeWidth();
             rootElementHeight = rootFrom2nd.getNodeHeight();
-            console.log(
-              currentRootData.name,
-              rootElementWidth,
-              rootElementHeight
-            );
             rootFrom2nd.selfDestroy();
           }
 
@@ -117,8 +113,8 @@ export class RoadmapGenerator {
           currentChildData.isLeft = isLeft;
 
           const childLength = currentChildData.name.length * 6;
-          let leftX = currentRootData.x - rootElementWidth - this.intervalX;
-          const rightX = currentRootData.x + rootElementWidth + this.intervalX;
+          let leftX = currentRootData.x - rootElementWidth / 2 - this.intervalX;
+          const rightX = currentRootData.x + rootElementHeight + this.intervalX;
           // calc x-axis
           if (isLeft) {
             leftX -= childLength;
@@ -217,8 +213,8 @@ export class RoadmapGenerator {
           root.maxChildY = Math.max(root.maxChildY, currentChildData.y);
           // create line
           const lineStart = {
-            x: currentRootData.x + rootElementWidth / 2,
-            y: currentRootData.y + rootElementHeight / 2,
+            x: currentRootData.x + 50,
+            y: currentRootData.y + 10,
           };
           const lineEnd = {
             x: currentChildData.x + leaf.getNodeWidth() / 2,
