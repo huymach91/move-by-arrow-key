@@ -5,7 +5,7 @@ import rawData from './sample-data.json';
 import { RoadmapGenerator } from './roadmap-generator';
 
 var size = {
-  width: window.innerWidth,
+  width: 3000,
   height: 2500,
 };
 
@@ -17,6 +17,7 @@ const sketch = (p) => {
     let samples2 = rawData['samples2'];
 
     const roadmapGenerator = new RoadmapGenerator(p);
+    // roadmapGenerator.dagreVersion(samples2);
     roadmapGenerator.generate(samples2, {
       canvasWidth: innerWidth,
       roadmapText: 'Back-end',

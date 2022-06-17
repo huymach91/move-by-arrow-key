@@ -62,6 +62,11 @@ export class Node {
     this.element.style('background-color', bacjgroundColor);
   }
 
+  setSize(width, height) {
+    this.element.style('width', width);
+    this.element.style('height', height);
+  }
+
   colorizeTick(color) {
     switch (color) {
       case 'purple':

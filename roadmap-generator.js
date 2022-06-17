@@ -2,6 +2,7 @@ import { Node } from './node';
 import { Line } from './line';
 import { Text } from './text';
 import { preorderTraversal } from './helper';
+import { GraphLayout } from './dagre-helper';
 
 import './style.css';
 
@@ -221,6 +222,14 @@ export class RoadmapGenerator {
     );
     // this.afterViewInit.dispatchEvent(this.afterViewInit);
     this.createRightPanel();
+  }
+
+  dagreVersion(data, config) {
+    const g = new GraphLayout({
+      name: 'Front-end',
+      children: data,
+    });
+    g.createGraph(this.p5);
   }
 
   // updateYIfOverlap(nodeA, nodeB) {
