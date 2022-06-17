@@ -90,12 +90,27 @@ export class RoadmapGenerator {
 
       root.maxChildY = root.element.y;
 
-      const rootElementWidth = root.getNodeWidth();
-      const rootElementHeight = root.getNodeHeight();
+      let rootElementWidth;
+      let rootElementHeight;
 
       preorderTraversal(
         rootData,
         (currentRootData, currentChildData, currentChildIndex) => {
+          // root start from 2nd
+          if (currentChildIndex === 0) {
+            const rootFrom2nd = new Node(currentRootData);
+            rootFrom2nd.createNode(this.p5);
+            rootFrom2nd.setBackgroundColor('#ffe599');
+            rootElementWidth = rootFrom2nd.getNodeWidth();
+            rootElementHeight = rootFrom2nd.getNodeHeight();
+            console.log(
+              currentRootData.name,
+              rootElementWidth,
+              rootElementHeight
+            );
+            rootFrom2nd.selfDestroy();
+          }
+
           const isFirstLevel =
             root.data.name === currentRootData.name ? true : false;
           const isLeft = currentChildIndex % 2 !== 0 ? true : false;
@@ -202,11 +217,11 @@ export class RoadmapGenerator {
           root.maxChildY = Math.max(root.maxChildY, currentChildData.y);
           // create line
           const lineStart = {
-            x: currentRootData.x + rootElementWidth / 3,
+            x: currentRootData.x + rootElementWidth / 2,
             y: currentRootData.y + rootElementHeight / 2,
           };
           const lineEnd = {
-            x: currentChildData.x + leaf.getNodeWidth() / 3,
+            x: currentChildData.x + leaf.getNodeWidth() / 2,
             y: currentChildData.y + leaf.getNodeHeight() / 2,
           };
           const line = new Line(lineStart, lineEnd);
