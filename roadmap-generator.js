@@ -70,31 +70,21 @@ export class RoadmapGenerator {
         this.showRightPanel(true);
         this.setRightPanelData(event.data);
       });
-      this.rootList.push(root);
+      this.rootList.push(rootData);
       // draw line from current root to previous root
       if (i > 0) {
         const previousRoot = this.rootList[i - 1];
         const lineStart = this.centerPoint(previousRoot);
-        const lineEnd = this.centerPoint(root);
+        const lineEnd = this.centerPoint(rootData);
         const line = new Line(lineStart, lineEnd, { isBezierCurve: true });
         line.createLine(this.p5);
       }
       // draw leaf
       root.leftSide = [];
       root.rightSide = [];
-
-      root.leftTopSide = [];
-      root.leftBottomSide = [];
-
-      root.rightTopSide = [];
-      root.rightBottomSide = [];
-
       root.leafs = [];
 
-      root.maxChildY = root.element.y;
-
-      let rootElementWidth = root.getNodeWidth();
-      let rootElementHeight = root.getNodeHeight();
+      rootData.maxChildY = root.element.y;
 
       rootData.width = root.getNodeWidth();
       rootData.height = root.getNodeHeight();
@@ -104,19 +94,13 @@ export class RoadmapGenerator {
         (currentRootData, currentChildData, currentChildIndex) => {
           // console.log(currentChildData.name, currentChildData.level);
           // root start from 2nd
-          if (currentChildIndex === 0) {
-            const rootFrom2nd = new Node(currentRootData);
-            rootFrom2nd.createNode(this.p5);
-            rootFrom2nd.setBackgroundColor('red');
-            // console.log(rootFrom2nd.data.name);
-            rootElementWidth = rootFrom2nd.getNodeWidth();
-            rootElementHeight = rootFrom2nd.getNodeHeight();
-            rootFrom2nd.selfDestroy();
-          }
-
           const isFirstLevel =
             root.data.name === currentRootData.name ? true : false;
-          const isLeft = currentChildIndex % 2 !== 0 ? true : false;
+          const isLeft = isFirstLevel
+            ? currentChildIndex % 2 !== 0
+              ? true
+              : false
+            : currentRootData.isLeft;
           currentChildData.isLeft = isLeft;
 
           const childLength = currentChildData.name.length * 6;
@@ -128,15 +112,21 @@ export class RoadmapGenerator {
           // calc x-axis
           if (isLeft) {
             leftX -= childLength;
-          }
-          if (isFirstLevel) {
-            currentChildData.x = isLeft ? leftX : rightX;
+            currentChildData.x = leftX;
           } else {
-            if (currentRootData.isLeft) {
-              currentChildData.x = leftX;
-            } else {
-              currentChildData.x = rightX;
-            }
+            currentChildData.x = rightX;
+          }
+
+          // add to left, right columns
+          const childLevel = currentChildData.level;
+          if (isLeft) {
+            const leftColumn = this.leftColumn[childLevel] || [];
+            leftColumn.push(currentChildData);
+            this.leftColumn[childLevel] = leftColumn;
+          } else {
+            const rightColumn = this.rightColumn[childLevel] || [];
+            rightColumn.push(currentChildData);
+            this.rightColumn[childLevel] = rightColumn;
           }
 
           // calc y-axis
@@ -155,61 +145,24 @@ export class RoadmapGenerator {
           } else {
             let childY =
               currentRootData.y + currentChildIndex * this.spaceBetweenY;
-
-            // if (i > 0) {
-            //   const previousRoot = this.rootList[i - 1];
-            //   let length;
-            //   if (isLeft) {
-            //     length = previousRoot.leftSide.length;
-            //   } else {
-            //     length = previousRoot.rightSide.length;
-            //   }
-            //   childY =
-            //     currentRootData.y +
-            //     (currentChildIndex + length) * this.spaceBetweenY;
-            // }
             currentChildData.y = childY;
-
-            // if (isLeft) {
-            //   // const previousLeaf = root.leftSide[root.leftSide.length - 1];
-            //   // root.leftSide.push(currentChildData);
-            //   const isTop =
-            //     root.leftTopSide.length < root.leftBottomSide.length
-            //       ? true
-            //       : false;
-            //   if (isTop) {
-            //     root.leftTopSide.push(currentChildData);
-            //     currentChildData.y =
-            //       currentRootData.y -
-            //       (root.leftTopSide.length - 1) * this.spaceBetweenY;
-            //   } else {
-            //     root.leftBottomSide.push(currentChildData);
-            //     currentChildData.y =
-            //       currentRootData.y +
-            //       (root.leftTopSide.length - 1) * this.spaceBetweenY;
-            //   }
-            // } else {
-            //   const isTop =
-            //     root.rightTopSide.length < root.rightBottomSide.length
-            //       ? true
-            //       : false;
-            //   if (isTop) {
-            //     root.rightTopSide.push(currentChildData);
-            //     const lastIndex = root.rightTopSide.length;
-            //     currentChildData.y =
-            //       currentRootData.y - lastIndex * this.spaceBetweenY;
-            //   } else {
-            //     root.rightBottomSide.push(currentChildData);
-            //     const lastIndex = root.rightBottomSide.length;
-            //     currentChildData.y =
-            //       currentRootData.y + lastIndex * this.spaceBetweenY;
-            //   }
-            //   // root.rightSide.push(currentChildData);
-            //   // currentChildData.y =
-            //   //   currentRootData.y +
-            //   //   (root.rightSide.length - 1) * this.spaceBetweenY;
-            // }
+            // console.log(
+            //   currentRootData.maxChildY,
+            //   currentRootData.name,
+            //   currentChildData.name
+            // );
+            const rootLevel = currentRootData.level;
+            if (isLeft) {
+            } else {
+              const aboveItems = this.rightColumn[rootLevel];
+              const aboveItem =
+                aboveItems.length > 1
+                  ? aboveItems[aboveItems.length - 2]
+                  : null;
+              console.log(aboveItem);
+            }
           }
+          // console.log(currentRootData.maxChildY);
 
           // create leaf node
           const leaf = new Node(currentChildData);
@@ -224,21 +177,14 @@ export class RoadmapGenerator {
           currentChildData.height = leaf.getNodeHeight();
 
           root.leafs.push(leaf);
-          root.maxChildY = Math.max(root.maxChildY, currentChildData.y);
-          // add leaf to leftColumn, rightColumn (tree level)
-          if (!isFirstLevel) {
-            // const childLevel = childDepth['level'];
-            // console.log('childLevel', childLevel, currentChildData.name);
-            // if (currentRootData.isLeft) {
-            //   // const leftColumn = this.leftColumn[childLevel] || [];
-            //   // leftColumn.push(currentChildData);
-            //   // this.leftColumn[childLevel] = leftColumn;
-            // } else {
-            //   // const rightColumn = this.rightColumn[childLevel] || [];
-            //   // rightColumn.push(currentChildData);
-            //   // this.rightColumn[childLevel] = rightColumn;
-            // }
-          }
+          currentRootData.maxChildY = currentRootData.maxChildY
+            ? currentRootData.maxChildY
+            : currentRootData.y;
+          currentRootData.maxChildY = Math.max(
+            currentRootData.maxChildY,
+            currentChildData.y
+          );
+          // console.log(currentRootData.maxChildY);
 
           // create line
           const lineStart = {
@@ -254,7 +200,7 @@ export class RoadmapGenerator {
         }
       );
     }
-    // console.log('maxHeightCanvas', this.p5, this.maxHeightCanvas);
+
     document.dispatchEvent(
       new CustomEvent('afterCanvasInit', {
         detail: { maxHeightCanvas: this.maxHeightCanvas },
@@ -281,8 +227,8 @@ export class RoadmapGenerator {
 
   centerPoint(node) {
     return {
-      x: node.data.x + node.getNodeWidth() / 2,
-      y: node.data.y + node.getNodeHeight() / 2,
+      x: node.x + node.width / 2,
+      y: node.y + node.height / 2,
     };
   }
 
