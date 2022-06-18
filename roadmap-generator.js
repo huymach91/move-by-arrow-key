@@ -76,6 +76,7 @@ export class RoadmapGenerator {
         const previousRoot = this.rootList[i - 1];
         const lineStart = this.centerPoint(previousRoot);
         const lineEnd = this.centerPoint(rootData);
+        console.log(lineEnd);
         const line = new Line(lineStart, lineEnd, { isBezierCurve: true });
         line.createLine(this.p5);
       }
