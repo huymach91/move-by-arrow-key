@@ -55,6 +55,7 @@ export class RoadmapGenerator {
       const rootData = data[i];
       rootData.x = this.initialX;
       rootData.y = this.initialY + i * this.initialY;
+      rootData.level = 0;
       // calc next y-axis
       if (i > 0) {
         const previousRoot = this.rootList[i - 1];
@@ -95,12 +96,13 @@ export class RoadmapGenerator {
       let rootElementWidth = root.getNodeWidth();
       let rootElementHeight = root.getNodeHeight();
 
-      const childDepth = { level: 0 };
+      rootData.width = root.getNodeWidth();
+      rootData.height = root.getNodeHeight();
 
       preorderTraversal(
         rootData,
         (currentRootData, currentChildData, currentChildIndex) => {
-          console.log(currentChildData.name, childDepth);
+          // console.log(currentChildData.name, currentChildData.level);
           // root start from 2nd
           if (currentChildIndex === 0) {
             const rootFrom2nd = new Node(currentRootData);
@@ -118,8 +120,11 @@ export class RoadmapGenerator {
           currentChildData.isLeft = isLeft;
 
           const childLength = currentChildData.name.length * 6;
-          let leftX = currentRootData.x - rootElementWidth / 2 - this.intervalX;
-          const rightX = currentRootData.x + rootElementHeight + this.intervalX;
+          let leftX =
+            currentRootData.x - currentRootData.width / 2 - this.intervalX;
+          const rightX =
+            currentRootData.x + currentRootData.width + this.intervalX;
+
           // calc x-axis
           if (isLeft) {
             leftX -= childLength;
@@ -133,6 +138,7 @@ export class RoadmapGenerator {
               currentChildData.x = rightX;
             }
           }
+
           // calc y-axis
           if (isFirstLevel) {
             if (isLeft) {
@@ -213,22 +219,39 @@ export class RoadmapGenerator {
             this.showRightPanel(true);
             this.setRightPanelData(event.data);
           });
-          currentChildData.elementHeight = leaf.getNodeHeight();
+
+          currentChildData.width = leaf.getNodeWidth();
+          currentChildData.height = leaf.getNodeHeight();
+
           root.leafs.push(leaf);
           root.maxChildY = Math.max(root.maxChildY, currentChildData.y);
+          // add leaf to leftColumn, rightColumn (tree level)
+          if (!isFirstLevel) {
+            // const childLevel = childDepth['level'];
+            // console.log('childLevel', childLevel, currentChildData.name);
+            // if (currentRootData.isLeft) {
+            //   // const leftColumn = this.leftColumn[childLevel] || [];
+            //   // leftColumn.push(currentChildData);
+            //   // this.leftColumn[childLevel] = leftColumn;
+            // } else {
+            //   // const rightColumn = this.rightColumn[childLevel] || [];
+            //   // rightColumn.push(currentChildData);
+            //   // this.rightColumn[childLevel] = rightColumn;
+            // }
+          }
+
           // create line
           const lineStart = {
-            x: currentRootData.x + 50,
-            y: currentRootData.y + 10,
+            x: currentRootData.x + currentRootData.width / 3,
+            y: currentRootData.y + 5,
           };
           const lineEnd = {
-            x: currentChildData.x + leaf.getNodeWidth() / 2,
-            y: currentChildData.y + leaf.getNodeHeight() / 2,
+            x: currentChildData.x + currentChildData.width / 2,
+            y: currentChildData.y + currentChildData.height / 2,
           };
           const line = new Line(lineStart, lineEnd);
           line.createLine(this.p5);
-        },
-        childDepth
+        }
       );
     }
     // console.log('maxHeightCanvas', this.p5, this.maxHeightCanvas);

@@ -58,7 +58,12 @@
           "children": [
             {
               "id": 1,
-              "name": "asdac asd asd as das d",
+              "name": "asdac asd asd as das d 1",
+              "children": []
+            },
+            {
+              "id": 1,
+              "name": "asdac asd asd as das d 2",
               "children": []
             }
           ]

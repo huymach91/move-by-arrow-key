@@ -50,13 +50,15 @@ function levelOrderTraversal(root) {
  * @summary preorderTraversal
  * @node { id: number, name: string, children: [] }
  */
-export function preorderTraversal(root, fn, childDepth) {
+export function preorderTraversal(root, fn) {
   const children = root.children || [];
-  if (!children.length) childDepth['level'] = 0;
-  childDepth['level']++;
+
+  // childDepth['level']++;
+
   for (let i = 0; i < children.length; i++) {
     const child = children[i];
+    child.level = root.level + 1;
     fn(root, child, i); // do other thing
-    preorderTraversal(children[i], fn, childDepth);
+    preorderTraversal(children[i], fn);
   }
 }
