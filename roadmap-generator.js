@@ -33,6 +33,8 @@ export class RoadmapGenerator {
     this.maxHeightCanvas = this.initialY * data.length;
     this.spaceBetweenY = 50;
     this.rootList = [];
+    this.leftColumn = {};
+    this.rightColumn = {};
     // right panel config
     this.panelBottomTitle = config.panelBottomTitle;
     this.videoText = config.videoText;
@@ -93,9 +95,12 @@ export class RoadmapGenerator {
       let rootElementWidth = root.getNodeWidth();
       let rootElementHeight = root.getNodeHeight();
 
+      const childDepth = { level: 0 };
+
       preorderTraversal(
         rootData,
         (currentRootData, currentChildData, currentChildIndex) => {
+          console.log(currentChildData.name, childDepth);
           // root start from 2nd
           if (currentChildIndex === 0) {
             const rootFrom2nd = new Node(currentRootData);
@@ -222,7 +227,8 @@ export class RoadmapGenerator {
           };
           const line = new Line(lineStart, lineEnd);
           line.createLine(this.p5);
-        }
+        },
+        childDepth
       );
     }
     // console.log('maxHeightCanvas', this.p5, this.maxHeightCanvas);
