@@ -136,9 +136,11 @@ export class RoadmapGenerator {
           if (isFirstLevel) {
             if (isLeft) {
               root.leftSide.push(currentChildData);
-              currentChildData.y =
-                currentRootData.y +
-                (root.leftSide.length - 1) * this.spaceBetweenY;
+              const maxLeftChildY =
+                currentChildIndex === 0
+                  ? currentRootData.maxLeftChildY
+                  : currentRootData.maxLeftChildY + this.spaceBetweenY;
+              currentChildData.y = maxLeftChildY;
             } else {
               root.rightSide.push(currentChildData);
               const maxRightChildY =
@@ -184,10 +186,11 @@ export class RoadmapGenerator {
 
           if (isLeft) {
             currentRootData.maxLeftChildY = Math.max(
-              currentRootData.maxRightChildY,
+              currentRootData.maxLeftChildY,
               currentChildData.y
             );
             currentChildData.maxLeftChildY = currentChildData.y;
+            rootData.maxLeftChildY = currentRootData.maxLeftChildY;
           } else {
             currentRootData.maxRightChildY = Math.max(
               currentRootData.maxRightChildY,
@@ -196,19 +199,12 @@ export class RoadmapGenerator {
             currentChildData.maxRightChildY = currentChildData.y;
             rootData.maxRightChildY = currentRootData.maxRightChildY;
           }
-
-          console.log(
-            '333',
-            currentRootData.name,
-            currentChildData.name,
-            currentRootData.maxRightChildY
-          );
-
           // find max y
 
           rootData.maxChildY = Math.max(
             rootData.maxChildY,
             rootData.maxRightChildY,
+            rootData.maxLeftChildY,
             currentChildData.y
           );
 
