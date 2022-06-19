@@ -76,32 +76,29 @@
         {
           "id": 4,
           "name": "The Domain Name System (DNS)",
-          "children": []
+          "children": [
+            {
+              "name": "what is DNS"
+            },
+            {
+              "name": "DNS structure"
+            },
+            {
+              "name": "DNS server types"
+            }
+          ]
         },
         {
           "id": 4,
           "name": "What is hosting?",
-          "children": []
-        },
-        {
-          "id": 5,
-          "name": "What is hosting?",
-          "children": []
-        },
-        {
-          "id": 6,
-          "name": "What is hosting? 12",
-          "children": []
-        },
-        {
-          "id": 7,
-          "name": "What is hosting? 4545",
-          "children": []
-        },
-        {
-          "id": 7,
-          "name": "What is hosting? 123 123123 123 123 123123 123",
-          "children": []
+          "children": [
+            {
+              "name": "Shared hosting"
+            },
+            {
+              "name": "virtual private server (VPS)"
+            }
+          ]
         }
       ]
     },
