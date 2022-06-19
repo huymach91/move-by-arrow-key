@@ -61,7 +61,7 @@ export class RoadmapGenerator {
         const previousRoot = this.rootList[i - 1];
         const currentY = rootData.y;
         const nextY = Math.max(currentY, previousRoot.maxChildY);
-        rootData.y = nextY + 100;
+        rootData.y = nextY + 50;
         rootData.previousNode = previousRoot;
       }
       // create root
@@ -141,11 +141,22 @@ export class RoadmapGenerator {
                 (root.leftSide.length - 1) * this.spaceBetweenY;
             } else {
               root.rightSide.push(currentChildData);
+              console.log(
+                'first level',
+                currentRootData.name,
+                currentChildData.name,
+                currentRootData.maxRightChildY
+              );
               currentChildData.y =
-                currentRootData.y +
-                (root.rightSide.length - 1) * this.spaceBetweenY;
+                currentRootData.maxRightChildY + this.spaceBetweenY;
             }
           } else {
+            console.log(
+              'seconds',
+              currentRootData.name,
+              currentChildData.name,
+              currentRootData.maxRightChildY
+            );
             let childY =
               currentRootData.y + currentChildIndex * this.spaceBetweenY;
             currentChildData.y = childY;
@@ -186,12 +197,21 @@ export class RoadmapGenerator {
               currentChildData.y
             );
             currentChildData.maxRightChildY = currentChildData.y;
+            rootData.maxRightChildY = currentRootData.maxRightChildY;
           }
+
+          console.log(
+            '333',
+            currentRootData.name,
+            currentChildData.name,
+            currentRootData.maxRightChildY
+          );
 
           // find max y
 
-          currentRootData.maxChildY = Math.max(
+          rootData.maxChildY = Math.max(
             rootData.maxChildY,
+            rootData.maxRightChildY,
             currentChildData.y
           );
 
