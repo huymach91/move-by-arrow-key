@@ -62,6 +62,7 @@ export class RoadmapGenerator {
         const currentY = rootData.y;
         const nextY = Math.max(currentY, previousRoot.maxChildY);
         rootData.y = nextY + 100;
+        rootData.previousNode = previousRoot;
       }
       // create root
       const root = new Node(rootData);
@@ -73,6 +74,8 @@ export class RoadmapGenerator {
       this.rootList.push(rootData);
 
       rootData.maxChildY = root.element.y;
+      rootData.maxLeftChildY = root.element.y;
+      rootData.maxRightChildY = root.element.y;
       rootData.width = root.getNodeWidth();
       rootData.height = root.getNodeHeight();
 
@@ -88,10 +91,6 @@ export class RoadmapGenerator {
       root.leftSide = [];
       root.rightSide = [];
       root.leafs = [];
-
-      rootData.maxChildY = root.element.y;
-      rootData.width = root.getNodeWidth();
-      rootData.height = root.getNodeHeight();
 
       preorderTraversal(
         rootData,
@@ -150,23 +149,16 @@ export class RoadmapGenerator {
             let childY =
               currentRootData.y + currentChildIndex * this.spaceBetweenY;
             currentChildData.y = childY;
-            // console.log(
-            //   currentRootData.maxChildY,
-            //   currentRootData.name,
-            //   currentChildData.name
-            // );
-            const rootLevel = currentRootData.level;
-            if (isLeft) {
-            } else {
-              const aboveItems = this.rightColumn[rootLevel];
-              const aboveItem =
-                aboveItems.length > 1
-                  ? aboveItems[aboveItems.length - 2]
-                  : null;
-              console.log(aboveItem);
+
+            if (!isLeft) {
+              // console.log(
+              //   currentRootData.name,
+              //   currentChildData.name,
+              //   y,
+              //   childY
+              // );
             }
           }
-          // console.log(currentRootData.maxChildY);
 
           // create leaf node
           const leaf = new Node(currentChildData);
@@ -181,14 +173,27 @@ export class RoadmapGenerator {
           currentChildData.height = leaf.getNodeHeight();
 
           root.leafs.push(leaf);
-          currentRootData.maxChildY = currentRootData.maxChildY
-            ? currentRootData.maxChildY
-            : currentRootData.y;
+
+          if (isLeft) {
+            currentRootData.maxLeftChildY = Math.max(
+              currentRootData.maxRightChildY,
+              currentChildData.y
+            );
+            currentChildData.maxLeftChildY = currentChildData.y;
+          } else {
+            currentRootData.maxRightChildY = Math.max(
+              currentRootData.maxRightChildY,
+              currentChildData.y
+            );
+            currentChildData.maxRightChildY = currentChildData.y;
+          }
+
+          // find max y
+
           currentRootData.maxChildY = Math.max(
-            currentRootData.maxChildY,
+            rootData.maxChildY,
             currentChildData.y
           );
-          // console.log(currentRootData.maxChildY);
 
           // create line
           const lineStart = {
