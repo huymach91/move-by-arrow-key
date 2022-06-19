@@ -61,7 +61,7 @@ export class RoadmapGenerator {
         const previousRoot = this.rootList[i - 1];
         const currentY = rootData.y;
         const nextY = Math.max(currentY, previousRoot.maxChildY);
-        rootData.y = nextY + 50;
+        rootData.y = nextY + 70;
         rootData.previousNode = previousRoot;
       }
       // create root
