@@ -5,7 +5,7 @@ import rawData from './sample-data.json';
 import { RoadmapGenerator } from './roadmap-generator';
 
 var size = {
-  width: 3000,
+  width: 4000,
   height: 2500,
 };
 
