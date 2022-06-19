@@ -129,7 +129,11 @@
             {
               "id": 10,
               "name": "Float, grid, flexbox, positioning, display and box model ",
-              "children": []
+              "children": [
+                {
+                  "name": "Lorem ipsum, or lipsum as it is som"
+                }
+              ]
             }
           ]
         },
