@@ -137,7 +137,7 @@ export class RoadmapGenerator {
             if (isLeft) {
               root.leftSide.push(currentChildData);
               const maxLeftChildY =
-                currentChildIndex === 0
+                currentChildIndex === 1
                   ? currentRootData.maxLeftChildY
                   : currentRootData.maxLeftChildY + this.spaceBetweenY;
               currentChildData.y = maxLeftChildY;
