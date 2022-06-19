@@ -141,14 +141,11 @@ export class RoadmapGenerator {
                 (root.leftSide.length - 1) * this.spaceBetweenY;
             } else {
               root.rightSide.push(currentChildData);
-              console.log(
-                'first level',
-                currentRootData.name,
-                currentChildData.name,
-                currentRootData.maxRightChildY
-              );
-              currentChildData.y =
-                currentRootData.maxRightChildY + this.spaceBetweenY;
+              const maxRightChildY =
+                currentChildIndex === 0
+                  ? currentRootData.maxRightChildY
+                  : currentRootData.maxRightChildY + this.spaceBetweenY;
+              currentChildData.y = maxRightChildY;
             }
           } else {
             console.log(
