@@ -2,12 +2,15 @@ export class Line {
   constructor(start, end, optional) {
     this.start = start;
     this.end = end;
-    this.optional = optional || { isBezierCurve: false };
+    this.optional = optional || { isBezierCurve: false, style: 'solid' };
   }
 
   createLine(p5) {
     p5.strokeWeight(2);
     p5.stroke('#2b78e4');
+    if (this.optional.style === 'dotted') {
+      p5.drawingContext.setLineDash([5, 15]);
+    }
     if (this.optional.isBezierCurve) {
       p5.noFill();
       p5.beginShape();
