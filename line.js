@@ -9,7 +9,9 @@ export class Line {
     p5.strokeWeight(2);
     p5.stroke('#2b78e4');
     if (this.optional.style === 'dotted') {
-      p5.drawingContext.setLineDash([5, 15]);
+      p5.drawingContext.beginPath();
+      p5.drawingContext.setLineDash([5, 10]);
+      p5.drawingContext.closePath();
     }
     if (this.optional.isBezierCurve) {
       p5.noFill();

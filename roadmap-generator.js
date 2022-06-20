@@ -217,7 +217,7 @@ export class RoadmapGenerator {
             x: currentChildData.x + currentChildData.width / 2,
             y: currentChildData.y + currentChildData.height / 2,
           };
-          const line = new Line(lineStart, lineEnd);
+          const line = new Line(lineStart, lineEnd, { style: 'dotted' });
           line.createLine(this.p5);
         }
       );
