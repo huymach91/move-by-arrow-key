@@ -5,8 +5,8 @@ import rawData from './sample-data.json';
 import { RoadmapGenerator } from './roadmap-generator';
 
 var size = {
-  width: 4000,
-  height: 2500,
+  width: 2000,
+  height: 2000,
 };
 
 const sketch = (p) => {
