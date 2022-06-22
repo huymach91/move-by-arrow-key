@@ -20,7 +20,7 @@ const sketch = (p) => {
     // roadmapGenerator.dagreVersion(samples2);
     roadmapGenerator.generate(samples2, {
       canvasWidth: innerWidth,
-      roadmapText: 'Back-end',
+      roadmapText: 'Front-end',
       panelBottomTitle: 'Free Content',
       completedToggleButtonText: 'Completed',
       inCompletedToggleButtonText: 'Pending',
