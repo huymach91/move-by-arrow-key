@@ -166,7 +166,16 @@
         {
           "id": 10,
           "name": "React",
-          "children": []
+          "children": [
+            {
+              "name": "Redux",
+              "children": []
+            },
+            {
+              "name": "Mobx",
+              "children": []
+            }
+          ]
         }
       ]
     },
