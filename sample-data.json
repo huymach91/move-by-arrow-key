@@ -34,23 +34,7 @@
           "id": 1,
           "name": "Protocol",
           "completed": false,
-          "children": [
-            {
-              "id": 1,
-              "name": "Https",
-              "children": []
-            },
-            {
-              "id": 1,
-              "name": "Transmission Control Protocol (TCP)",
-              "children": []
-            },
-            {
-              "id": 1,
-              "name": "Transmission Control Protocol (TCP) 123",
-              "children": []
-            }
-          ]
+          "children": []
         },
         {
           "id": 2,
@@ -60,45 +44,17 @@
         {
           "id": 3,
           "name": "How does the browser work?",
-          "children": [
-            {
-              "id": 1,
-              "name": "asdac asd asd as das d 1",
-              "children": []
-            },
-            {
-              "id": 1,
-              "name": "asdac asd asd as das d 2",
-              "children": []
-            }
-          ]
+          "children": []
         },
         {
           "id": 4,
           "name": "The Domain Name System (DNS)",
-          "children": [
-            {
-              "name": "what is DNS"
-            },
-            {
-              "name": "DNS structure"
-            },
-            {
-              "name": "DNS server types"
-            }
-          ]
+          "children": []
         },
         {
           "id": 4,
           "name": "What is hosting?",
-          "children": [
-            {
-              "name": "Shared hosting"
-            },
-            {
-              "name": "virtual private server (VPS)"
-            }
-          ]
+          "children": []
         }
       ]
     },
@@ -122,13 +78,7 @@
         {
           "id": 7,
           "name": "Making layouts",
-          "children": [
-            {
-              "id": 10,
-              "name": "Float, grid, flexbox, positioning, display and box model ",
-              "children": []
-            }
-          ]
+          "children": []
         },
         {
           "id": 8,
@@ -192,52 +142,17 @@
         {
           "id": 8,
           "name": "Angular",
-          "children": [
-            {
-              "id": 30,
-              "name": "Rxjs"
-            },
-            {
-              "id": 31,
-              "name": "Ngrx"
-            },
-            {
-              "id": 32,
-              "name": "Http Module"
-            },
-            {
-              "id": 33,
-              "name": "Http Module 2"
-            }
-          ]
+          "children": []
         },
         {
           "id": 9,
           "name": "VueJs",
-          "children": [
-            {
-              "id": 31,
-              "name": "VueX"
-            }
-          ]
+          "children": []
         },
         {
           "id": 10,
           "name": "React",
-          "children": [
-            {
-              "id": 20,
-              "name": "Redux"
-            },
-            {
-              "id": 21,
-              "name": "Mobx"
-            },
-            {
-              "id": 22,
-              "name": "Recoil"
-            }
-          ]
+          "children": []
         }
       ]
     },
