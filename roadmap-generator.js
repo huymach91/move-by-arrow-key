@@ -26,7 +26,7 @@ export class RoadmapGenerator {
    * }} config
    */
   generate(data, config) {
-    this.intervalX = 120;
+    this.intervalX = 50;
     this.defaultX = config.canvasWidth / 2;
     this.initialX = data.x ? data.x : this.defaultX;
     this.initialY = data.y ? data.y : 200;
@@ -60,8 +60,8 @@ export class RoadmapGenerator {
       if (i > 0) {
         const previousRoot = this.rootList[i - 1];
         const currentY = rootData.y;
-        const nextY = Math.max(currentY, previousRoot.maxChildY);
-        rootData.y = nextY + 70;
+        // const nextY = Math.max(currentY, previousRoot.maxChildY);
+        rootData.y = previousRoot.maxChildY + 70;
         rootData.previousNode = previousRoot;
       }
       // create root
