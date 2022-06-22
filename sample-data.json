@@ -129,7 +129,12 @@
         },
         {
           "id": 10,
-          "name": "Fetch API",
+          "name": "Web API",
+          "children": []
+        },
+        {
+          "id": 10,
+          "name": "Memory Management",
           "children": []
         }
       ]
@@ -142,7 +147,16 @@
         {
           "id": 8,
           "name": "Angular",
-          "children": []
+          "children": [
+            {
+              "name": "Rxjs",
+              "children": []
+            },
+            {
+              "name": "Ngrx",
+              "children": []
+            }
+          ]
         },
         {
           "id": 9,
