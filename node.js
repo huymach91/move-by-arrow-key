@@ -23,7 +23,7 @@ export class Node {
 
     // const elementWidth = this.tickElement.elt.getBoundingClientRect().width;
     // const elementHeight = this.tickElement.elt.getBoundingClientRect().height;
-    this.tickElement.position(this.data.x - 5, this.data.y - 5);
+    this.tickElement.position(this.data.x - 7, this.data.y - 5);
   }
 
   defaultNodeStyle() {
