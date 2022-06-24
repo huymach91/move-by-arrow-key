@@ -73,7 +73,11 @@
         {
           "id": 6,
           "name": "CSS Basics",
-          "children": []
+          "children": [
+            {
+              "name": "Lorem ipium Lorem ipium Lorem ipium Lorem ipium"
+            }
+          ]
         },
         {
           "id": 7,

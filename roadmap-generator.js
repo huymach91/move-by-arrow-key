@@ -107,14 +107,12 @@ export class RoadmapGenerator {
           currentChildData.isLeft = isLeft;
 
           const childLength = currentChildData.name.length * 6;
-          let leftX =
-            currentRootData.x - currentRootData.width / 2 - this.intervalX;
+          let leftX = currentRootData.x - this.intervalX;
           const rightX =
             currentRootData.x + currentRootData.width + this.intervalX;
 
           // calc x-axis
           if (isLeft) {
-            leftX -= childLength;
             currentChildData.x = leftX;
           } else {
             currentChildData.x = rightX;
@@ -150,24 +148,9 @@ export class RoadmapGenerator {
               currentChildData.y = maxRightChildY;
             }
           } else {
-            console.log(
-              'seconds',
-              currentRootData.name,
-              currentChildData.name,
-              currentRootData.maxRightChildY
-            );
             let childY =
               currentRootData.y + currentChildIndex * this.spaceBetweenY;
             currentChildData.y = childY;
-
-            if (!isLeft) {
-              // console.log(
-              //   currentRootData.name,
-              //   currentChildData.name,
-              //   y,
-              //   childY
-              // );
-            }
           }
 
           // create leaf node
@@ -181,6 +164,11 @@ export class RoadmapGenerator {
 
           currentChildData.width = leaf.getNodeWidth();
           currentChildData.height = leaf.getNodeHeight();
+
+          if (isLeft) {
+            currentChildData.x -= currentChildData.width;
+            leaf.setX(currentChildData.x);
+          }
 
           root.leafs.push(leaf);
 

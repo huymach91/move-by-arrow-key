@@ -79,4 +79,8 @@ export class Node {
         break;
     }
   }
+
+  setX(x) {
+    this.element.position(x, this.element.position.y);
+  }
 }
