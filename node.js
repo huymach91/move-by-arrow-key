@@ -83,4 +83,18 @@ export class Node {
   setX(x) {
     this.element.position(x, this.element.position.y);
   }
+
+  setTickTopLeft() {
+    this.tickElement.position(
+      this.element.position.x - this.element.width,
+      this.element.position.y
+    );
+  }
+
+  setTickTopRight() {
+    this.tickElement.position(
+      this.element.position.x + this.element.width,
+      this.element.position.y
+    );
+  }
 }
