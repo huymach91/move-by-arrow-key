@@ -2,7 +2,6 @@ import { Node } from './node';
 import { Line } from './line';
 import { Text } from './text';
 import { preorderTraversal } from './helper';
-import { GraphLayout } from './dagre-helper';
 
 import './style.css';
 
