@@ -7,11 +7,15 @@ module.exports = {
     entry: path.resolve(__dirname, '../src/index.js'),
     output:
     {
-        hashFunction: 'xxhash64',
-        filename: 'bundle.[contenthash].js',
-        path: path.resolve(__dirname, '../dist')
+        filename: 'roadmap-generator.js',
+        path : path.resolve(__dirname, '../dist'),
+        library: 'RoadmapGenerator',
+        libraryTarget: 'umd'
     },
     devtool: 'source-map',
+    stats: {
+        children: true,
+    },
     plugins:
     [
         new CopyWebpackPlugin({
