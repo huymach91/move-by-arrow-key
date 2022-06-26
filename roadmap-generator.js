@@ -219,24 +219,8 @@ export class RoadmapGenerator {
         detail: { maxHeightCanvas: this.maxHeightCanvas },
       })
     );
-    // this.afterViewInit.dispatchEvent(this.afterViewInit);
     this.createRightPanel();
   }
-
-  dagreVersion(data, config) {
-    const g = new GraphLayout({
-      name: 'Front-end',
-      children: data,
-    });
-    g.createGraph(this.p5);
-  }
-
-  // updateYIfOverlap(nodeA, nodeB) {
-  //   const nodeCenterA = this.p5.createVector(nodeA.x, nodeA.y);
-  //   const nodeCenterB = this.p5.createVector(nodeB.x, nodeB.y);
-  //   const vector = center.copy().sub(mouse);
-  //   const overlap = vector.mag() - (d1/2 + d2/2);
-  // }
 
   centerPoint(node) {
     return {
@@ -244,8 +228,6 @@ export class RoadmapGenerator {
       y: node.y + node.height / 2,
     };
   }
-
-  calcY() {}
 
   insertTreeWithSamples2(node) {
     // 1. handle current node
