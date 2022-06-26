@@ -59,7 +59,7 @@ export class RoadmapGenerator {
       // calc next y-axis
       if (i > 0) {
         const previousRoot = this.rootList[i - 1];
-        const currentY = rootData.y;
+        // const currentY = rootData.y;
         // const nextY = Math.max(currentY, previousRoot.maxChildY);
         rootData.y = previousRoot.maxChildY + 60;
         rootData.previousNode = previousRoot;
@@ -106,7 +106,6 @@ export class RoadmapGenerator {
             : currentRootData.isLeft;
           currentChildData.isLeft = isLeft;
 
-          const childLength = currentChildData.name.length * 6;
           let leftX = currentRootData.x - this.intervalX;
           const rightX =
             currentRootData.x + currentRootData.width + this.intervalX;
@@ -200,20 +199,11 @@ export class RoadmapGenerator {
           );
 
           // create line
+          const startNode = isFirstLevel ? rootData : currentRootData;
           if (isLeft) {
-            const startNode = currentRootData;
             this.drawLineFromRight(startNode, currentChildData);
           } else {
-            const lineStart = {
-              x: currentRootData.x + currentRootData.width / 3,
-              y: currentRootData.y + 5,
-            };
-            const lineEnd = {
-              x: currentChildData.x + currentChildData.width / 2,
-              y: currentChildData.y + currentChildData.height / 2,
-            };
-            const line = new Line(lineStart, lineEnd, { style: 'dotted' });
-            line.createLine(this.p5);
+            this.drawLineFromLeft(startNode, currentChildData);
           }
         }
       );
@@ -240,7 +230,19 @@ export class RoadmapGenerator {
     line.createLine(this.p5);
   }
 
-  drawLineFromLeft(nodeStart, nodeEnd) {}
+  drawLineFromLeft(nodeStart, nodeEnd) {
+    console.log(nodeStart);
+    const startPoint = {
+      x: nodeStart.x + nodeStart.width,
+      y: nodeStart.y + nodeStart.height / 2,
+    };
+    const endPoint = {
+      x: nodeEnd.x,
+      y: nodeEnd.y + nodeEnd.height / 2,
+    };
+    const line = new Line(startPoint, endPoint, { style: 'dotted' });
+    line.createLine(this.p5);
+  }
 
   centerPoint(node) {
     return {
