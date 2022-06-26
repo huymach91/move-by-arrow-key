@@ -200,16 +200,21 @@ export class RoadmapGenerator {
           );
 
           // create line
-          const lineStart = {
-            x: currentRootData.x + currentRootData.width / 3,
-            y: currentRootData.y + 5,
-          };
-          const lineEnd = {
-            x: currentChildData.x + currentChildData.width / 2,
-            y: currentChildData.y + currentChildData.height / 2,
-          };
-          const line = new Line(lineStart, lineEnd, { style: 'dotted' });
-          line.createLine(this.p5);
+          if (isLeft) {
+            const startNode = currentRootData;
+            this.drawLineFromRight(startNode, currentChildData);
+          } else {
+            const lineStart = {
+              x: currentRootData.x + currentRootData.width / 3,
+              y: currentRootData.y + 5,
+            };
+            const lineEnd = {
+              x: currentChildData.x + currentChildData.width / 2,
+              y: currentChildData.y + currentChildData.height / 2,
+            };
+            const line = new Line(lineStart, lineEnd, { style: 'dotted' });
+            line.createLine(this.p5);
+          }
         }
       );
     }
@@ -221,6 +226,21 @@ export class RoadmapGenerator {
     );
     this.createRightPanel();
   }
+
+  drawLineFromRight(nodeStart, nodeEnd) {
+    const startPoint = {
+      x: nodeStart.x,
+      y: nodeStart.y + nodeStart.height / 3,
+    };
+    const endPoint = {
+      x: nodeEnd.x + nodeEnd.width - 20,
+      y: nodeEnd.y,
+    };
+    const line = new Line(startPoint, endPoint, { style: 'dotted' });
+    line.createLine(this.p5);
+  }
+
+  drawLineFromLeft(nodeStart, nodeEnd) {}
 
   centerPoint(node) {
     return {
