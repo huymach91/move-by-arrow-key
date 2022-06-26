@@ -231,14 +231,14 @@ export class RoadmapGenerator {
   }
 
   drawLineFromLeft(nodeStart, nodeEnd) {
-    console.log(nodeStart);
+    console.log(nodeStart.name, nodeStart.x, nodeStart.width);
     const startPoint = {
-      x: nodeStart.x + nodeStart.width,
-      y: nodeStart.y + nodeStart.height / 2,
+      x: nodeStart.x + nodeStart.width - 10,
+      y: nodeStart.y + nodeStart.height / 3,
     };
     const endPoint = {
       x: nodeEnd.x,
-      y: nodeEnd.y + nodeEnd.height / 2,
+      y: nodeEnd.y + nodeEnd.height / 3,
     };
     const line = new Line(startPoint, endPoint, { style: 'dotted' });
     line.createLine(this.p5);
