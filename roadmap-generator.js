@@ -234,7 +234,7 @@ export class RoadmapGenerator {
     };
     const endPoint = {
       x: nodeEnd.x + nodeEnd.width - 20,
-      y: nodeEnd.y,
+      y: nodeEnd.y + nodeEnd.height / 2,
     };
     const line = new Line(startPoint, endPoint, { style: 'dotted' });
     line.createLine(this.p5);
