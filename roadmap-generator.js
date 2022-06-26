@@ -168,6 +168,9 @@ export class RoadmapGenerator {
           if (isLeft) {
             currentChildData.x -= currentChildData.width;
             leaf.setX(currentChildData.x);
+            leaf.setTickTopLeft();
+          } else {
+            leaf.setTickTopRight();
           }
 
           root.leafs.push(leaf);

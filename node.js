@@ -81,20 +81,17 @@ export class Node {
   }
 
   setX(x) {
-    this.element.position(x, this.element.position.y);
+    this.element.position(x, this.element.y);
   }
 
   setTickTopLeft() {
-    this.tickElement.position(
-      this.element.position.x - this.element.width,
-      this.element.position.y
-    );
+    this.tickElement.position(this.element.x - 5, this.element.y - 5);
   }
 
   setTickTopRight() {
     this.tickElement.position(
-      this.element.position.x + this.element.width,
-      this.element.position.y
+      this.element.x + this.getNodeWidth() - 10,
+      this.element.y - 5
     );
   }
 }
