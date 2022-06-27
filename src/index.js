@@ -9,8 +9,8 @@ export class RoadmapStartup {
     this.data   = data;
     this.config = config;
     this.size = {
-      width: 2000,
-      height: 2000
+      width: config.width,
+      height: config.height
     }
   }
 
@@ -30,7 +30,7 @@ export class RoadmapStartup {
           articleText: 'read',
           markDoneFunc: (nodeData, newStatus) => {
             console.log('fetch', nodeData, newStatus);
-          },
+          }
         });
         document.addEventListener('afterCanvasInit', (event) => {
           const maxHeightCanvas = event.detail.maxHeightCanvas;
@@ -42,7 +42,7 @@ export class RoadmapStartup {
       p.draw = () => {};
     };
     
-    new p5(sketch);
+    new p5(sketch, this.config.container);
   }
 
 }

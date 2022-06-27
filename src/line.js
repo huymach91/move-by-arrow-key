@@ -6,6 +6,8 @@ export class Line {
   }
 
   createLine(p5) {
+    const ctx = p5.drawingContext;
+    
     p5.strokeWeight(2);
     p5.stroke('#2b78e4');
 
