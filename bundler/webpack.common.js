@@ -21,12 +21,13 @@ module.exports = {
         new CopyWebpackPlugin({
             patterns: [
                 { from: path.resolve(__dirname, '../static') },
-                { from: path.resolve(__dirname, '../src/package.json') }
+                { from: path.resolve(__dirname, '../src/package.json') },
+                { from: path.resolve(__dirname, '../src/declare.d.ts') }
             ]
         }),
         new HtmlWebpackPlugin({
             template: path.resolve(__dirname, '../src/index.html'),
-            minify: true
+            minify: false
         }),
         new MiniCSSExtractPlugin()
     ],
