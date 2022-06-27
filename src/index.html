@@ -17,7 +17,6 @@
 <body>
     <script>
         document.addEventListener('DOMContentLoaded', () => {
-            console.log(RoadmapGenerator.RoadmapStartup)
             fetch('/sample-data.json').then((resp) => resp.json()).then((resp) => {
                 const container = document.getElementById('container');
                 const bounding = container.getBoundingClientRect();

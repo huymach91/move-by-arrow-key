@@ -22,7 +22,8 @@ module.exports = {
             patterns: [
                 { from: path.resolve(__dirname, '../static') },
                 { from: path.resolve(__dirname, '../src/package.json') },
-                { from: path.resolve(__dirname, '../src/declare.d.ts') }
+                { from: path.resolve(__dirname, '../src/declare.d.ts') },
+                { from: path.resolve(__dirname, '../src/declare.js') },
             ]
         }),
         new HtmlWebpackPlugin({
