@@ -23,11 +23,12 @@ export class RoadmapStartup {
         roadmapGenerator.generate(this.data, {
           canvasWidth: innerWidth,
           roadmapText: this.config.title,
-          panelBottomTitle: this.config.panelBottomTitle ? this.config.panelBottomTitle : 'Free Content',
-          completedToggleButtonText: this.config.completedToggleButtonText ? this.config.completedToggleButtonText : 'Completed',
-          inCompletedToggleButtonText: 'Pending',
+          panelBottomTitle: this.config.panelBottomTitle ? this.config.panelBottomTitle : 'Khóa học',
+          completedToggleButtonText: this.config.completedToggleButtonText ? this.config.completedToggleButtonText : 'Hoàn thành',
+          inCompletedToggleButtonText: 'Chưa hoàn thành',
           videoText: 'video',
           articleText: 'read',
+          showCourseType: false,
           markDoneFunc: (nodeData, newStatus) => {
             console.log('fetch', nodeData, newStatus);
           }

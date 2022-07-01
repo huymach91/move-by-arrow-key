@@ -38,6 +38,7 @@ export class RoadmapGenerator {
     this.panelBottomTitle = config.panelBottomTitle;
     this.videoText = config.videoText;
     this.articleText = config.articleText;
+    this.showCourseType = config.showCourseType;
     this.completedToggleButtonText = config.completedToggleButtonText;
     this.inCompletedToggleButtonText = config.inCompletedToggleButtonText;
     this.markDoneFunc = config.markDoneFunc;
@@ -230,7 +231,6 @@ export class RoadmapGenerator {
   }
 
   drawLineFromLeft(nodeStart, nodeEnd) {
-    console.log(nodeStart.name, nodeStart.x, nodeStart.width);
     const startPoint = {
       x: nodeStart.x + nodeStart.width - 10,
       y: nodeStart.y + nodeStart.height / 3,
@@ -312,15 +312,17 @@ export class RoadmapGenerator {
     let courses = nodeData.courses || [
       {
         id: 1,
-        courseName: '',
-        courseType: 'video',
-        link: 'https://google.com',
+        name: '',
+        description: 'lorem ipum',
+        // courseType: 'video',
+        courseLink: 'https://google.com',
       },
       {
         id: 2,
-        courseName: "An Absolute Beginner's Guide to Using npm",
-        courseType: 'article',
-        link: 'https://google.com',
+        name: "An Absolute Beginner's Guide to Using npm",
+        description: 'lorem ipum',
+        // courseType: 'article',
+        courseLink: 'https://google.com',
       },
     ];
     this.panelHeading.innerHTML = nodeData.name;
@@ -328,10 +330,12 @@ export class RoadmapGenerator {
     this.panelBottomBody.innerHTML =
       '<ul class="rm-courses">' +
       courses
-        .filter((course) => course.courseName)
+        .filter((course) => course.name)
         .map((course) => {
           let backgroundClass = '';
           let courseTypeName = '';
+          console.log('showCourseType', this.showCourseType)
+          const hideCourseTypeClass = this.showCourseType ? '' : 'rm-hidden';
           const href = course.link
             ? 'href="' + course.link + '" target="_blank"'
             : '';
@@ -344,7 +348,7 @@ export class RoadmapGenerator {
           } else {
           }
           return (
-            '<li class="rm-course"><span class="rm-course-type ' +
+            '<li class="rm-course"><span class="rm-course-type ' + hideCourseTypeClass + ' ' +
             backgroundClass +
             '">' +
             courseTypeName +
@@ -352,7 +356,7 @@ export class RoadmapGenerator {
             '<a ' +
             href +
             '><span class="rm-course-name">' +
-            course.courseName +
+            course.name +
             '</span>' +
             '</a></li>'
           );
@@ -394,6 +398,5 @@ export class RoadmapGenerator {
       text.textContent = this.inCompletedToggleButtonText;
       icon.innerHTML = 'refresh';
     }
-    console.log(this.toggleButtonElement);
   }
 }

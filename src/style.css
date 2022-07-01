@@ -144,7 +144,7 @@
 }
 
 .rm-course .rm-course-name {
-  font-size: 13px;
+  font-size: 1em;
   font-weight: 500;
 }
 
@@ -310,3 +310,12 @@
   box-shadow: none;
   transform: translatey(0);
 } */
+
+
+.rm-bottom-panel {
+  margin-top: 20px;
+}
+
+.rm-hidden {
+  display: none;
+}
