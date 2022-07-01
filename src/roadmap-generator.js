@@ -69,7 +69,7 @@ export class RoadmapGenerator {
       root.createNode(this.p5);
       root.defaultEvents((event) => {
         this.showRightPanel(true);
-        this.setRightPanelData(event.data);
+        this.setRightPanelData(event);
       });
       this.rootList.push(rootData);
 
@@ -158,7 +158,7 @@ export class RoadmapGenerator {
           leaf.setBackgroundColor('#ffe599');
           leaf.defaultEvents((event) => {
             this.showRightPanel(true);
-            this.setRightPanelData(event.data);
+            this.setRightPanelData(event);
           });
 
           currentChildData.width = leaf.getNodeWidth();
@@ -308,7 +308,8 @@ export class RoadmapGenerator {
     document.body.append(this.blankPage);
   }
 
-  setRightPanelData(nodeData) {
+  setRightPanelData(event) {
+    const nodeData = event.data;
     let courses = nodeData.courses || [
       {
         id: 1,
@@ -363,7 +364,7 @@ export class RoadmapGenerator {
         .join('') +
       '</ul>';
 
-    this.setNodeDone(nodeData);
+    this.setNodeDone(event);
     this.setStatus(nodeData);
   }
 
@@ -372,15 +373,27 @@ export class RoadmapGenerator {
     this.blankPage.style.setProperty('display', show ? 'block' : 'none');
   }
 
-  setNodeDone(nodeData) {
+  setNodeDone(event) {
+    const nodeData = event.data;
     this.toggleButtonElement.onclick = () => {
       const newStatus = this.toggleButtonElement.classList.contains('completed')
         ? false
         : true;
       nodeData.completed = newStatus;
+      // set tick to green if completed
+      this.setTickColor(event.self, nodeData.completed);
+      // emit
       this.markDoneFunc(nodeData, newStatus);
       this.setStatus(nodeData);
     };
+  }
+
+  setTickColor(node, completed) {
+    if (completed) {
+      node.colorizeTick('green');
+    } else {
+      node.colorizeTick('default');
+    }
   }
 
   setStatus(nodeData) {

@@ -18,8 +18,12 @@ export class Node {
     this.defaultNodeStyle();
 
     this.tickElement = p5.createElement('span');
-    this.tickElement.elt.className = 'tick tick-purple material-icons';
+    this.tickElement.elt.className = 'tick tick-default material-icons';
     this.tickElement.elt.innerHTML = 'check_circle';
+
+    if (this.data.completed) {
+      this.colorizeTick('green');
+    }
 
     // const elementWidth = this.tickElement.elt.getBoundingClientRect().width;
     // const elementHeight = this.tickElement.elt.getBoundingClientRect().height;
@@ -39,8 +43,9 @@ export class Node {
   }
 
   defaultEvents(fn) {
+    const self = this;
     this.element.mousePressed(() => {
-      fn({ element: this.element, data: this.data });
+      fn({ element: this.element, data: this.data, self: self });
     });
   }
 
@@ -74,8 +79,13 @@ export class Node {
   colorizeTick(color) {
     switch (color) {
       case 'purple':
+        this.tickElement.elt.className = 'tick tick-purple material-icons';
         break;
       case 'green':
+        this.tickElement.elt.className = 'tick tick-green material-icons';
+        break;
+      case 'default':
+        this.tickElement.elt.className = 'tick tick-default material-icons';
         break;
     }
   }
