@@ -1,11 +1,10 @@
 {
   "name": "my-roadmap-generator",
-  "version": "1.0.5",
+  "version": "1.0.7",
   "description": "",
   "main": "roadmap-generator.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "huy.mach.webdev@gmail.com",
-  "license": "MIT"
+  "license": ""
 }

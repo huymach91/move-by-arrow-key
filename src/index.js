@@ -30,9 +30,7 @@ export class RoadmapStartup {
           articleText: 'read',
           showCourseType: false,
           position: 'left',
-          markDoneFunc: (nodeData, newStatus) => {
-            console.log('fetch', nodeData, newStatus);
-          }
+          markDoneFunc: this.config.markDoneFunc
         });
         document.addEventListener('afterCanvasInit', (event) => {
           const maxHeightCanvas = event.detail.maxHeightCanvas;
