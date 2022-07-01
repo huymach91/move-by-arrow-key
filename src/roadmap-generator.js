@@ -226,7 +226,7 @@ export class RoadmapGenerator {
       x: nodeEnd.x + nodeEnd.width - 20,
       y: nodeEnd.y + nodeEnd.height / 2,
     };
-    const line = new Line(startPoint, endPoint, { style: 'dotted' });
+    const line = new Line(startPoint, endPoint, { style: 'dash' });
     line.createLine(this.p5);
   }
 
@@ -239,7 +239,7 @@ export class RoadmapGenerator {
       x: nodeEnd.x,
       y: nodeEnd.y + nodeEnd.height / 3,
     };
-    const line = new Line(startPoint, endPoint, { style: 'dotted' });
+    const line = new Line(startPoint, endPoint, { style: 'dash' });
     line.createLine(this.p5);
   }
 
@@ -334,7 +334,6 @@ export class RoadmapGenerator {
         .map((course) => {
           let backgroundClass = '';
           let courseTypeName = '';
-          console.log('showCourseType', this.showCourseType)
           const hideCourseTypeClass = this.showCourseType ? '' : 'rm-hidden';
           const href = course.link
             ? 'href="' + course.link + '" target="_blank"'
