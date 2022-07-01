@@ -26,7 +26,7 @@ export class RoadmapGenerator {
    */
   generate(data, config) {
     this.intervalX = 50;
-    this.defaultX = config.canvasWidth / 2;
+    this.defaultX = this.alignCanvas(config);
     this.initialX = data.x ? data.x : this.defaultX;
     this.initialY = data.y ? data.y : 200;
     this.maxHeightCanvas = this.initialY * data.length;
@@ -46,7 +46,7 @@ export class RoadmapGenerator {
     const roadmapText = config.roadmapText;
     this.roadmapTitle = new Text({
       text: roadmapText,
-      x: config.canvasWidth / 2 - roadmapText.length,
+      x: this.defaultX - roadmapText.length,
       y: 100,
     });
     this.roadmapTitle.createText(this.p5);
@@ -215,6 +215,16 @@ export class RoadmapGenerator {
       })
     );
     this.createRightPanel();
+  }
+
+  alignCanvas(config) {
+    const canvasWidth = config.canvasWidth;
+    switch(config.position) {
+      case 'left':
+        return canvasWidth / 3;
+      default:
+        return canvasWidth / 2;
+    }
   }
 
   drawLineFromRight(nodeStart, nodeEnd) {
