@@ -3,7 +3,7 @@
   "license": "UNLICENSED",
   "author": "huy.mach.webdev@gmail.com",
   "scripts": {
-    "build": "webpack --config ./bundler/webpack.prod.js",
+    "build": "webpack --config ./bundler/webpack.prod.js && npm run declare",
     "dev": "webpack serve --config ./bundler/webpack.dev.js",
     "declare": "tsc -d src/declare.ts"
   },

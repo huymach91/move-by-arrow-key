@@ -67,8 +67,8 @@ export class Node {
     this.element.style('border-color', borderColor);
   }
 
-  setBackgroundColor(bacjgroundColor) {
-    this.element.style('background-color', bacjgroundColor);
+  setBackgroundColor(backgroundColor) {
+    this.element.style('background-color', backgroundColor);
   }
 
   setSize(width, height) {

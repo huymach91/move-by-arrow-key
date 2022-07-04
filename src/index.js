@@ -32,14 +32,16 @@ export class RoadmapStartup {
             articleText: 'read',
             showCourseType: false,
             startY: 100,
+            rootColor: '#3e007',
+            childColor: '#f1bd06',
             position: 'left',
             // readonly: true,
             // rightPanelZIndex: 10,
             markDoneFunc: (nodeData, status) => {
               console.log(nodeData, status)
             },
-            updateSizeFunc: (size) => {
-              console.log('size', size);
+            updateSizeFunc: (s) => {
+              // p.resizeCanvas(size.width, s.maxHeightCanvas + 100);
             }
           }, this.config)
         );

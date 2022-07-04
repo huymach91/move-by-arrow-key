@@ -48,6 +48,8 @@ export class RoadmapGenerator {
     this.inCompletedToggleButtonText = config.inCompletedToggleButtonText;
     this.markDoneFunc = config.markDoneFunc;
     this.updateSizeFunc = config.updateSizeFunc;
+    this.rootColor = config.rootColor;
+    this.childColor = config.childColor;
     // create title
     const roadmapText = config.roadmapText;
     this.roadmapTitle = new Text({
@@ -62,6 +64,7 @@ export class RoadmapGenerator {
       rootData.x = this.initialX;
       rootData.y = this.initialY + i * this.initialY;
       rootData.level = 0;
+      rootData.backgroundColor = this.rootColor;
       // calc next y-axis
       if (i > 0) {
         const previousRoot = this.rootList[i - 1];
@@ -73,6 +76,7 @@ export class RoadmapGenerator {
       // create root
       const root = new Node(rootData);
       root.createNode(this.p5);
+      root.setBackgroundColor(rootData.backgroundColor);
 
       root.defaultEvents((event) => {
         this.showRightPanel(true);
