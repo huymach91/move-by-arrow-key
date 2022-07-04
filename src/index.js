@@ -30,8 +30,8 @@ export class RoadmapStartup {
           articleText: 'read',
           showCourseType: false,
           position: 'left',
-          markDoneFunc: () => {
-            
+          markDoneFunc: (nodeData, status) => {
+            console.log(nodeData, status)
           }
         });
         document.addEventListener('afterCanvasInit', (event) => {

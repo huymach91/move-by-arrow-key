@@ -398,6 +398,8 @@ export class RoadmapGenerator {
         
         const first = queue.pop();
 
+        first.data.completed = newStatus;
+
         this.setTickColor(first, newStatus);
 
         if (first.leafs && first.leafs) {
