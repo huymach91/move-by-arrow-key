@@ -26,8 +26,8 @@ export class RoadmapGenerator {
    */
   generate(data, config) {
     this.intervalX = 50;
-    this.defaultX = this.alignCanvas(config);
-    this.initialX = data.x ? data.x : this.defaultX;
+    this.canvasX = config.canvasX ? config.canvasX : this.alignCanvas(config);
+    this.initialX = data.x ? data.x : this.canvasX;
     this.initialY = data.y ? data.y : 200;
     this.maxHeightCanvas = this.initialY * data.length;
     this.spaceBetweenY = 50;
@@ -46,7 +46,7 @@ export class RoadmapGenerator {
     const roadmapText = config.roadmapText;
     this.roadmapTitle = new Text({
       text: roadmapText,
-      x: this.defaultX - roadmapText.length,
+      x: this.canvasX - roadmapText.length,
       y: 150,
     });
     this.roadmapTitle.createText(this.p5);
