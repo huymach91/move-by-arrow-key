@@ -385,19 +385,36 @@ export class RoadmapGenerator {
 
   setNodeDone(event) {
     const nodeData = event.data;
+    // mark itself
     this.toggleButtonElement.onclick = () => {
       const newStatus = this.toggleButtonElement.classList.contains('completed')
         ? false
         : true;
       nodeData.completed = newStatus;
       // set tick to green if completed
-      this.setTickColor(event.self, nodeData.completed);
+      const queue = [event.self];
+      
+      while (queue.length) {
+        
+        const first = queue.pop();
+
+        this.setTickColor(first, newStatus);
+
+        if (first.leafs && first.leafs) {
+
+          for (let i = 0; i < first.leafs.length; i++) {
+            queue.unshift(first.leafs[i]);
+          }
+
+        }
+
+      }
       // emit
       this.markDoneFunc(nodeData, newStatus);
       this.setStatus(nodeData);
     };
   }
-
+ 
   setTickColor(node, completed) {
     if (completed) {
       node.colorizeTick('green');
