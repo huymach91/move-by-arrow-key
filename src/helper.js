@@ -24,7 +24,7 @@ export function dataGenerator(rawData) {
  * @summary levelOrderTraversal
  * @node { id: number, name: string, children: [] }
  */
-function levelOrderTraversal(root) {
+export function levelOrderTraversal(root, fn) {
   if (!root) return;
   // Standard level order traversal code
   // using queue
@@ -37,6 +37,7 @@ function levelOrderTraversal(root) {
     while (n) {
       const p = q.pop();
       const children = p.children || [];
+      fn(p);
       // console.log(String('').padStart(level, '-') + p.name)
       for (let i = 0; i < children.length; i++) {
         q.unshift(children[i]);
@@ -52,8 +53,6 @@ function levelOrderTraversal(root) {
  */
 export function preorderTraversal(root, fn) {
   const children = root.children || [];
-
-  // childDepth['level']++;
 
   for (let i = 0; i < children.length; i++) {
     const child = children[i];

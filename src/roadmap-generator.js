@@ -1,7 +1,7 @@
 import { Node } from './node';
 import { Line } from './line';
 import { Text } from './text';
-import { preorderTraversal } from './helper';
+import { preorderTraversal, levelOrderTraversal } from './helper';
 
 import './style.css';
 
@@ -35,6 +35,7 @@ export class RoadmapGenerator {
     this.maxHeightCanvas = this.initialY * data.length;
     this.spaceBetweenY = 50;
     this.rootList = [];
+    this.rootNodes = [];
     this.leftColumn = {};
     this.rightColumn = {};
     // right panel config
@@ -82,6 +83,7 @@ export class RoadmapGenerator {
       }
 
       this.rootList.push(rootData);
+      this.rootNodes.push(root);
 
       rootData.maxChildY = root.element.y;
       rootData.maxLeftChildY = root.element.y;
@@ -105,7 +107,8 @@ export class RoadmapGenerator {
       preorderTraversal(
         rootData,
         (currentRootData, currentChildData, currentChildIndex) => {
-          currentChildData.parentId = currentRootData.id;
+          currentRootData.leafs = [];
+          currentChildData.parentData = currentRootData;
           // console.log(currentChildData.name, currentChildData.level);
           // root start from 2nd
           const isFirstLevel =
@@ -177,6 +180,8 @@ export class RoadmapGenerator {
             leaf.setTickHide();
           }
 
+          this.rootNodes.push(leaf);
+
           currentChildData.width = leaf.getNodeWidth();
           currentChildData.height = leaf.getNodeHeight();
 
@@ -189,6 +194,7 @@ export class RoadmapGenerator {
           }
 
           root.leafs.push(leaf);
+          currentRootData.leafs.push(leaf);
 
           if (isLeft) {
             currentRootData.maxLeftChildY = Math.max(
@@ -408,28 +414,27 @@ export class RoadmapGenerator {
       const completed = this.toggleButtonElement.classList.contains('completed')
         ? false
         : true;
-      nodeData.completed = completed;
       // set tick to green if completed
-      const queue = [event.self];
-      
-      while (queue.length) {
-        
-        const first = queue.pop();
-
-        first.data.completed = completed;
-
-        this.setTickColor(first, completed);
-
-        if (first.leafs && first.leafs) {
-
-          for (let i = 0; i < first.leafs.length; i++) {
-            queue.unshift(first.leafs[i]);
-          }
-
+      levelOrderTraversal({ id: 0, name: '', children: [nodeData] }, (childData) => {
+        if (childData.name) {
+          childData.completed = completed;
+          const firstNode = this.findRootNode(childData);
+          this.setTickColor(firstNode, childData.completed);
         }
+      });
 
+      // // emit
+      if (nodeData.parentData) {
+        const parentData = nodeData.parentData;
+        const parentNode = this.findRootNode(parentData);
+        if (parentData.children && parentData.children.length) {
+            const isParentCompleted = this.completeParent(parentData);
+            parentData.completed = isParentCompleted;
+            parentNode.data.completed = isParentCompleted;
+            this.setTickColor(parentNode, parentNode.data.completed);
+        }
       }
-      // emit
+      
       this.markDoneFunc(nodeData, completed);
       this.setStatus(nodeData);
     };
@@ -458,4 +463,20 @@ export class RoadmapGenerator {
       icon.innerHTML = 'refresh';
     }
   }
+
+  findRootNode(nodeData) {
+    return this.rootNodes.find(r => r.data.id === nodeData.id && r.data.name === nodeData.name);
+  }
+
+  completeParent(root) {
+    let isCompleted = true;
+    for (let i = 0; i < root.children.length; i++) {
+      const child = root.children[i];
+      if (!child.completed) {
+        isCompleted = false;
+      }
+    }
+    return isCompleted;
+  }
+
 }

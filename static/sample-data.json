@@ -186,10 +186,12 @@
           "name": "Angular",
           "children": [
             {
+              "id": 56,
               "name": "Rxjs",
               "children": []
             },
             {
+              "id": 57,
               "name": "Ngrx",
               "children": []
             }
@@ -205,10 +207,12 @@
           "name": "React",
           "children": [
             {
+              "id": 58,
               "name": "Redux",
               "children": []
             },
             {
+              "id": 59,
               "name": "Mobx",
               "children": []
             }
