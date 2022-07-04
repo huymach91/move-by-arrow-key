@@ -37,14 +37,17 @@ export class RoadmapStartup {
             // rightPanelZIndex: 10,
             markDoneFunc: (nodeData, status) => {
               console.log(nodeData, status)
+            },
+            updateSizeFunc: (size) => {
+              console.log('size', size);
             }
           }, this.config)
         );
-        document.addEventListener('afterCanvasInit', (event) => {
-          const maxHeightCanvas = event.detail.maxHeightCanvas;
-          size.height = maxHeightCanvas;
-          p.resizeCanvas(size.width, size.height);
-        });
+        // document.addEventListener('afterCanvasInit', (event) => {
+        //   const maxHeightCanvas = event.detail.maxHeightCanvas;
+        //   size.height = maxHeightCanvas;
+        //   p.resizeCanvas(size.width, size.height);
+        // });
       };
     
       p.draw = () => {};

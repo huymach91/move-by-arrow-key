@@ -47,6 +47,7 @@ export class RoadmapGenerator {
     this.completedToggleButtonText = config.completedToggleButtonText;
     this.inCompletedToggleButtonText = config.inCompletedToggleButtonText;
     this.markDoneFunc = config.markDoneFunc;
+    this.updateSizeFunc = config.updateSizeFunc;
     // create title
     const roadmapText = config.roadmapText;
     this.roadmapTitle = new Text({
@@ -219,6 +220,7 @@ export class RoadmapGenerator {
             rootData.maxLeftChildY,
             currentChildData.y
           );
+          this.maxHeightCanvas = rootData.maxChildY;
 
           // create line
           const startNode = isFirstLevel ? rootData : currentRootData;
@@ -231,11 +233,12 @@ export class RoadmapGenerator {
       );
     }
 
-    document.dispatchEvent(
-      new CustomEvent('afterCanvasInit', {
-        detail: { maxHeightCanvas: this.maxHeightCanvas },
-      })
-    );
+    this.updateSizeFunc({ maxHeightCanvas: this.maxHeightCanvas });
+    // document.dispatchEvent(
+    //   new CustomEvent('afterCanvasInit', {
+    //     detail: { maxHeightCanvas: this.maxHeightCanvas },
+    //   })
+    // );
     this.createRightPanel();
   }
 
