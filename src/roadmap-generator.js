@@ -41,6 +41,7 @@ export class RoadmapGenerator {
     this.videoText = config.videoText;
     this.articleText = config.articleText;
     this.showCourseType = config.showCourseType;
+    this.courseData = config.courseData;
     this.completedToggleButtonText = config.completedToggleButtonText;
     this.inCompletedToggleButtonText = config.inCompletedToggleButtonText;
     this.markDoneFunc = config.markDoneFunc;
@@ -52,7 +53,7 @@ export class RoadmapGenerator {
       y: 150,
     });
     this.roadmapTitle.createText(this.p5);
-
+    console.log(data);
     for (let i = 0; i < data.length; i++) {
       const rootData = data[i];
       rootData.x = this.initialX;
@@ -339,22 +340,7 @@ export class RoadmapGenerator {
 
   setRightPanelData(event) {
     const nodeData = event.data;
-    let courses = nodeData.courses || [
-      {
-        id: 1,
-        name: '',
-        description: 'lorem ipum',
-        // courseType: 'video',
-        courseLink: 'https://google.com',
-      },
-      {
-        id: 2,
-        name: "An Absolute Beginner's Guide to Using npm",
-        description: 'lorem ipum',
-        // courseType: 'article',
-        courseLink: 'https://google.com',
-      },
-    ];
+    let courses = nodeData.courses || [];
     this.panelHeading.innerHTML = nodeData.name;
     this.panelBody.innerHTML = nodeData['description'] || '';
     this.panelBottomBody.innerHTML =

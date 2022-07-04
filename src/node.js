@@ -106,7 +106,6 @@ export class Node {
   }
 
   setTickHide() {
-    console.log(this.tickElement)
     this.tickElement.elt.style.setProperty('display', 'none');
   }
 }

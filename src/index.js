@@ -14,7 +14,7 @@ export class RoadmapStartup {
     }
   }
 
-  startup(config) {
+  startup() {
     var size = this.size;
     const sketch = (p) => {
       p.setup = () => {
@@ -25,8 +25,8 @@ export class RoadmapStartup {
           Object.assign({
             canvasWidth: innerWidth,
             roadmapText: this.config.title,
-            panelBottomTitle: this.config.panelBottomTitle ? this.config.panelBottomTitle : 'Khóa học',
-            completedToggleButtonText: this.config.completedToggleButtonText ? this.config.completedToggleButtonText : 'Hoàn thành',
+            panelBottomTitle: 'Khóa học',
+            completedToggleButtonText: 'Hoàn thành',
             inCompletedToggleButtonText: 'Chưa hoàn thành',
             videoText: 'video',
             articleText: 'read',
@@ -35,9 +35,9 @@ export class RoadmapStartup {
             // readonly: true,
             // rightPanelZIndex: 10,
             markDoneFunc: (nodeData, status) => {
-              console.log(nodeData, status)
+              // console.log(nodeData, status)
             }
-          }, config)
+          }, this.config)
         );
         document.addEventListener('afterCanvasInit', (event) => {
           const maxHeightCanvas = event.detail.maxHeightCanvas;

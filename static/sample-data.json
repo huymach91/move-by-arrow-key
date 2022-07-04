@@ -34,12 +34,40 @@
           "id": 1,
           "name": "Protocol",
           "completed": false,
-          "children": []
+          "children": [],
+          "courses": [
+            {
+              "id": 1,
+              "name": "lorem ipum",
+              "description": "lorem ipum",
+              "courseLink": "https://google.com"
+            },
+            {
+              "id": 2,
+              "name": "An Absolute Beginner's Guide to Using npm",
+              "description": "lorem ipum",
+              "courseLink": "https://google.com"
+            }
+          ]
         },
         {
           "id": 2,
           "name": "How does the internet work",
-          "children": []
+          "children": [],
+          "courses": [
+            {
+              "id": 1,
+              "name": "",
+              "description": "lorem ipum",
+              "courseLink": "https://google.com"
+            },
+            {
+              "id": 2,
+              "name": "An Absolute Beginner's Guide to Using npm",
+              "description": "lorem ipum",
+              "courseLink": "https://google.com"
+            }
+          ]
         },
         {
           "id": 3,
