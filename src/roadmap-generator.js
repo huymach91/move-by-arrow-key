@@ -299,6 +299,7 @@ export class RoadmapGenerator {
           <span class="toggle-btn-text"></span>
         </button>
       </div>
+      <hr />
       <div class="blank-body">
         <div class="rm-panel">
           <h1 class="rm-panel-heading"></h1>
