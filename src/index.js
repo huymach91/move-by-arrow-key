@@ -29,7 +29,8 @@ export class RoadmapStartup {
           videoText: 'video',
           articleText: 'read',
           showCourseType: false,
-          position: 'left',
+          position: 'center',
+          readonly: true,
           markDoneFunc: (nodeData, status) => {
             console.log(nodeData, status)
           }

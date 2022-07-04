@@ -26,6 +26,7 @@ export class RoadmapGenerator {
    */
   generate(data, config) {
     this.intervalX = 50;
+    this.readonly = config.readonly;
     this.canvasX = config.canvasX ? config.canvasX : this.alignCanvas(config);
     this.initialX = data.x ? data.x : this.canvasX;
     this.initialY = data.y ? data.y : 200;
@@ -67,10 +68,16 @@ export class RoadmapGenerator {
       // create root
       const root = new Node(rootData);
       root.createNode(this.p5);
+
       root.defaultEvents((event) => {
         this.showRightPanel(true);
         this.setRightPanelData(event);
       });
+
+      if (this.readonly) {
+        root.setTickHide();
+      }
+
       this.rootList.push(rootData);
 
       rootData.maxChildY = root.element.y;
@@ -156,10 +163,15 @@ export class RoadmapGenerator {
           const leaf = new Node(currentChildData);
           leaf.createNode(this.p5);
           leaf.setBackgroundColor('#ffe599');
+
           leaf.defaultEvents((event) => {
             this.showRightPanel(true);
             this.setRightPanelData(event);
           });
+
+          if (this.readonly) {
+            leaf.setTickHide();
+          }
 
           currentChildData.width = leaf.getNodeWidth();
           currentChildData.height = leaf.getNodeHeight();
