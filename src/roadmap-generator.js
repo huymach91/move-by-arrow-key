@@ -405,10 +405,10 @@ export class RoadmapGenerator {
     const nodeData = event.data;
     // mark itself
     this.toggleButtonElement.onclick = () => {
-      const complted = this.toggleButtonElement.classList.contains('completed')
+      const completed = this.toggleButtonElement.classList.contains('completed')
         ? false
         : true;
-      nodeData.completed = newStatus;
+      nodeData.completed = completed;
       // set tick to green if completed
       const queue = [event.self];
       
@@ -416,9 +416,9 @@ export class RoadmapGenerator {
         
         const first = queue.pop();
 
-        first.data.completed = complted;
+        first.data.completed = completed;
 
-        this.setTickColor(first, complted);
+        this.setTickColor(first, completed);
 
         if (first.leafs && first.leafs) {
 
@@ -430,7 +430,7 @@ export class RoadmapGenerator {
 
       }
       // emit
-      this.markDoneFunc(nodeData, complted);
+      this.markDoneFunc(nodeData, completed);
       this.setStatus(nodeData);
     };
   }
