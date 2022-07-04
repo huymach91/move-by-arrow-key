@@ -14,28 +14,31 @@ export class RoadmapStartup {
     }
   }
 
-  startup() {
+  startup(config) {
     var size = this.size;
     const sketch = (p) => {
       p.setup = () => {
         p.createCanvas(size.width, size.height);
         const roadmapGenerator = new RoadmapGenerator(p);
-        roadmapGenerator.generate(this.data, {
-          canvasWidth: innerWidth,
-          roadmapText: this.config.title,
-          panelBottomTitle: this.config.panelBottomTitle ? this.config.panelBottomTitle : 'Khóa học',
-          completedToggleButtonText: this.config.completedToggleButtonText ? this.config.completedToggleButtonText : 'Hoàn thành',
-          inCompletedToggleButtonText: 'Chưa hoàn thành',
-          videoText: 'video',
-          articleText: 'read',
-          showCourseType: false,
-          position: 'center',
-          readonly: true,
-          rightPanelZIndex: 10,
-          markDoneFunc: (nodeData, status) => {
-            console.log(nodeData, status)
-          }
-        });
+        roadmapGenerator.generate(
+          this.data, 
+          Object.assign({
+            canvasWidth: innerWidth,
+            roadmapText: this.config.title,
+            panelBottomTitle: this.config.panelBottomTitle ? this.config.panelBottomTitle : 'Khóa học',
+            completedToggleButtonText: this.config.completedToggleButtonText ? this.config.completedToggleButtonText : 'Hoàn thành',
+            inCompletedToggleButtonText: 'Chưa hoàn thành',
+            videoText: 'video',
+            articleText: 'read',
+            showCourseType: false,
+            position: 'left',
+            // readonly: true,
+            // rightPanelZIndex: 10,
+            markDoneFunc: (nodeData, status) => {
+              console.log(nodeData, status)
+            }
+          }, config)
+        );
         document.addEventListener('afterCanvasInit', (event) => {
           const maxHeightCanvas = event.detail.maxHeightCanvas;
           size.height = maxHeightCanvas;
