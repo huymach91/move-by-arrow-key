@@ -351,8 +351,8 @@ export class RoadmapGenerator {
           let backgroundClass = '';
           let courseTypeName = '';
           const hideCourseTypeClass = this.showCourseType ? '' : 'rm-hidden';
-          const href = course.link
-            ? 'href="' + course.link + '" target="_blank"'
+          const href = course.courseLink
+            ? 'href="' + course.courseLink + '" target="_blank"'
             : '';
           if (course.courseType === 'video') {
             backgroundClass = 'bg-orange';
