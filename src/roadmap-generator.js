@@ -27,6 +27,7 @@ export class RoadmapGenerator {
   generate(data, config) {
     this.intervalX = 50;
     this.readonly = config.readonly;
+    this.rightPanelZIndex = config.rightPanelZIndex;
     this.canvasX = config.canvasX ? config.canvasX : this.alignCanvas(config);
     this.initialX = data.x ? data.x : this.canvasX;
     this.initialY = data.y ? data.y : 200;
@@ -284,9 +285,11 @@ export class RoadmapGenerator {
   createRightPanel() {
     this.overlay = document.createElement('div');
     this.overlay.setAttribute('class', 'roadmap-overlay');
+    this.overlay.style.setProperty('z-index', this.rightPanelZIndex - 1);
 
     this.blankPage = document.createElement('div');
     this.blankPage.setAttribute('class', 'blank-page');
+    this.blankPage.style.setProperty('z-index', this.rightPanelZIndex);
     this.blankPage.innerHTML = `
       <div class="blank-header">
         <span class="close-btn">&#x2715</span>
@@ -315,6 +318,10 @@ export class RoadmapGenerator {
     this.closeButtonElement.onclick = this.showRightPanel.bind(this, false);
 
     this.toggleButtonElement = this.blankPage.querySelector('.toggle-btn');
+
+    if (this.readonly) {
+      this.toggleButtonElement.style.setProperty('display', 'none');
+    }
 
     this.panelHeading = this.blankPage.querySelector('.rm-panel-heading');
     this.panelBody = this.blankPage.querySelector('.rm-panel-body');
