@@ -379,6 +379,8 @@ export class RoadmapGenerator {
         .join('') +
       '</ul>';
 
+    this.showCourseContent(courses.length ? true : false);
+
     this.setNodeDone(event);
     this.setStatus(nodeData);
   }
@@ -386,6 +388,14 @@ export class RoadmapGenerator {
   showRightPanel(show) {
     this.overlay.style.setProperty('display', show ? 'block' : 'none');
     this.blankPage.style.setProperty('display', show ? 'block' : 'none');
+  }
+
+  showCourseContent(show) {
+    if (show) {
+      this.panelBottom.classList.remove('rm-hidden');
+    } else {
+      this.panelBottom.classList.add('rm-hidden');
+    }
   }
 
   setNodeDone(event) {
