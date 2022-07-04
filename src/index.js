@@ -35,7 +35,7 @@ export class RoadmapStartup {
             // readonly: true,
             // rightPanelZIndex: 10,
             markDoneFunc: (nodeData, status) => {
-              // console.log(nodeData, status)
+              console.log(nodeData, status)
             }
           }, this.config)
         );

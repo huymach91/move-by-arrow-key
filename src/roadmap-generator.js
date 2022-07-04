@@ -104,6 +104,7 @@ export class RoadmapGenerator {
       preorderTraversal(
         rootData,
         (currentRootData, currentChildData, currentChildIndex) => {
+          currentChildData.parentId = currentRootData.id;
           // console.log(currentChildData.name, currentChildData.level);
           // root start from 2nd
           const isFirstLevel =
