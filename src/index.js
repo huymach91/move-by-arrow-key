@@ -31,6 +31,7 @@ export class RoadmapStartup {
             videoText: 'video',
             articleText: 'read',
             showCourseType: false,
+            startY: 100,
             position: 'left',
             // readonly: true,
             // rightPanelZIndex: 10,

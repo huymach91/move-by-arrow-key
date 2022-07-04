@@ -28,9 +28,10 @@ export class RoadmapGenerator {
     this.intervalX = 50;
     this.readonly = config.readonly;
     this.rightPanelZIndex = config.rightPanelZIndex;
-    this.canvasX = config.canvasX ? config.canvasX : this.alignCanvas(config);
-    this.initialX = data.x ? data.x : this.canvasX;
-    this.initialY = data.y ? data.y : 200;
+    this.startX = config.startX ? config.startX : this.alignCanvas(config);
+    this.startY = config.startY ? config.startY : 200;
+    this.initialX = data.x ? data.x : this.startX;
+    this.initialY = data.y ? data.y : this.startY;
     this.maxHeightCanvas = this.initialY * data.length;
     this.spaceBetweenY = 50;
     this.rootList = [];
@@ -49,11 +50,11 @@ export class RoadmapGenerator {
     const roadmapText = config.roadmapText;
     this.roadmapTitle = new Text({
       text: roadmapText,
-      x: this.canvasX - roadmapText.length,
-      y: 150,
+      x: this.startX - roadmapText.length,
+      y: this.startY - 50,
     });
     this.roadmapTitle.createText(this.p5);
-    console.log(data);
+
     for (let i = 0; i < data.length; i++) {
       const rootData = data[i];
       rootData.x = this.initialX;
@@ -404,7 +405,7 @@ export class RoadmapGenerator {
     const nodeData = event.data;
     // mark itself
     this.toggleButtonElement.onclick = () => {
-      const newStatus = this.toggleButtonElement.classList.contains('completed')
+      const complted = this.toggleButtonElement.classList.contains('completed')
         ? false
         : true;
       nodeData.completed = newStatus;
@@ -415,9 +416,9 @@ export class RoadmapGenerator {
         
         const first = queue.pop();
 
-        first.data.completed = newStatus;
+        first.data.completed = complted;
 
-        this.setTickColor(first, newStatus);
+        this.setTickColor(first, complted);
 
         if (first.leafs && first.leafs) {
 
@@ -429,7 +430,7 @@ export class RoadmapGenerator {
 
       }
       // emit
-      this.markDoneFunc(nodeData, newStatus);
+      this.markDoneFunc(nodeData, complted);
       this.setStatus(nodeData);
     };
   }
