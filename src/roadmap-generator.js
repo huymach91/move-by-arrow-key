@@ -47,7 +47,7 @@ export class RoadmapGenerator {
     this.roadmapTitle = new Text({
       text: roadmapText,
       x: this.defaultX - roadmapText.length,
-      y: 100,
+      y: 150,
     });
     this.roadmapTitle.createText(this.p5);
 
