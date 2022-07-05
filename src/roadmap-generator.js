@@ -51,6 +51,7 @@ export class RoadmapGenerator {
     this.rootBackgroundColor = config.rootBackgroundColor;
     this.rootTextColor = config.rootTextColor;
     this.childBackgroundColor = config.childBackgroundColor;
+    this.childTextColor = config.childTextColor;
     // create title
     const roadmapText = config.roadmapText;
     this.roadmapTitle = new Text({
@@ -118,6 +119,7 @@ export class RoadmapGenerator {
           currentRootData.leafs = [];
           currentChildData.parentData = currentRootData;
           currentChildData.backgroundColor = this.childBackgroundColor;
+          currentChildData.textColor = this.childTextColor;
           // console.log(currentChildData.name, currentChildData.level);
           // root start from 2nd
           const isFirstLevel =
@@ -179,6 +181,7 @@ export class RoadmapGenerator {
           const leaf = new Node(currentChildData);
           leaf.createNode(this.p5);
           leaf.setBackgroundColor(currentChildData.backgroundColor);
+          leaf.setTextColor(currentChildData.textColor);
 
           leaf.defaultEvents((event) => {
             this.showRightPanel(true);
