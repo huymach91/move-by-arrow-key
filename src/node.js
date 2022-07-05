@@ -71,6 +71,10 @@ export class Node {
     this.element.style('background-color', backgroundColor);
   }
 
+  setTextColor(textColor) {
+    this.element.style('color', textColor);
+  }
+
   setSize(width, height) {
     this.element.style('width', width);
     this.element.style('height', height);

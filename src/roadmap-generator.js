@@ -48,8 +48,9 @@ export class RoadmapGenerator {
     this.inCompletedToggleButtonText = config.inCompletedToggleButtonText;
     this.markDoneFunc = config.markDoneFunc;
     this.updateSizeFunc = config.updateSizeFunc;
-    this.rootColor = config.rootColor;
-    this.childColor = config.childColor;
+    this.rootBackgroundColor = config.rootBackgroundColor;
+    this.rootTextColor = config.rootTextColor;
+    this.childBackgroundColor = config.childBackgroundColor;
     // create title
     const roadmapText = config.roadmapText;
     this.roadmapTitle = new Text({
@@ -64,7 +65,8 @@ export class RoadmapGenerator {
       rootData.x = this.initialX;
       rootData.y = this.initialY + i * this.initialY;
       rootData.level = 0;
-      rootData.backgroundColor = this.rootColor;
+      rootData.backgroundColor = this.rootBackgroundColor;
+      rootData.textColor = this.rootTextColor;
       // calc next y-axis
       if (i > 0) {
         const previousRoot = this.rootList[i - 1];
@@ -77,6 +79,7 @@ export class RoadmapGenerator {
       const root = new Node(rootData);
       root.createNode(this.p5);
       root.setBackgroundColor(rootData.backgroundColor);
+      root.setTextColor(rootData.textColor);
 
       root.defaultEvents((event) => {
         this.showRightPanel(true);
@@ -114,6 +117,7 @@ export class RoadmapGenerator {
         (currentRootData, currentChildData, currentChildIndex) => {
           currentRootData.leafs = [];
           currentChildData.parentData = currentRootData;
+          currentChildData.backgroundColor = this.childBackgroundColor;
           // console.log(currentChildData.name, currentChildData.level);
           // root start from 2nd
           const isFirstLevel =
@@ -174,7 +178,7 @@ export class RoadmapGenerator {
           // create leaf node
           const leaf = new Node(currentChildData);
           leaf.createNode(this.p5);
-          leaf.setBackgroundColor('#ffe599');
+          leaf.setBackgroundColor(currentChildData.backgroundColor);
 
           leaf.defaultEvents((event) => {
             this.showRightPanel(true);
