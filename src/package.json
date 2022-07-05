@@ -1,6 +1,6 @@
 {
   "name": "my-roadmap-generator",
-  "version": "1.2.2",
+  "version": "1.2.4",
   "description": "",
   "main": "roadmap-generator.js",
   "scripts": {

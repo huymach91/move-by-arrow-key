@@ -426,8 +426,8 @@ export class RoadmapGenerator {
     // mark itself
     this.toggleButtonElement.onclick = () => {
       const completed = this.toggleButtonElement.classList.contains('completed')
-        ? false
-        : true;
+        ? true
+        : false;
       // set tick to green if completed
       levelOrderTraversal({ id: 0, name: '', children: [nodeData] }, (childData) => {
         if (childData.name) {
@@ -465,7 +465,7 @@ export class RoadmapGenerator {
   setStatus(nodeData) {
     const icon = this.toggleButtonElement.querySelector('.toggle-btn-icon');
     const text = this.toggleButtonElement.querySelector('.toggle-btn-text');
-    if (nodeData['completed']) {
+    if (!nodeData['completed']) {
       this.toggleButtonElement.classList.add('completed');
       this.toggleButtonElement.classList.remove('pending');
       text.textContent = this.completedToggleButtonText;

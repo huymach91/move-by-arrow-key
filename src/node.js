@@ -37,6 +37,7 @@ export class Node {
     this.element.style('padding', '5px');
     this.element.style('border-which', '2px');
     this.element.style('border-style', 'solid');
+    this.element.style('cursor', 'pointer');
     // this.element.style('maxWidth', '1-0px');
     this.element.style('border-color', '#3f3f3f');
     this.element.style('border-radius', '5px');
@@ -46,6 +47,12 @@ export class Node {
     const self = this;
     this.element.mousePressed(() => {
       fn({ element: this.element, data: this.data, self: self });
+    });
+    this.element.mouseOver((e) => {
+      self.element.style('opacity', '0.8');
+    });
+    this.element.mouseOut((e) => {
+      self.element.style('opacity', '1');
     });
   }
 
