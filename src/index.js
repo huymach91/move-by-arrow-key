@@ -42,7 +42,7 @@ export class RoadmapStartup {
               console.log(nodeData, status)
             },
             updateSizeFunc: (s) => {
-              // p.resizeCanvas(size.width, s.maxHeightCanvas + 100);
+              p.resizeCanvas(size.width, s.maxHeightCanvas + 100);
             }
           }, this.config)
         );

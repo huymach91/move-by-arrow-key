@@ -237,5 +237,1081 @@
         }
       ]
     }
+  ],
+  "samples3": [
+    {
+      "id": 8,
+      "name": "Back End Developer",
+      "description": "",
+      "tags": "",
+      "completed": false,
+      "isDefault": true,
+      "children": [
+        {
+          "id": 52,
+          "name": "Internet",
+          "description": "General Knowledge",
+          "tags": "",
+          "completed": false,
+          "isSkillCategory": true,
+          "children": [
+            {
+              "id": 155,
+              "name": "HTTP",
+              "description": "General Knowledge",
+              "tags": "",
+              "required": false,
+              "completed": false,
+              "courses": [
+                {
+                  "id": 16,
+                  "name": "HTTP Fundamentals",
+                  "description": "General Knowledge",
+                  "courseLink": "https://app.pluralsight.com/library/courses/xhttp-fund/table-of-contents",
+                  "hasCertificate": false
+                }
+              ]
+            },
+            {
+              "id": 156,
+              "name": "Browers",
+              "description": "General Knowledge",
+              "tags": "",
+              "required": false,
+              "completed": false,
+              "courses": []
+            },
+            {
+              "id": 157,
+              "name": "DNS",
+              "description": "General Knowledge",
+              "tags": "",
+              "required": false,
+              "completed": false,
+              "courses": []
+            },
+            {
+              "id": 158,
+              "name": "Domain Name",
+              "description": "General Knowledge",
+              "tags": "",
+              "required": false,
+              "completed": false,
+              "courses": []
+            },
+            {
+              "id": 159,
+              "name": "Hosting",
+              "description": "General Knowledge",
+              "tags": "",
+              "required": false,
+              "completed": false,
+              "courses": []
+            },
+            {
+              "id": 237,
+              "name": "Network Concepts",
+              "description": "General Knowledge",
+              "tags": "",
+              "required": false,
+              "completed": false,
+              "courses": [
+                {
+                  "id": 17,
+                  "name": "Network Concepts and Protocols",
+                  "description": "General Knowledge",
+                  "courseLink": "https://app.pluralsight.com/library/courses/network-concepts-protocols-cert/table-of-contents",
+                  "hasCertificate": false
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": 56,
+          "name": "HTML",
+          "description": "Front End",
+          "tags": "",
+          "completed": false,
+          "isSkillCategory": true,
+          "children": [
+            {
+              "id": 172,
+              "name": "HTML Basic",
+              "description": "Front End",
+              "tags": "",
+              "required": false,
+              "completed": false,
+              "courses": [
+                {
+                  "id": 27,
+                  "name": "Building Websites with HTML, CSS and JavaScript",
+                  "description": "General Knowledge",
+                  "courseLink": "https://app.pluralsight.com/paths/skill/building-websites-with-html-css-and-javascript",
+                  "hasCertificate": false
+                }
+              ]
+            },
+            {
+              "id": 173,
+              "name": "Semantic HTML",
+              "description": "Front End",
+              "tags": "",
+              "required": false,
+              "completed": false,
+              "courses": []
+            },
+            {
+              "id": 174,
+              "name": "HTML - Forms and Validation",
+              "description": "Front End",
+              "tags": "",
+              "required": false,
+              "completed": false,
+              "courses": []
+            },
+            {
+              "id": 175,
+              "name": "HTML - Conventions and Best Pratices",
+              "description": "Front End",
+              "tags": "",
+              "required": false,
+              "completed": false,
+              "courses": []
+            },
+            {
+              "id": 176,
+              "name": "HTML -  Accessibility",
+              "description": "Front End",
+              "tags": "",
+              "required": false,
+              "completed": false,
+              "courses": []
+            }
+          ]
+        },
+        {
+          "id": 57,
+          "name": "CSS",
+          "description": "Front End",
+          "tags": "",
+          "completed": false,
+          "isSkillCategory": true,
+          "children": [
+            {
+              "id": 177,
+              "name": "CSS Basics",
+              "description": "Front End",
+              "tags": "",
+              "required": false,
+              "completed": false,
+              "courses": [
+                {
+                  "id": 27,
+                  "name": "Building Websites with HTML, CSS and JavaScript",
+                  "description": "General Knowledge",
+                  "courseLink": "https://app.pluralsight.com/paths/skill/building-websites-with-html-css-and-javascript",
+                  "hasCertificate": false
+                }
+              ]
+            },
+            {
+              "id": 178,
+              "name": "CSS - Marking Layouts",
+              "description": "Front End",
+              "tags": "",
+              "required": false,
+              "completed": false,
+              "courses": [
+                {
+                  "id": 38,
+                  "name": "Building Layouts with the CSS Grid",
+                  "description": "",
+                  "courseLink": "https://app.pluralsight.com/library/courses/building-layouts-css-grid/table-of-contents",
+                  "hasCertificate": false
+                },
+                {
+                  "id": 39,
+                  "name": "Creating Layouts with CSS Grid",
+                  "description": "Front End",
+                  "courseLink": "https://app.pluralsight.com/library/courses/css-grid-creating-layouts/table-of-contents",
+                  "hasCertificate": false
+                },
+                {
+                  "id": 40,
+                  "name": "Creating Page Layouts with CSS",
+                  "description": "",
+                  "courseLink": "https://app.pluralsight.com/library/courses/css-creating-page-layouts/table-of-contents",
+                  "hasCertificate": false
+                }
+              ]
+            },
+            {
+              "id": 179,
+              "name": "CSS - Responsive Design and Media Queries",
+              "description": "Front End",
+              "tags": "",
+              "required": false,
+              "completed": false,
+              "courses": []
+            },
+            {
+              "id": 189,
+              "name": "CSS - Module",
+              "description": "Front End ",
+              "tags": "",
+              "required": false,
+              "completed": false,
+              "courses": []
+            }
+          ]
+        },
+        {
+          "id": 96,
+          "name": "JavaScript",
+          "description": "",
+          "tags": "",
+          "completed": false,
+          "isSkillCategory": true,
+          "children": [
+            {
+              "id": 180,
+              "name": "JavaScript - Syntax and Basic Constructs",
+              "description": "Front End",
+              "tags": "",
+              "required": false,
+              "completed": false,
+              "courses": []
+            },
+            {
+              "id": 181,
+              "name": "JavaScript - DOM Manipulation",
+              "description": "Front End",
+              "tags": "",
+              "required": false,
+              "completed": false,
+              "courses": []
+            },
+            {
+              "id": 182,
+              "name": "JavaScript - ES6 + modular JavaScript",
+              "description": "Front End",
+              "tags": "",
+              "required": false,
+              "completed": false,
+              "courses": []
+            }
+          ]
+        },
+        {
+          "id": 66,
+          "name": "OS and General Knowledge",
+          "description": "Back End",
+          "tags": "",
+          "completed": false,
+          "isSkillCategory": true,
+          "children": [
+            {
+              "id": 201,
+              "name": "OS",
+              "description": "Back End",
+              "tags": "",
+              "required": false,
+              "completed": false,
+              "courses": []
+            },
+            {
+              "id": 202,
+              "name": "Process Management",
+              "description": "Back End",
+              "tags": "",
+              "required": false,
+              "completed": false,
+              "courses": []
+            },
+            {
+              "id": 203,
+              "name": "Threads and Concurrency",
+              "description": "Back End",
+              "tags": "",
+              "required": false,
+              "completed": false,
+              "courses": []
+            },
+            {
+              "id": 204,
+              "name": "Basic Terminal Commands ",
+              "description": "Back End",
+              "tags": "",
+              "required": false,
+              "completed": false,
+              "courses": []
+            },
+            {
+              "id": 206,
+              "name": "Interprocess Communication",
+              "description": "Back End",
+              "tags": "",
+              "required": false,
+              "completed": false,
+              "courses": []
+            },
+            {
+              "id": 207,
+              "name": "I/O Management",
+              "description": "Back End",
+              "tags": "",
+              "required": false,
+              "completed": false,
+              "courses": []
+            }
+          ]
+        },
+        {
+          "id": 67,
+          "name": "Programing Languages",
+          "description": "Back End, Front End",
+          "tags": "",
+          "completed": false,
+          "isSkillCategory": true,
+          "children": [
+            {
+              "id": 208,
+              "name": "C#",
+              "description": "Back End",
+              "tags": "",
+              "required": false,
+              "completed": false,
+              "courses": [
+                {
+                  "id": 13,
+                  "name": "C# Design Patterns",
+                  "description": "Back End",
+                  "courseLink": "https://app.pluralsight.com/paths/skill/design-patterns-in-c",
+                  "hasCertificate": false
+                },
+                {
+                  "id": 19,
+                  "name": "C# Unit Testing with xUnit",
+                  "description": "Back End",
+                  "courseLink": "https://app.pluralsight.com/paths/skill/c-unit-testing-with-xunit",
+                  "hasCertificate": false
+                },
+                {
+                  "id": 20,
+                  "name": ".NET Class Libraries with C#",
+                  "description": "Back End",
+                  "courseLink": "https://app.pluralsight.com/paths/skill/net-framework-class-libraries-with-c",
+                  "hasCertificate": false
+                },
+                {
+                  "id": 28,
+                  "name": "C# Development Best Practices",
+                  "description": "Back End",
+                  "courseLink": "https://app.pluralsight.com/paths/skill/c-development-best-practices",
+                  "hasCertificate": false
+                }
+              ]
+            },
+            {
+              "id": 209,
+              "name": "PHP",
+              "description": "Back End",
+              "tags": "",
+              "required": false,
+              "completed": false,
+              "courses": []
+            },
+            {
+              "id": 210,
+              "name": "JavaScipt",
+              "description": "Back End",
+              "tags": "",
+              "required": false,
+              "completed": false,
+              "courses": [
+                {
+                  "id": 27,
+                  "name": "Building Websites with HTML, CSS and JavaScript",
+                  "description": "General Knowledge",
+                  "courseLink": "https://app.pluralsight.com/paths/skill/building-websites-with-html-css-and-javascript",
+                  "hasCertificate": false
+                }
+              ]
+            },
+            {
+              "id": 211,
+              "name": "Python",
+              "description": "Back End",
+              "tags": "",
+              "required": false,
+              "completed": false,
+              "courses": []
+            }
+          ]
+        },
+        {
+          "id": 77,
+          "name": "Back End Framework",
+          "description": "Back End",
+          "tags": "",
+          "completed": false,
+          "isSkillCategory": true,
+          "children": [
+            {
+              "id": 235,
+              "name": ".NET",
+              "description": "Back End",
+              "tags": "",
+              "required": false,
+              "completed": false,
+              "courses": [
+                {
+                  "id": 20,
+                  "name": ".NET Class Libraries with C#",
+                  "description": "Back End",
+                  "courseLink": "https://app.pluralsight.com/paths/skill/net-framework-class-libraries-with-c",
+                  "hasCertificate": false
+                },
+                {
+                  "id": 21,
+                  "name": "Introduction to .NET",
+                  "description": "Back End",
+                  "courseLink": "https://docs.microsoft.com/en-us/learn/modules/dotnet-introduction/",
+                  "hasCertificate": false
+                },
+                {
+                  "id": 22,
+                  "name": "Create microservices with .NET and ASP.NET Core",
+                  "description": "Back End",
+                  "courseLink": "https://docs.microsoft.com/en-us/learn/paths/create-microservices-with-dotnet/",
+                  "hasCertificate": false
+                },
+                {
+                  "id": 24,
+                  "name": "Become a Full-stack .NET Developer",
+                  "description": "Back End, Front End",
+                  "courseLink": "https://app.pluralsight.com/library/courses/full-stack-dot-net-developer-fundamentals/table-of-contents",
+                  "hasCertificate": false
+                }
+              ]
+            },
+            {
+              "id": 236,
+              "name": "ASP.NET",
+              "description": "Back End",
+              "tags": "",
+              "required": false,
+              "completed": false,
+              "courses": [
+                {
+                  "id": 22,
+                  "name": "Create microservices with .NET and ASP.NET Core",
+                  "description": "Back End",
+                  "courseLink": "https://docs.microsoft.com/en-us/learn/paths/create-microservices-with-dotnet/",
+                  "hasCertificate": false
+                },
+                {
+                  "id": 24,
+                  "name": "Become a Full-stack .NET Developer",
+                  "description": "Back End, Front End",
+                  "courseLink": "https://app.pluralsight.com/library/courses/full-stack-dot-net-developer-fundamentals/table-of-contents",
+                  "hasCertificate": false
+                },
+                {
+                  "id": 30,
+                  "name": "ASP.NET Microservices",
+                  "description": "Back End",
+                  "courseLink": "https://app.pluralsight.com/paths/skill/net-microservices",
+                  "hasCertificate": false
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": 94,
+          "name": "Version Control System",
+          "description": "",
+          "tags": "",
+          "completed": false,
+          "isSkillCategory": true,
+          "children": [
+            {
+              "id": 150,
+              "name": "Git",
+              "description": "General Knowledge",
+              "tags": "",
+              "required": false,
+              "completed": false,
+              "courses": [
+                {
+                  "id": 14,
+                  "name": " Managing Source Code with Git",
+                  "description": "General Knowledge",
+                  "courseLink": "https://app.pluralsight.com/paths/skill/managing-source-code-with-git",
+                  "hasCertificate": false
+                }
+              ]
+            },
+            {
+              "id": 151,
+              "name": "GitHub",
+              "description": "General Knowledge",
+              "tags": "",
+              "required": false,
+              "completed": false,
+              "courses": [
+                {
+                  "id": 15,
+                  "name": "Collaborative Coding with GitHub",
+                  "description": "General Knowledge",
+                  "courseLink": "https://app.pluralsight.com/paths/skill/collaborative-coding-with-github",
+                  "hasCertificate": false
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": 68,
+          "name": "Relational Databases",
+          "description": "Back End, Data Enginner",
+          "tags": "",
+          "completed": false,
+          "isSkillCategory": true,
+          "children": [
+            {
+              "id": 212,
+              "name": "PostgreSQL",
+              "description": "Back End",
+              "tags": "",
+              "required": false,
+              "completed": false,
+              "courses": []
+            },
+            {
+              "id": 213,
+              "name": "MySQL",
+              "description": "Back End",
+              "tags": "",
+              "required": false,
+              "completed": false,
+              "courses": [
+                {
+                  "id": 41,
+                  "name": "MySQL",
+                  "description": "",
+                  "courseLink": "https://app.pluralsight.com/paths/skill/mysql",
+                  "hasCertificate": false
+                }
+              ]
+            },
+            {
+              "id": 215,
+              "name": "MS SQL",
+              "description": "Back End",
+              "tags": "",
+              "required": false,
+              "completed": false,
+              "courses": []
+            },
+            {
+              "id": 214,
+              "name": "Oracle",
+              "description": "Back End",
+              "tags": "",
+              "required": false,
+              "completed": false,
+              "courses": []
+            },
+            {
+              "id": 216,
+              "name": "NoSQL",
+              "description": "Back End",
+              "tags": "",
+              "required": false,
+              "completed": false,
+              "courses": []
+            }
+          ]
+        },
+        {
+          "id": 54,
+          "name": "APIs",
+          "description": "General Knowledge",
+          "tags": "",
+          "completed": false,
+          "isSkillCategory": true,
+          "children": [
+            {
+              "id": 164,
+              "name": "OAuth",
+              "description": "General Knowledge",
+              "tags": "",
+              "required": false,
+              "completed": false,
+              "courses": []
+            },
+            {
+              "id": 165,
+              "name": "Basic Athenication",
+              "description": "General Knowledge",
+              "tags": "",
+              "required": false,
+              "completed": false,
+              "courses": []
+            },
+            {
+              "id": 166,
+              "name": "Token Authenication",
+              "description": "General Knowledge",
+              "tags": "",
+              "required": false,
+              "completed": false,
+              "courses": []
+            },
+            {
+              "id": 167,
+              "name": "JWT",
+              "description": "General Knowledge",
+              "tags": "",
+              "required": false,
+              "completed": false,
+              "courses": []
+            },
+            {
+              "id": 168,
+              "name": "Authenication",
+              "description": "General Knowledge",
+              "tags": "",
+              "required": false,
+              "completed": false,
+              "courses": []
+            },
+            {
+              "id": 169,
+              "name": "JSON APIs",
+              "description": "General Knowledge",
+              "tags": "",
+              "required": false,
+              "completed": false,
+              "courses": []
+            }
+          ]
+        },
+        {
+          "id": 69,
+          "name": "Caching",
+          "description": "Backend",
+          "tags": "",
+          "completed": false,
+          "isSkillCategory": true,
+          "children": [
+            {
+              "id": 217,
+              "name": "CDN",
+              "description": "Back End",
+              "tags": "",
+              "required": false,
+              "completed": false,
+              "courses": []
+            },
+            {
+              "id": 218,
+              "name": "Server Side - Redis",
+              "description": "BackEnd",
+              "tags": "",
+              "required": false,
+              "completed": false,
+              "courses": []
+            },
+            {
+              "id": 219,
+              "name": "Server Side - Memcached",
+              "description": "Back End",
+              "tags": "",
+              "required": false,
+              "completed": false,
+              "courses": []
+            },
+            {
+              "id": 220,
+              "name": "Client Side",
+              "description": "Back End",
+              "tags": "",
+              "required": false,
+              "completed": false,
+              "courses": []
+            }
+          ]
+        },
+        {
+          "id": 53,
+          "name": "Web Security Knowledge",
+          "description": "General Knowledge",
+          "tags": "",
+          "completed": false,
+          "isSkillCategory": true,
+          "children": [
+            {
+              "id": 160,
+              "name": "HTTPS",
+              "description": "General Knowledge",
+              "tags": "",
+              "required": false,
+              "completed": false,
+              "courses": [
+                {
+                  "id": 18,
+                  "name": "Must Know About HTTPS",
+                  "description": "General Knowledge",
+                  "courseLink": "https://app.pluralsight.com/library/courses/https-every-developer-must-know/table-of-contents",
+                  "hasCertificate": false
+                }
+              ]
+            },
+            {
+              "id": 161,
+              "name": "CORS",
+              "description": "General Knowledge",
+              "tags": "",
+              "required": false,
+              "completed": false,
+              "courses": []
+            },
+            {
+              "id": 162,
+              "name": "Content Security Policy",
+              "description": "General Knowledge",
+              "tags": "",
+              "required": false,
+              "completed": false,
+              "courses": []
+            },
+            {
+              "id": 163,
+              "name": "OWASP Security Risks",
+              "description": "General Knowledge",
+              "tags": "",
+              "required": false,
+              "completed": false,
+              "courses": []
+            }
+          ]
+        },
+        {
+          "id": 62,
+          "name": "Testing",
+          "description": "Front End, Back End, Data Enginner",
+          "tags": "",
+          "completed": false,
+          "isSkillCategory": true,
+          "children": [
+            {
+              "id": 193,
+              "name": "Unit Testing",
+              "description": "Front End, Back End",
+              "tags": "",
+              "required": false,
+              "completed": false,
+              "courses": [
+                {
+                  "id": 19,
+                  "name": "C# Unit Testing with xUnit",
+                  "description": "Back End",
+                  "courseLink": "https://app.pluralsight.com/paths/skill/c-unit-testing-with-xunit",
+                  "hasCertificate": false
+                }
+              ]
+            },
+            {
+              "id": 194,
+              "name": "Testing - Integration",
+              "description": "Front End, Back End",
+              "tags": "",
+              "required": false,
+              "completed": false,
+              "courses": []
+            },
+            {
+              "id": 195,
+              "name": "Functional Testing",
+              "description": "Front End, Back End",
+              "tags": "",
+              "required": false,
+              "completed": false,
+              "courses": []
+            }
+          ]
+        },
+        {
+          "id": 70,
+          "name": "CI/CD",
+          "description": "Back End, Data Engineer",
+          "tags": "",
+          "completed": false,
+          "isSkillCategory": true,
+          "children": [
+            {
+              "id": 221,
+              "name": "CI/CD",
+              "description": "Back End",
+              "tags": "",
+              "required": false,
+              "completed": false,
+              "courses": []
+            },
+            {
+              "id": 312,
+              "name": "Jenkins",
+              "description": "Data Engineer",
+              "tags": "",
+              "required": false,
+              "completed": false,
+              "courses": []
+            }
+          ]
+        },
+        {
+          "id": 71,
+          "name": "Design and Development Principles",
+          "description": "Back End",
+          "tags": "",
+          "completed": false,
+          "isSkillCategory": true,
+          "children": [
+            {
+              "id": 222,
+              "name": "SOLID",
+              "description": "Back End",
+              "tags": "",
+              "required": false,
+              "completed": false,
+              "courses": []
+            },
+            {
+              "id": 223,
+              "name": "KISS",
+              "description": "Back End",
+              "tags": "",
+              "required": false,
+              "completed": false,
+              "courses": []
+            }
+          ]
+        },
+        {
+          "id": 72,
+          "name": "Architectural Patterns",
+          "description": "Back End",
+          "tags": "",
+          "completed": false,
+          "isSkillCategory": true,
+          "children": [
+            {
+              "id": 224,
+              "name": "Monolithic Apps",
+              "description": "Back End",
+              "tags": "",
+              "required": false,
+              "completed": false,
+              "courses": []
+            },
+            {
+              "id": 225,
+              "name": "Microservices",
+              "description": "Back End",
+              "tags": "",
+              "required": false,
+              "completed": false,
+              "courses": [
+                {
+                  "id": 22,
+                  "name": "Create microservices with .NET and ASP.NET Core",
+                  "description": "Back End",
+                  "courseLink": "https://docs.microsoft.com/en-us/learn/paths/create-microservices-with-dotnet/",
+                  "hasCertificate": false
+                },
+                {
+                  "id": 30,
+                  "name": "ASP.NET Microservices",
+                  "description": "Back End",
+                  "courseLink": "https://app.pluralsight.com/paths/skill/net-microservices",
+                  "hasCertificate": false
+                }
+              ]
+            },
+            {
+              "id": 226,
+              "name": "SOA",
+              "description": "Back End",
+              "tags": "",
+              "required": false,
+              "completed": false,
+              "courses": []
+            },
+            {
+              "id": 227,
+              "name": "CQRS and Event Sourcing",
+              "description": "Back End",
+              "tags": "",
+              "required": false,
+              "completed": false,
+              "courses": []
+            },
+            {
+              "id": 228,
+              "name": "Serverless",
+              "description": "Back End",
+              "tags": "",
+              "required": false,
+              "completed": false,
+              "courses": []
+            }
+          ]
+        },
+        {
+          "id": 73,
+          "name": "Search Engines",
+          "description": "Back End",
+          "tags": "",
+          "completed": false,
+          "isSkillCategory": true,
+          "children": [
+            {
+              "id": 229,
+              "name": "Elastic Search",
+              "description": "Back End, Data Engineer",
+              "tags": "",
+              "required": false,
+              "completed": false,
+              "courses": [
+                {
+                  "id": 35,
+                  "name": "AWS Certified Database – Specialty (DBS-C01)",
+                  "description": "Data Engineer",
+                  "courseLink": "https://app.pluralsight.com/paths/certificate/aws-certified-database-specialty-dbs-c01",
+                  "hasCertificate": false
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": 74,
+          "name": "Message Brokers",
+          "description": "Back End",
+          "tags": "",
+          "completed": false,
+          "isSkillCategory": true,
+          "children": [
+            {
+              "id": 230,
+              "name": "Kafka",
+              "description": "Back End",
+              "tags": "",
+              "required": false,
+              "completed": false,
+              "courses": []
+            },
+            {
+              "id": 231,
+              "name": "RabbiMQ",
+              "description": "Back End",
+              "tags": "",
+              "required": false,
+              "completed": false,
+              "courses": []
+            }
+          ]
+        },
+        {
+          "id": 75,
+          "name": "Containeriation vs Virtualization",
+          "description": "Back End",
+          "tags": "",
+          "completed": false,
+          "isSkillCategory": true,
+          "children": [
+            {
+              "id": 232,
+              "name": "Docker",
+              "description": "Back End",
+              "tags": "",
+              "required": false,
+              "completed": false,
+              "courses": []
+            }
+          ]
+        },
+        {
+          "id": 65,
+          "name": "GraphQL",
+          "description": "Front End, Back End",
+          "tags": "",
+          "completed": false,
+          "isSkillCategory": true,
+          "children": [
+            {
+              "id": 200,
+              "name": "Apollo",
+              "description": "Front End, Back End",
+              "tags": "",
+              "required": false,
+              "completed": false,
+              "courses": []
+            }
+          ]
+        },
+        {
+          "id": 76,
+          "name": "Web Services",
+          "description": "Back End",
+          "tags": "",
+          "completed": false,
+          "isSkillCategory": true,
+          "children": [
+            {
+              "id": 233,
+              "name": "Nginx",
+              "description": "Back End",
+              "tags": "",
+              "required": false,
+              "completed": false,
+              "courses": []
+            },
+            {
+              "id": 234,
+              "name": "Apache",
+              "description": "Back End",
+              "tags": "",
+              "required": false,
+              "completed": false,
+              "courses": []
+            }
+          ]
+        },
+        {
+          "id": 99,
+          "name": "Keep Learning",
+          "description": "",
+          "tags": "",
+          "completed": false,
+          "isSkillCategory": true,
+          "children": [
+            {
+              "id": 348,
+              "name": "Keep Learning",
+              "description": "",
+              "tags": "",
+              "required": false,
+              "completed": false,
+              "courses": []
+            }
+          ]
+        }
+      ]
+    }
   ]
 }

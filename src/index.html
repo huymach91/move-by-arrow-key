@@ -7,10 +7,10 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
     <style>
         #container {
-            position: relative;
-            width: 2000px;
-            height: 1200px;
+            height: 4000px;
+            min-width: 1200px;
             overflow: hidden;
+            position: relative;
         }
     </style>
 </head>
@@ -22,11 +22,30 @@
                 const bounding = container.getBoundingClientRect();
                 const width = bounding.width;
                 const height = bounding.height;
-                const rm = new RoadmapGenerator.RoadmapStartup(resp.samples2, {
-                    title: "Front-end",
+                const data = resp.samples3[0];
+                
+                const rm = new RoadmapGenerator.RoadmapStartup(data.children, {
+                    title: data.name,
                     width: width,
                     height: height,
-                    container: container
+                    container: container,
+                    canvasWidth: innerWidth,
+                    panelBottomTitle: 'Khóa học',
+                    completedToggleButtonText: 'Hoàn thành',
+                    inCompletedToggleButtonText: 'Chưa hoàn thành',
+                    videoText: 'video',
+                    articleText: 'read',
+                    position: 'left',
+                    rightPanelZIndex: 1001,
+                    readonly: false,
+                    showCourseType: false,
+                    markDoneFunc: (nodeData, completed) => {
+                        
+                    },
+                    updateSizeFunc: (newSize) => {
+                        const newContainerHeight = newSize.maxHeightCanvas + 50;
+                        container.style.setProperty('height', newContainerHeight + 'px');
+                    }
                 });
                 rm.startup();
             });

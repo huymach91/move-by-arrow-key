@@ -5,6 +5,8 @@
   "main": "roadmap-generator.js",
   "scripts": {
   },
-  "author": "huy.mach.webdev@gmail.com",
+  "author": {
+    "name": "Huy Mach <huy.mach.webdev@gmail.com>"
+  },
   "license": ""
 }
